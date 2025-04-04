@@ -23,7 +23,7 @@ data class ShoppingList(
 
     @PrimaryKey(autoGenerate = true)
     val idShoppingList: Int,
-    val tanggalTransient: String,
+    val tanggalTransaksi: String,
     val namaToko: String,
     val itemList: List<ItemShop>,
     val totalBelanja: String,
