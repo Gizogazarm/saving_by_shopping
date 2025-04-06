@@ -3,12 +3,25 @@ package com.example.savingbyshopping.data.response
 
 import android.os.Parcelable
 import androidx.room.Entity
+import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 import com.example.savingbyshopping.utils.JenisProduk
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
+@Entity(
+    foreignKeys = [
+        ForeignKey(
+            entity = ShoppingList::class,
+            parentColumns = ["idShoppingList"],
+            childColumns = ["idShoppingList"]
+        )
+    ]
+)
 data class ItemShop(
+    @PrimaryKey(autoGenerate = true)
+    val idItem: Int,
+    val idShoppingList: Int,
     val namaItem: String,
     val jenisProduk: JenisProduk,
     val hargaAsli: Long,
@@ -25,7 +38,6 @@ data class ShoppingList(
     val idShoppingList: Int,
     val tanggalTransaksi: String,
     val namaToko: String,
-    val itemList: List<ItemShop>,
     val totalBelanja: String,
     val totalDiskon: String,
 
