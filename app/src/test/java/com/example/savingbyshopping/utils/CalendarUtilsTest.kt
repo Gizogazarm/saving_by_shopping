@@ -9,7 +9,7 @@ class CalendarUtilsTest {
 
     @Test
     fun `test mendapatkan calendar to String`(){
-        val expected = "05/04/2025"
+        val expected = "07/04/2025" // buat tanggal hari ini
         val calendar = CalendarUtils.getCalendarDate()
         val actual = CalendarUtils.calendarToString(calendar)
         assertEquals(expected, actual)

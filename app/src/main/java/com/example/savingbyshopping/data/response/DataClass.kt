@@ -5,7 +5,6 @@ import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
-import com.example.savingbyshopping.utils.JenisProduk
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
@@ -23,7 +22,7 @@ data class ItemShop(
     val idItem: Int,
     val idShoppingList: Int,
     val namaItem: String,
-    val jenisProduk: JenisProduk,
+    val jenisProduk: String,
     val hargaAsli: Long,
     val hargaDiskon: Long,
     val quantity: Int,

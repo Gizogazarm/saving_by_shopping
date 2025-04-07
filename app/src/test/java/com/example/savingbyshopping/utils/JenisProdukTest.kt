@@ -31,4 +31,12 @@ class JenisProdukTest {
         val actual: JenisProduk = JenisProduk.fromValue("Makanan")
         assertEquals(expected, actual)
     }
+
+    @Test
+    fun `tes enum to String`() { //mengubah enum menjadi string
+        val expected = "Bahan Sembako"
+        val actual = JenisProduk.BAHAN_SEMBAKO.value
+        assertEquals(expected, actual)
+
+    }
 }
