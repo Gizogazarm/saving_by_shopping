@@ -2,9 +2,11 @@ package com.example.savingbyshopping.data.response
 
 
 import android.os.Parcelable
+import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
+import androidx.room.Relation
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
@@ -13,9 +15,10 @@ import kotlinx.parcelize.Parcelize
         ForeignKey(
             entity = ShoppingList::class,
             parentColumns = ["idShoppingList"],
-            childColumns = ["idShoppingList"]
+            childColumns = ["idShoppingList"],
+            onDelete = ForeignKey.CASCADE
         )
-    ]
+    ], tableName = "itemshop"
 )
 data class ItemShop(
     @PrimaryKey(autoGenerate = true)
@@ -41,3 +44,11 @@ data class ShoppingList(
     val totalDiskon: String,
 
     )
+
+data class ShoppingListWithItemShop(
+    @Embedded val shoppingList: ShoppingList,
+    @Relation(
+        parentColumn = "idShoppingList",
+        entityColumn = "idShoppingList"
+    ) val itemShop: List<ItemShop>
+)
