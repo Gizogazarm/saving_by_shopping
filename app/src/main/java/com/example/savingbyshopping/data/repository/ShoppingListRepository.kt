@@ -9,18 +9,6 @@ import com.example.savingbyshopping.data.response.ShoppingList
 
 class ShoppingListRepository(private val shoppingListDao: ShoppingListDao,private val itemShopDao: ItemShopDao) {
 
-    companion object {
-
-        @Volatile
-        private var instance: ShoppingListRepository? = null
-
-        fun getInstance(context: Context): ShoppingListRepository = instance ?: synchronized(this) {
-            instance ?: ShoppingListRepository(
-                ShoppingDatabase.getInstance(context).shoppingListDao(),
-                ShoppingDatabase.getInstance(context).itemShopDao()
-            ).also { instance = it }
-        }
-    }
 
     fun ambilSemuaShoppingList() = shoppingListDao.ambilSemuaShoppingList()
     fun ambilShoppingListDenganId(id: Int) = shoppingListDao.ambilShoppingListDenganId(id)

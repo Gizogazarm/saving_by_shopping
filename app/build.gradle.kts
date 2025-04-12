@@ -47,6 +47,7 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     testImplementation(libs.mockito.core)
     testImplementation(kotlin("test"))
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.7")
 
     // room 
     ksp("androidx.room:room-compiler:2.5.0")
