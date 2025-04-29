@@ -24,7 +24,7 @@ data class ItemShop(
     @PrimaryKey(autoGenerate = true)
     val idItem: Int,
     val idShoppingList: Int,
-    val namaItem: String,
+    var namaItem: String,
     val jenisProduk: String,
     val hargaAsli: Long,
     val hargaDiskon: Long,
@@ -39,7 +39,7 @@ data class ShoppingList(
     @PrimaryKey(autoGenerate = true)
     val idShoppingList: Int,
     val tanggalTransaksi: String,
-    val namaToko: String,
+    var namaToko: String,
     val totalBelanja: String? = null,
     val totalDiskon: String? = null,
 

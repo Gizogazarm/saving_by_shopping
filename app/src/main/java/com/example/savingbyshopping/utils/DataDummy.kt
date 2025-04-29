@@ -43,18 +43,18 @@ object DataDummy {
         val data = ShoppingList(
             idShoppingList = 1,
             tanggalTransaksi = "13/04/2025",
-            namaToko = "Toko 1",
+            namaToko = "Toko Sembako",
         )
         return data
     }
 
-    fun generateDummyShoppingListWithItemShop(): ShoppingListWithItemShop {
+    fun generateDummyShoppingListWithItemShop(list: List<ItemShop>): ShoppingListWithItemShop {
         val data = ShoppingListWithItemShop(
             shoppingList = ShoppingList(
                 idShoppingList = 1,
                 tanggalTransaksi = "13/04/2025",
                 namaToko = "Toko 1",
-            ), itemShop = generateDummyItemShop()
+            ), itemShop = list
         )
         return data
     }
