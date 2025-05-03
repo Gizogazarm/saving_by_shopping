@@ -40,8 +40,8 @@ data class ShoppingList(
     val idShoppingList: Int,
     val tanggalTransaksi: String,
     var namaToko: String,
-    val totalBelanja: String? = null,
-    val totalDiskon: String? = null,
+    var totalBelanja: String? = null,
+    var totalDiskon: String? = null,
 
     )
 

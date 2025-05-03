@@ -9,10 +9,10 @@ object DataDummy {
 
     fun generateDummyItemShop(): List<ItemShop> {
         val itemShopList = ArrayList<ItemShop>()
-        for (i in 1..10) {
+        for (i in 1..50) {
             val itemShop = ItemShop(
                 idItem = i,
-                idShoppingList = 1,
+                idShoppingList = i,
                 namaItem = "Sikat Gigi",
                 jenisProduk = JenisProduk.ALAT_KEBERSIHAN.value,
                 hargaAsli = 10000,
@@ -28,7 +28,7 @@ object DataDummy {
 
     fun generateDummyAllShoppingList(): List<ShoppingList> {
         val shoppingListList = ArrayList<ShoppingList>()
-        for (i in 1..2) {
+        for (i in 1..50) {
             val shoppingList = ShoppingList(
                 idShoppingList = i,
                 tanggalTransaksi = "13/04/2025",
@@ -39,22 +39,29 @@ object DataDummy {
         return shoppingListList
     }
 
-    fun generateDummyShoppingList(): ShoppingList {
-        val data = ShoppingList(
-            idShoppingList = 1,
-            tanggalTransaksi = "13/04/2025",
-            namaToko = "Toko Sembako",
+    fun generateDummyShoppingListFilter(): List<ShoppingList> {
+        val data = listOf(
+            ShoppingList(
+                idShoppingList = 37,
+                tanggalTransaksi = "13/04/2025",
+                namaToko = "Toko 37",
+            ),
+            ShoppingList(
+                idShoppingList = 49,
+                tanggalTransaksi = "15/07/2025",
+                namaToko = "Toko 49",
+            )
         )
         return data
     }
 
-    fun generateDummyShoppingListWithItemShop(list: List<ItemShop>): ShoppingListWithItemShop {
+    fun generateDummyShoppingListWithItemShop(list: List<ItemShop>, i : Int): ShoppingListWithItemShop {
         val data = ShoppingListWithItemShop(
             shoppingList = ShoppingList(
-                idShoppingList = 1,
+                idShoppingList = i,
                 tanggalTransaksi = "13/04/2025",
-                namaToko = "Toko 1",
-            ), itemShop = list
+                namaToko = "Toko $i",
+            ), itemShop = list.filter { it.idShoppingList == i }
         )
         return data
     }

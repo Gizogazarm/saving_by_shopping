@@ -3,6 +3,7 @@ package com.example.savingbyshopping.data.repository
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.example.savingbyshopping.fakedao.FakeItemShopDao
 import com.example.savingbyshopping.fakedao.FakeShoppingListDao
+import com.example.savingbyshopping.ui.addItemShop.AddItemShopViewModel
 import com.example.savingbyshopping.utils.DataDummy
 import com.example.savingbyshopping.utils.MainDispatcherRule
 import com.example.savingbyshopping.utils.getOrAwaitValue
@@ -30,13 +31,15 @@ class ShoppingListRepositoryTest {
     private val dummyShoppingList = DataDummy.generateDummyAllShoppingList()
     private val dummyItemShop = DataDummy.generateDummyItemShop()
     private val dummyShoppingListWithItemShop =
-        DataDummy.generateDummyShoppingListWithItemShop(dummyItemShop)
+        DataDummy.generateDummyShoppingListWithItemShop(dummyItemShop,25)
+    private lateinit var viewModel : AddItemShopViewModel
 
     @Before
     fun setup() {
         shoppingListDao = FakeShoppingListDao()
         itemShopDao = FakeItemShopDao()
         shoppingListRepository = ShoppingListRepository(shoppingListDao, itemShopDao)
+        viewModel = AddItemShopViewModel(shoppingListRepository)
     }
 
     @Test
@@ -110,11 +113,19 @@ class ShoppingListRepositoryTest {
     @Test
     fun `tes (one of many ) ambil semua shopping list dengan id shopping list`() {
         shoppingListDao.copyDataUntukShoppingListWithItemShop(dummyShoppingList, dummyItemShop)
-        val actual = shoppingListDao.ambilShoppingListDenganItemShopById(1).getOrAwaitValue()
+        val actual = shoppingListDao.ambilShoppingListDenganItemShopById(25).getOrAwaitValue()
         assertEquals(dummyShoppingListWithItemShop, actual)
         // Berhasil mendapatkan data yang sama shoplistwithItembedasarkanID
         // jika tidak ada data maka akan null (perlu di buat penanganannya)
         // jika ada data yang terkait dengan nomer id maka akan tampil data itemshop
+    }
+
+    @Test
+    fun`tes input item shop`() = runTest { // tes viemodel untuk additemshopviewmodel
+        val expected = dummyItemShop[0]
+        viewModel.inputItemShop(expected)
+        val actual = viewModel.ambilSemuaItemShop().getOrAwaitValue()
+        assert(actual.contains(expected))
     }
 
 
