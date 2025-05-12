@@ -72,5 +72,30 @@ class CurrencyKtTest {
         assertEquals(expected, actual)
     }
 
+    @Test
+    fun `Validasi Discount`() {
+        val isChecked = true
+        val hargaAsli: Long = 1000000
+        val expected: Long = 0
+        val actual = isNoDiscount(isChecked, hargaAsli)
+        assertEquals(expected, actual)
+    }
+
+    @Test
+    fun`Convert Percentage ke Decimal`(){
+        val input = 60
+        val expected = 0.6
+        val actual = input.toDecimalPercetage()
+        assertEquals(expected, actual)
+    }
+
+    @Test
+    fun `Set Price Discount`(){
+        val discount =  60.toDecimalPercetage()
+        val expected = 40000L
+        val actual = setPriceDiscount(discount, input1)
+        assertEquals(expected, actual)
+    }
+
 }
 

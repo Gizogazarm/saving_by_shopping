@@ -27,10 +27,11 @@ data class ItemShop(
     var namaItem: String,
     val jenisProduk: String,
     val hargaAsli: Long,
-    val hargaDiskon: Long,
+    var hargaDiskon: Long,
     val quantity: Int,
     val totalHarga: Long,
-    val saveDiskon: Long
+    val saveDiskon: Long,
+    var isDiskon: Boolean = false
 ) : Parcelable
 
 @Entity(tableName = "shopping_list")
