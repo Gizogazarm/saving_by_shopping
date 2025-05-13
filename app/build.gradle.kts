@@ -54,6 +54,9 @@ dependencies {
     testImplementation(libs.mockito.core.v531) // mock final class
     testImplementation(libs.androidx.core.testing)
     testImplementation(libs.kotlinx.coroutines.test) // atau versi terbaru
+    implementation (libs.androidx.constraintlayout.v214)
+    implementation ("com.google.android.material:material:1.12.0")
+
 
 
     // room 
