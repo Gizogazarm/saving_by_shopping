@@ -10,4 +10,15 @@
         android:name="com.example.savingbyshopping.ui.homeActivity.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/savingFragment"
+        android:name="com.example.savingbyshopping.ui.saving.SavingFragment"
+        android:label="fragment_saving"
+        tools:layout="@layout/fragment_saving" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.savingbyshopping.ui.profile.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+
 </navigation>

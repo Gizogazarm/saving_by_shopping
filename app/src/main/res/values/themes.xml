@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.SavingByShopping" parent="Theme.Material3.Light.NoActionBar">
+    <style name="Theme.SavingByShopping" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Warna utama -->
         <item name="colorPrimary">@color/backround_latar</item>
         <item name="colorOnPrimary">@color/hijau_gelap</item>
