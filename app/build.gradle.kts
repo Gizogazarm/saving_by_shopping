@@ -59,6 +59,8 @@ dependencies {
     testImplementation(libs.kotlinx.coroutines.test) // atau versi terbaru
     implementation (libs.androidx.constraintlayout.v214)
     implementation ("com.google.android.material:material:1.12.0")
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.navigation.ui.ktx)
 
 
 

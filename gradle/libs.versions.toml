@@ -14,6 +14,8 @@ lifecycleViewmodelKtx = "2.8.7"
 material = "1.12.0"
 mockitoCore = "4.0.0"
 mockitoCoreVersion = "5.3.1"
+navigationFragmentKtx = "2.9.0"
+navigationUiKtx = "2.9.0"
 roomCompiler = "2.7.0"
 activity = "1.10.1"
 constraintlayout = "2.2.1"
@@ -23,6 +25,7 @@ androidx-constraintlayout-v214 = { module = "androidx.constraintlayout:constrain
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-core-testing = { module = "androidx.arch.core:core-testing", version.ref = "coreTesting" }
 androidx-lifecycle-viewmodel-ktx = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycleViewmodelKtx" }
+androidx-navigation-fragment-ktx = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "navigationFragmentKtx" }
 androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "roomCompiler" }
 androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "roomCompiler" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -36,6 +39,7 @@ mockito-core = { module = "org.mockito:mockito-core", version.ref = "mockitoCore
 mockito-core-v531 = { module = "org.mockito:mockito-core", version.ref = "mockitoCoreVersion" }
 androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+navigation-ui-ktx = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "navigationUiKtx" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
