@@ -7,4 +7,17 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="hijau_gelap">#00560E</color>
+    <color name="hijau_transparant">#E3FFDA</color>
+    <color name="button_checkout">#323333</color>
+    <color name="edit_text_open">#E7F2EF</color>
+    <color name="edit_text_lock">#BBD8CF</color>
+    <color name="button_normal">#ADEBD6</color>
+    <color name="indikator_saving">#5553CF</color>
+    <color name="indikator_shopping">#0E0637</color>
+    <color name="backround_latar">#FBFEFD</color>
+    <color name="tab_active">#93D393</color>
+    <color name="tab_inactive">#717F6D</color>
+
+
 </resources>
