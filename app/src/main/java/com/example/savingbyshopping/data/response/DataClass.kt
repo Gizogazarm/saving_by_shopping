@@ -34,6 +34,7 @@ data class ItemShop(
     var isDiskon: Boolean = false
 ) : Parcelable
 
+@Parcelize
 @Entity(tableName = "shopping_list")
 data class ShoppingList(
 
@@ -44,12 +45,13 @@ data class ShoppingList(
     var totalBelanja: String? = null,
     var totalDiskon: String? = null,
 
-    )
+    ) : Parcelable
 
+@Parcelize
 data class ShoppingListWithItemShop(
     @Embedded val shoppingList: ShoppingList,
     @Relation(
         parentColumn = "idShoppingList",
         entityColumn = "idShoppingList"
     ) val itemShop: List<ItemShop>
-)
+) : Parcelable
