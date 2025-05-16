@@ -1,9 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/backround_latar"
     tools:context=".ui.homeActivity.HomeFragment">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/tittle_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.025" />
+
+    <TextView
+        android:id="@+id/text_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="13dp"
+        android:fontFamily="@font/dm_sans_bold"
+        android:text="@string/app_name"
+        android:textColor="@color/hijau_gelap"
+        android:textSize="17sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tittle_guideline" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/container_fiturML"
+        android:layout_width="101dp"
+        android:layout_height="172dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="17dp"
+        app:cardBackgroundColor="@color/not_yet"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_title">
+
+        <LinearLayout
+            android:id="@+id/container_cardML"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/fitur_machine_learning"
+                android:textAlignment="center" />
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="236dp"
+        android:layout_height="175dp"
+        android:layout_marginTop="17dp"
+        app:cardBackgroundColor="@color/hijau_transparant"
+        app:cardElevation="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/container_fiturML"
+        app:layout_constraintTop_toBottomOf="@id/text_title"
+        android:id="@+id/container_fiturBudget">
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+    <!--<LinearLayout
+        android:id="@+id/container_cardFitur"
+        android:layout_width="match_parent"
+        android:layout_height="207dp"
+        android:layout_marginTop="17dp"
+        android:orientation="horizontal"
+        android:paddingStart="21dp"
+        android:paddingTop="16dp"
+        android:paddingEnd="21dp"
+        android:paddingBottom="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_title">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_machineLearning"
+            android:layout_width="101dp"
+            android:layout_height="match_parent"
+            app:cardBackgroundColor="@color/not_yet"
+            app:rippleColor="@color/hijau_transparant"
+            tools:ignore="TextSizeCheck">
+
+            <LinearLayout
+                android:id="@+id/container_cardML"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/fitur_machine_learning"
+                    android:textAlignment="center" />
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_fiturBudget"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="18dp"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            app:cardBackgroundColor="@color/hijau_transparant"
+            app:cardElevation="3dp">
+
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+    </LinearLayout>-->
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -18,6 +18,7 @@
     <color name="backround_latar">#FBFEFD</color>
     <color name="tab_active">#93D393</color>
     <color name="tab_inactive">#717F6D</color>
+    <color name="not_yet">#D9D9D9</color>
 
 
 </resources>
