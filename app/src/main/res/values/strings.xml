@@ -17,4 +17,5 @@
     <string name="note_btnTrackingSaving">From Discounts</string>
     <string name="add_shopping">Add Shopping</string>
     <string name="note_btnAddShopping">Track Discounts</string>
+    <string name="title_shoppingReceipt">Shopping Receipt</string>
   </resources>
