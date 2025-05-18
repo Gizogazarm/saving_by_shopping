@@ -9,7 +9,11 @@
         android:id="@+id/homeFragment"
         android:name="com.example.savingbyshopping.ui.homeActivity.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_addShoppingFragment"
+            app:destination="@id/addShoppingFragment" />
+    </fragment>
     <fragment
         android:id="@+id/savingFragment"
         android:name="com.example.savingbyshopping.ui.saving.SavingFragment"
@@ -20,5 +24,10 @@
         android:name="com.example.savingbyshopping.ui.profile.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/addShoppingFragment"
+        android:name="com.example.savingbyshopping.ui.addShoppingList.AddShoppingFragment"
+        android:label="fragment_add_shopping"
+        tools:layout="@layout/fragment_add_shopping" />
 
 </navigation>
