@@ -5,4 +5,11 @@
     <string name="tab_profile">Profile</string>
     <string name="under_maintenance">Under Maintenance</string>
     <string name="fitur_machine_learning"> Fitur Machine Learning</string>"
+    <string name="title_budget">Your Budget</string>
+    <string name="month">Month</string>
+    <string name="amount_budget">Rp XXX.XXX</string>
+    <string name="fitur_HealthBudget"> Fitur Health Budget</string>"
+    <string name="total_saving">Total Saving</string>
+    <string name="overall">Overall</string>
+    <string name="btn_withdraw">Withdraw</string>
 </resources>

@@ -23,7 +23,7 @@
         android:fontFamily="@font/dm_sans_bold"
         android:text="@string/app_name"
         android:textColor="@color/hijau_gelap"
-        android:textSize="17sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/tittle_guideline" />
 
@@ -31,11 +31,12 @@
         android:id="@+id/container_fiturML"
         android:layout_width="101dp"
         android:layout_height="172dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="17dp"
+        android:layout_marginTop="30dp"
         app:cardBackgroundColor="@color/not_yet"
+        app:layout_constraintEnd_toStartOf="@id/card_fiturBudget"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_title">
+        app:layout_constraintTop_toBottomOf="@id/text_title"
+        tools:ignore="TextSizeCheck">
 
         <LinearLayout
             android:id="@+id/container_cardML"
@@ -44,6 +45,7 @@
             android:orientation="horizontal">
 
             <TextView
+                android:id="@+id/tv_fiturML"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -54,72 +56,227 @@
     </com.google.android.material.card.MaterialCardView>
 
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_fiturBudget"
         android:layout_width="236dp"
         android:layout_height="175dp"
-        android:layout_marginTop="17dp"
+        android:layout_marginTop="30dp"
+        android:paddingStart="15dp"
+        android:paddingTop="23dp"
+        android:paddingEnd="13dp"
+        android:paddingBottom="24dp"
         app:cardBackgroundColor="@color/hijau_transparant"
         app:cardElevation="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/container_fiturML"
-        app:layout_constraintTop_toBottomOf="@id/text_title"
-        android:id="@+id/container_fiturBudget">
+        app:layout_constraintTop_toBottomOf="@id/text_title">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/container_fiturBudget"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/layout_yourbudget"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_marginTop="23dp"
+                android:orientation="horizontal"
+                android:paddingStart="16dp"
+                android:paddingEnd="13dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="TextSizeCheck">
+
+                <TextView
+                    android:id="@+id/tv_yourbudget"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="1dp"
+                    android:layout_weight="2"
+                    android:fontFamily="@font/dm_sans_bold"
+                    android:gravity="start"
+                    android:text="@string/title_budget"
+                    android:textColor="@color/black"
+                    android:textSize="12sp" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="63dp"
+                    android:id="@+id/card_Month"
+                    android:layout_height="17dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="1dp"
+                    app:cardBackgroundColor="@color/hijau_gelap"
+                    tools:ignore="TextSizeCheck">
+
+                    <LinearLayout
+                        android:id="@+id/container_tvMonth"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tv_Month"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/do_hyeon"
+                            android:text="@string/month"
+                            android:textAlignment="center"
+                            android:textColor="@color/white"
+                            android:textSize="10sp" />
+
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/amount_budget"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="13dp"
+                android:fontFamily="@font/dm_sans_bold"
+                android:text="@string/amount_budget"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/layout_yourbudget" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_healthBudget"
+                android:layout_width="206dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="18dp"
+                app:cardBackgroundColor="@color/button_normal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/amount_budget"
+                app:strokeColor="@color/black"
+                app:strokeWidth="1dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/container_haalth"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/tv_fiturHealth"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="@string/fitur_HealthBudget"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     </com.google.android.material.card.MaterialCardView>
 
+    <!--Baigan Fitur Atas (Machine Learning dan Health Budget)-->
 
-    <!--<LinearLayout
-        android:id="@+id/container_cardFitur"
-        android:layout_width="match_parent"
-        android:layout_height="207dp"
-        android:layout_marginTop="17dp"
-        android:orientation="horizontal"
-        android:paddingStart="21dp"
-        android:paddingTop="16dp"
-        android:paddingEnd="21dp"
-        android:paddingBottom="16dp"
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_fiturTotalSaving"
+        android:layout_width="361dp"
+        android:layout_height="196dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="21dp"
+        android:layout_marginEnd="16dp"
+        app:cardBackgroundColor="@color/backround_latar"
+        app:cardElevation="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_title">
+        app:layout_constraintTop_toBottomOf="@id/card_fiturBudget"
+        tools:ignore="TextSizeCheck">
 
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/card_machineLearning"
-            android:layout_width="101dp"
-            android:layout_height="match_parent"
-            app:cardBackgroundColor="@color/not_yet"
-            app:rippleColor="@color/hijau_transparant"
-            tools:ignore="TextSizeCheck">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/container_fiturTotalSaving"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
             <LinearLayout
-                android:id="@+id/container_cardML"
+                android:id="@+id/container_tvtotalSaving"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:id="@+id/tv_totalSaving"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="@string/fitur_machine_learning"
-                    android:textAlignment="center" />
+                    android:layout_weight="2"
+                    android:fontFamily="@font/dm_sans_bold"
+                    android:text="@string/total_saving"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/hijau_gelap"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/tv_overall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/dm_sans"
+                    android:text="@string/overall"
+                    android:textColor="@color/tv_transparant"
+                    android:textSize="15sp" />
+
             </LinearLayout>
 
-        </com.google.android.material.card.MaterialCardView>
+            <TextView
+                android:id="@+id/amount_saving"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:fontFamily="@font/dm_sans_bold"
+                android:gravity="start"
+                android:text="@string/amount_budget"
+                android:textColor="@color/hijau_gelap"
+                android:textSize="34sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/container_tvtotalSaving" />
 
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/card_fiturBudget"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginStart="18dp"
-            android:paddingStart="15dp"
-            android:paddingEnd="15dp"
-            app:cardBackgroundColor="@color/hijau_transparant"
-            app:cardElevation="3dp">
+            <Button
+                android:id="@+id/btn_withdraw"
+                style="@style/ButtonApp.versi1"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/btn_withdraw"
+                app:layout_constraintTop_toBottomOf="@+id/amount_saving" />
 
 
-        </com.google.android.material.card.MaterialCardView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-    </LinearLayout>-->
+    </com.google.android.material.card.MaterialCardView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
