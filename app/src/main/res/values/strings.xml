@@ -12,4 +12,9 @@
     <string name="total_saving">Total Saving</string>
     <string name="overall">Overall</string>
     <string name="btn_withdraw">Withdraw</string>
+    <string name="contoh">Contoh</string>
+    <string name="tracking_saving">Tracking Saving</string>
+    <string name="note_btnTrackingSaving">From Discounts</string>
+    <string name="add_shopping">Add Shopping</string>
+    <string name="note_btnAddShopping">Track Discounts</string>
 </resources>

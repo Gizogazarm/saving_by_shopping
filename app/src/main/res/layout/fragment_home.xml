@@ -102,8 +102,8 @@
                     android:textSize="12sp" />
 
                 <com.google.android.material.card.MaterialCardView
-                    android:layout_width="63dp"
                     android:id="@+id/card_Month"
+                    android:layout_width="63dp"
                     android:layout_height="17dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="1dp"
@@ -275,6 +275,142 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+    </com.google.android.material.card.MaterialCardView>
+
+    <!--BAGIAN FITUR TENGAH UNTUK FITUR WITHDRAW-->
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_btnTrackingSaving"
+        android:layout_width="173dp"
+        android:layout_height="155dp"
+        android:layout_marginTop="24dp"
+        app:cardBackgroundColor="@color/backround_latar"
+        app:cardElevation="3dp"
+        app:layout_constraintEnd_toStartOf="@+id/card_addShopping"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/card_fiturTotalSaving"
+        app:rippleColor="@color/hijau_transparant"
+        tools:ignore="TextSizeCheck">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/container_cardTrackingSaving"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/img_icTrackingSaving"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="17dp"
+                android:layout_marginTop="17dp"
+                android:contentDescription="@string/contoh"
+                android:src="@drawable/ilustrasi_icon"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <LinearLayout
+                android:id="@+id/layout_tvTextBtnTS"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="49dp"
+                android:layout_marginEnd="16dp"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/img_icTrackingSaving">
+
+                <TextView
+                    android:id="@+id/tv_TrackingSaving"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/dm_sans_bold"
+                    android:text="@string/tracking_saving"
+                    android:textColor="@color/hijau_gelap"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/note_btnTrackingSaving"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="@font/dm_sans"
+                    android:text="@string/note_btnTrackingSaving"
+                    android:textColor="@color/tv_transparant"
+                    android:textSize="13sp"/>
+
+
+            </LinearLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_addShopping"
+        android:layout_width="173dp"
+        android:layout_height="155dp"
+        android:layout_marginTop="24dp"
+        app:cardBackgroundColor="@color/backround_latar"
+        app:cardElevation="3dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/card_btnTrackingSaving"
+        app:layout_constraintTop_toBottomOf="@+id/card_fiturTotalSaving"
+        app:rippleColor="@color/hijau_transparant">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/container_cardAddShopping"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/img_icAddShopping"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="17dp"
+                android:layout_marginTop="17dp"
+                android:contentDescription="@string/contoh"
+                android:src="@drawable/ilustrasi_icon"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <LinearLayout
+                android:id="@+id/layout_tvTextBtnAS"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="49dp"
+                android:layout_marginEnd="16dp"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/img_icAddShopping">
+
+                <TextView
+                    android:id="@+id/tv_AddShopping"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/dm_sans_bold"
+                    android:text="@string/add_shopping"
+                    android:textColor="@color/hijau_gelap"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/note_btnAddShopping"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="@font/dm_sans"
+                    android:text="@string/note_btnAddShopping"
+                    android:textColor="@color/tv_transparant"
+                    android:textSize="13sp" />
+
+
+            </LinearLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </com.google.android.material.card.MaterialCardView>
 
