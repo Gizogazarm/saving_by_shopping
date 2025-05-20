@@ -18,4 +18,9 @@
     <string name="add_shopping">Add Shopping</string>
     <string name="note_btnAddShopping">Track Discounts</string>
     <string name="title_shoppingReceipt">Shopping Receipt</string>
+    <string name="hint_namaToko">Nama Toko</string>
+    <string name="hint_date">Date</string>
+    <string name="hint_email">Email</string>
+    <string name="btn_addShopping">Create Shopping Item</string>
+
   </resources>

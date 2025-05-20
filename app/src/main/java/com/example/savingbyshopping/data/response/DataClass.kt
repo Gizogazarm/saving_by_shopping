@@ -44,6 +44,7 @@ data class ShoppingList(
     var namaToko: String,
     var totalBelanja: String? = null,
     var totalDiskon: String? = null,
+    var email: String? = "default"
 
     ) : Parcelable
 

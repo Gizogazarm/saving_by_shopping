@@ -5,11 +5,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import com.example.savingbyshopping.data.response.ShoppingList
 import com.example.savingbyshopping.databinding.FragmentAddShoppingBinding
+import com.example.savingbyshopping.ui.ViewModelFactory
+import com.example.savingbyshopping.utils.CalendarUtils
 
 class AddShoppingFragment : Fragment() {
 
     private var _binding: FragmentAddShoppingBinding? = null
+    private lateinit var factory: ViewModelFactory
+    private val viewModel: AddShoppingListViewModel by viewModels { factory }
+    private lateinit var shoppingList: ShoppingList
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -19,6 +26,34 @@ class AddShoppingFragment : Fragment() {
         _binding = FragmentAddShoppingBinding.inflate(inflater, container, false)
         val view = binding.root
         return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        with(binding) {
+            setViewModelFactory()
+            val calendar = CalendarUtils.getCalendarDate()
+            val date = CalendarUtils.calendarToString(calendar)
+
+            edDate.setText(CalendarUtils.calendarToString((calendar)))
+
+            btnAddShopping.setOnClickListener {
+                val namaToko = edNamaToko.text.toString()
+                val email = edEmail.text.toString()
+
+                shoppingList = ShoppingList(
+                    idShoppingList = 0,
+                    tanggalTransaksi = date,
+                    namaToko = namaToko,
+                    email = email
+                )
+                viewModel.inputShoppingList(shoppingList)
+            }
+        }
+    }
+
+    private fun setViewModelFactory() {
+        factory = ViewModelFactory.getInstance(requireActivity())
+
     }
 
 

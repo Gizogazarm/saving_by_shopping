@@ -31,4 +31,27 @@
         <item name="fontFamily">@font/source_serif_4_bold</item>
     </style>
 
+    <style name="EditText.Open" parent="@style/Widget.Material3.TextInputLayout.FilledBox.Dense">
+        <item name="boxCornerRadiusBottomStart">20dp</item>
+        <item name="cursorColor">@color/black</item>
+        <item name="boxCornerRadiusBottomEnd">20dp</item>
+        <item name="boxCornerRadiusTopEnd">20dp</item>
+        <item name="boxCornerRadiusTopStart">20dp</item>
+        <item name="boxBackgroundColor">@color/edit_text_open</item>
+        <item name="boxStrokeWidth">0dp</item>
+        <item name="boxStrokeWidthFocused">0dp</item>
+        <item name="boxStrokeColor">@android:color/transparent</item>
+    </style>
+
+    <style name="EditText.Lock" parent="@style/Widget.Material3.TextInputLayout.FilledBox.Dense">
+        <item name="boxCornerRadiusBottomStart">20dp</item>
+        <item name="boxCornerRadiusBottomEnd">20dp</item>
+        <item name="boxCornerRadiusTopEnd">20dp</item>
+        <item name="boxCornerRadiusTopStart">20dp</item>
+        <item name="boxBackgroundColor">@color/edit_text_lock</item>
+        <item name="boxStrokeWidth">0dp</item>
+        <item name="boxStrokeWidthFocused">0dp</item>
+        <item name="boxStrokeColor">@android:color/transparent</item>
+    </style>
+
 </resources>

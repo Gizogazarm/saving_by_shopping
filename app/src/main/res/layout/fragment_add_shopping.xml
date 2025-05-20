@@ -26,7 +26,100 @@
         android:textSize="20sp"
         app:layout_constraintTop_toTopOf="@+id/title_guideline" />
 
+    <!-- Edit Text Nama Toko-->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/input_layoutNamaToko"
+        style="@style/EditText.Open"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="23dp"
+        android:layout_marginEnd="20dp"
+        app:hintEnabled="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_titleAddShopping"
+        app:startIconDrawable="@drawable/store_icon">
 
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/ed_namaToko"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:hint="@string/hint_namaToko"
+            android:inputType="text"
+            android:paddingTop="0dp"
+            android:paddingBottom="0dp"
+            tools:ignore="TextContrastCheck" />
+
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Edit text untuk Date ( LOCK )-->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/input_layoutDate"
+        style="@style/EditText.Lock"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="23dp"
+        android:layout_marginEnd="20dp"
+        app:hintEnabled="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input_layoutNamaToko"
+        app:startIconDrawable="@drawable/date_icon">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/ed_date"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:enabled="false"
+            android:gravity="center_vertical"
+            android:hint="@string/hint_date"
+            android:inputType="none"
+            android:paddingTop="0dp"
+            android:paddingBottom="0dp" />
+
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!--Edit text untuk Email-->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/input_layoutEmail"
+        style="@style/EditText.Open"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="23dp"
+        android:layout_marginEnd="20dp"
+        app:hintEnabled="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input_layoutDate"
+        app:startIconDrawable="@drawable/email_icon">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/ed_email"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:hint="@string/hint_email"
+            android:inputType="textEmailAddress"
+            android:paddingTop="0dp"
+            android:paddingBottom="0dp"
+            tools:ignore="TextContrastCheck" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/btn_addShopping"
+        style="@style/ButtonApp.versi1"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="20dp"
+        android:text="@string/btn_addShopping"
+        app:layout_constraintTop_toBottomOf="@+id/input_layoutEmail" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
