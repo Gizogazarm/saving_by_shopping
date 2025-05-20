@@ -22,5 +22,6 @@
     <string name="hint_date">Date</string>
     <string name="hint_email">Email</string>
     <string name="btn_addShopping">Create Shopping Item</string>
+    <string name="success_addingShoppingReceipt">Success Adding Shopping Receipt</string>
 
   </resources>

@@ -1,15 +1,18 @@
 package com.example.savingbyshopping.ui.addShoppingList
 
+
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import com.example.savingbyshopping.R
 import com.example.savingbyshopping.data.response.ShoppingList
 import com.example.savingbyshopping.databinding.FragmentAddShoppingBinding
 import com.example.savingbyshopping.ui.ViewModelFactory
 import com.example.savingbyshopping.utils.CalendarUtils
+import com.google.android.material.snackbar.Snackbar
 
 class AddShoppingFragment : Fragment() {
 
@@ -47,12 +50,21 @@ class AddShoppingFragment : Fragment() {
                     email = email
                 )
                 viewModel.inputShoppingList(shoppingList)
+                makeSnackbar(getString(R.string.success_addingShoppingReceipt))
             }
         }
     }
 
     private fun setViewModelFactory() {
         factory = ViewModelFactory.getInstance(requireActivity())
+    }
+
+    private fun makeSnackbar(message: String) {
+        Snackbar.make(requireContext(), binding.root, message, Snackbar.LENGTH_SHORT)
+            .setBackgroundTint(resources.getColor(R.color.button_normal))
+            .setTextColor(resources.getColor(R.color.black))
+            .show()
+
 
     }
 
