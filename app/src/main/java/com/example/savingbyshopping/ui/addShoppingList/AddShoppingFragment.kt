@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.findNavController
 import com.example.savingbyshopping.R
 import com.example.savingbyshopping.data.response.ShoppingList
 import com.example.savingbyshopping.databinding.FragmentAddShoppingBinding
@@ -51,6 +52,8 @@ class AddShoppingFragment : Fragment() {
                 )
                 viewModel.inputShoppingList(shoppingList)
                 makeSnackbar(getString(R.string.success_addingShoppingReceipt))
+                val action = AddShoppingFragmentDirections.actionAddShoppingFragmentToAddItemShopFragment(shoppingList)
+                view.findNavController().navigate(action)
             }
         }
     }
@@ -60,9 +63,12 @@ class AddShoppingFragment : Fragment() {
     }
 
     private fun makeSnackbar(message: String) {
+        val bottomNav = requireActivity().findViewById<View>(R.id.bottom_navigation)
+
         Snackbar.make(requireContext(), binding.root, message, Snackbar.LENGTH_SHORT)
             .setBackgroundTint(resources.getColor(R.color.button_normal))
             .setTextColor(resources.getColor(R.color.black))
+            .setAnchorView(bottomNav)
             .show()
 
 

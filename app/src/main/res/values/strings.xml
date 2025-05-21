@@ -23,5 +23,7 @@
     <string name="hint_email">Email</string>
     <string name="btn_addShopping">Create Shopping Item</string>
     <string name="success_addingShoppingReceipt">Success Adding Shopping Receipt</string>
+    <string name="example">Example</string>
+    <string name="note_titleProfileImgAddItemShop">Track your discount and shopping</string>
 
-  </resources>
+</resources>

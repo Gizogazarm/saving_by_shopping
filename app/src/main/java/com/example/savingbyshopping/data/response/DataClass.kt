@@ -46,7 +46,7 @@ data class ShoppingList(
     var totalDiskon: String? = null,
     var email: String? = "default"
 
-    ) : Parcelable
+) : Parcelable
 
 @Parcelize
 data class ShoppingListWithItemShop(

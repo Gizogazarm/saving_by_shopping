@@ -21,6 +21,7 @@
     <color name="not_yet">#D9D9D9</color>
     <color name="tv_transparant">#757575</color>
     <color name="button_ripple">#2CB2AC</color>
+    <color name="example_img">#A2A2A2</color>
 
 
 </resources>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backround_latar"
+    android:contentDescription="@string/add_shopping"
+    tools:context=".ui.addItemShop.AddItemShopFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container_addItemShop"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/container_imageBannerAddItem"
+            android:layout_width="match_parent"
+            android:layout_height="536dp"
+            android:contentDescription="@string/example"
+            android:src="@drawable/container_example_img"
+            app:layout_constraintHeight_max="536dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_titleImageAddShopping"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="40dp"
+            android:fontFamily="@font/roboto_serif_bold"
+            android:text="@string/add_shopping"
+            android:textColor="@color/black"
+            android:textSize="45sp"
+            app:layout_constraintBottom_toBottomOf="@+id/container_imageBannerAddItem"
+            app:layout_constraintStart_toStartOf="@+id/container_imageBannerAddItem" />
+
+        <TextView
+            android:id="@+id/title_noteImgAddShopping"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:fontFamily="@font/dm_sans"
+            android:text="@string/note_titleProfileImgAddItemShop"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toTopOf="@+id/tv_titleImageAddShopping"
+            app:layout_constraintStart_toStartOf="@+id/container_imageBannerAddItem" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

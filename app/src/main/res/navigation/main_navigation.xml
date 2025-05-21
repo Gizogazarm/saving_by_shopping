@@ -28,6 +28,20 @@
         android:id="@+id/addShoppingFragment"
         android:name="com.example.savingbyshopping.ui.addShoppingList.AddShoppingFragment"
         android:label="fragment_add_shopping"
-        tools:layout="@layout/fragment_add_shopping" />
+        tools:layout="@layout/fragment_add_shopping" >
+        <action
+            android:id="@+id/action_addShoppingFragment_to_addItemShopFragment"
+            app:destination="@id/addItemShopFragment"
+            app:popUpTo="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addItemShopFragment"
+        android:name="com.example.savingbyshopping.ui.addItemShop.AddItemShopFragment"
+        android:label="fragment_add_item_shop"
+        tools:layout="@layout/fragment_add_item_shop" >
+        <argument
+            android:name="dataShopping"
+            app:argType="com.example.savingbyshopping.data.response.ShoppingList" />
+    </fragment>
 
 </navigation>
