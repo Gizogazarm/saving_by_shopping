@@ -31,5 +31,10 @@
     <string name="note_emptyList">You do not have items in your shop list</string>
     <string name="tv_discount">Set Discount for All Item</string>
     <string name="button_Check">Check</string>
+    <string name="isi_diskon">fill discount</string>
+    <string name="percentage">%</string>
+    <string name="note_tvTotalSaving">Total Savings ( Discount )</string>
+    <string name="tv_totalShopping">Total Shopping</string>
+    <string name="btn_checkout">Checkout</string>
 
 </resources>
