@@ -11,8 +11,8 @@ object DataDummy {
         val itemShopList = ArrayList<ItemShop>()
         for (i in 1..50) {
             val itemShop = ItemShop(
-                idItem = i,
-                idShoppingList = i,
+                idItem = i.toLong(),
+                idShoppingList = i.toLong(),
                 namaItem = "Sikat Gigi",
                 jenisProduk = JenisProduk.ALAT_KEBERSIHAN.value,
                 hargaAsli = 10000,
@@ -30,7 +30,7 @@ object DataDummy {
         val shoppingListList = ArrayList<ShoppingList>()
         for (i in 1..50) {
             val shoppingList = ShoppingList(
-                idShoppingList = i,
+                idShoppingList = i.toLong(),
                 tanggalTransaksi = "13/04/2025",
                 namaToko = "Toko $i",
             )
@@ -61,10 +61,10 @@ object DataDummy {
     ): ShoppingListWithItemShop {
         val data = ShoppingListWithItemShop(
             shoppingList = ShoppingList(
-                idShoppingList = i,
+                idShoppingList = i.toLong(),
                 tanggalTransaksi = "13/04/2025",
                 namaToko = "Toko $i",
-            ), itemShop = list.filter { it.idShoppingList == i }
+            ), itemShop = list.filter { it.idShoppingList == i.toLong() }
         )
         return data
     }
@@ -72,8 +72,8 @@ object DataDummy {
     fun generateDataDummySorted(): List<ItemShop> {
         val data = listOf(
             ItemShop(
-                idItem = 1,
-                idShoppingList = 1,
+                idItem = 1.toLong(),
+                idShoppingList = 1.toLong(),
                 namaItem = "Sikat Gigi",
                 jenisProduk = JenisProduk.ALAT_KEBERSIHAN.value,
                 hargaAsli = 10000,
@@ -82,8 +82,8 @@ object DataDummy {
                 totalHarga = menghitungHargaBelanja(8000, quantity = 1),
                 saveDiskon = menghitungSavingDiskon(10000, 8000, 1)
             ), ItemShop(
-                idItem = 2,
-                idShoppingList = 1,
+                idItem = 2.toLong(),
+                idShoppingList = 1.toLong(),
                 namaItem = "Sabun Mandi",
                 jenisProduk = JenisProduk.ALAT_KEBERSIHAN.value,
                 hargaAsli = 15000,
@@ -92,8 +92,8 @@ object DataDummy {
                 totalHarga = menghitungHargaBelanja(12000, quantity = 1),
                 saveDiskon = menghitungSavingDiskon(15000, 12000, 1)
             ), ItemShop(
-                idItem = 3,
-                idShoppingList = 1,
+                idItem = 3.toLong(),
+                idShoppingList = 1.toLong(),
                 namaItem = "Pasta Gigi",
                 jenisProduk = JenisProduk.ALAT_KEBERSIHAN.value,
                 hargaAsli = 8000,

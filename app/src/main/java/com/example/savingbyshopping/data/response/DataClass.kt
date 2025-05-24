@@ -22,8 +22,8 @@ import kotlinx.parcelize.Parcelize
 )
 data class ItemShop(
     @PrimaryKey(autoGenerate = true)
-    val idItem: Int,
-    val idShoppingList: Int,
+    val idItem: Long = 0L,
+    val idShoppingList: Long,
     var namaItem: String,
     val jenisProduk: String,
     val hargaAsli: Long,
@@ -39,7 +39,7 @@ data class ItemShop(
 data class ShoppingList(
 
     @PrimaryKey(autoGenerate = true)
-    val idShoppingList: Int,
+    val idShoppingList: Long = 0L,
     val tanggalTransaksi: String,
     var namaToko: String,
     var totalBelanja: String? = null,

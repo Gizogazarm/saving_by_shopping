@@ -24,6 +24,10 @@ interface ItemShopDao {
     @Query("SELECT * FROM itemshop")
     fun ambilSemuaItemShop(): LiveData<List<ItemShop>>
 
+    @Query("SELECT * FROM itemshop WHERE idItem = :id")
+    fun ambilItembyId(id : Long) : LiveData<ItemShop>
+
+
 
 
 }

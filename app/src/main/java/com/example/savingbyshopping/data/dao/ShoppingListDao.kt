@@ -15,7 +15,7 @@ import com.example.savingbyshopping.data.response.ShoppingListWithItemShop
 interface ShoppingListDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun inputShoppingList(shoppingList: ShoppingList)
+    suspend fun inputShoppingList(shoppingList: ShoppingList) : Long
 
     @Update
     suspend fun perbaruiShoppingList(shoppingList: ShoppingList)
@@ -27,11 +27,11 @@ interface ShoppingListDao {
     suspend fun hapusShoppingList(shoppingList: ShoppingList)
 
     @Query("SELECT * FROM shopping_list WHERE idShoppingList = :id")
-    fun ambilShoppingListDenganId(id: Int): LiveData<ShoppingList>
+    fun ambilShoppingListDenganId(id: Long): LiveData<ShoppingList>
 
     @Transaction
     @Query("SELECT * FROM shopping_list WHERE idShoppingList = :id")
-    fun ambilShoppingListDenganItemShopById(id: Int): LiveData<ShoppingListWithItemShop>
+    fun ambilShoppingListDenganItemShopById(id: Long): LiveData<ShoppingListWithItemShop>
 
 }
 

@@ -21,6 +21,8 @@ class AddItemShopViewModel(private val shoppingListRepository: ShoppingListRepos
         shoppingListRepository.perbaruiItemShop(itemShop)
     }
 
+    fun ambilItemShopById(id: Long) = shoppingListRepository.ambilItemShopById(id)
+
 
 
 

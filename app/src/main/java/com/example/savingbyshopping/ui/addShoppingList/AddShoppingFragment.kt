@@ -21,6 +21,7 @@ class AddShoppingFragment : Fragment() {
     private lateinit var factory: ViewModelFactory
     private val viewModel: AddShoppingListViewModel by viewModels { factory }
     private lateinit var shoppingList: ShoppingList
+    private lateinit var shoppingListObserve: ShoppingList
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -45,15 +46,21 @@ class AddShoppingFragment : Fragment() {
                 val email = edEmail.text.toString()
 
                 shoppingList = ShoppingList(
-                    idShoppingList = 0,
                     tanggalTransaksi = date,
                     namaToko = namaToko,
                     email = email
                 )
                 viewModel.inputShoppingList(shoppingList)
-                makeSnackbar(getString(R.string.success_addingShoppingReceipt))
-                val action = AddShoppingFragmentDirections.actionAddShoppingFragmentToAddItemShopFragment(shoppingList)
-                view.findNavController().navigate(action)
+                viewModel.insertResult.observe(viewLifecycleOwner) { id ->
+                    viewModel.ambilShoppingListDenganId(id).observe(viewLifecycleOwner) {
+                        shoppingListObserve = it
+                        makeSnackbar(getString(R.string.success_addingShoppingReceipt))
+                        val action = AddShoppingFragmentDirections.actionAddShoppingFragmentToAddItemShopFragment(shoppingListObserve)
+                        view.findNavController().navigate(action)
+                    }
+
+                }
+
             }
         }
     }
