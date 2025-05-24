@@ -40,8 +40,8 @@
         android:label="fragment_add_item_shop"
         tools:layout="@layout/fragment_add_item_shop" >
         <argument
-            android:name="dataShopping"
-            app:argType="com.example.savingbyshopping.data.response.ShoppingList" />
+            android:name="IdShopping"
+            app:argType="long" />
     </fragment>
 
 </navigation>

@@ -6,13 +6,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import com.example.savingbyshopping.databinding.FragmentAddItemShopBinding
+import com.example.savingbyshopping.ui.ViewModelFactory
+import com.example.savingbyshopping.ui.addShoppingList.AddShoppingListViewModel
 
 
 class AddItemShopFragment : Fragment() {
 
     private var _binding: FragmentAddItemShopBinding? = null
     private val binding get() = _binding!!
+    private lateinit var factory : ViewModelFactory
+    private val shoppingViewModel: AddShoppingListViewModel by viewModels { factory }
+    private val itemShopViewModel: AddItemShopViewModel by viewModels { factory }
 
 
     override fun onCreateView(
@@ -25,10 +31,17 @@ class AddItemShopFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
-        val dataShopping = AddItemShopFragmentArgs.fromBundle(arguments as Bundle).dataShopping
-        Log.d("Data Shopping", "print data: $dataShopping ")
+        setViewModelFactory()
+        val idShopping = AddItemShopFragmentArgs.fromBundle(arguments as Bundle).idShopping
+        shoppingViewModel.ambilShoppingListDenganId(idShopping).observe(viewLifecycleOwner) {
+            Log.d("Data Shopping", "print data: $it ")
+        }
+
 
     }
 
+    private fun setViewModelFactory() {
+        factory = ViewModelFactory.getInstance(requireActivity())
+    }
 
 }
