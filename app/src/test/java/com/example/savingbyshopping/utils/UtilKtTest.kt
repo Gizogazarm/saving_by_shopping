@@ -4,7 +4,7 @@ import junit.framework.TestCase.assertEquals
 import org.junit.Test
 
 
-class CurrencyKtTest {
+class UtilKtTest {
 
     private val input1: Long = 1000000
     private val input2: Long = 500
@@ -94,6 +94,14 @@ class CurrencyKtTest {
         val discount =  60.toDecimalPercetage()
         val expected = 400000L
         val actual = setPriceDiscount(discount, input1)
+        assertEquals(expected, actual)
+    }
+
+    @Test
+    fun`Tes ambil 2 kata`(){
+        val input = "Tes ambil 2 kata"
+        val expected = "Tes ambil"
+        val actual = input.ambilDuaKataPertama()
         assertEquals(expected, actual)
     }
 

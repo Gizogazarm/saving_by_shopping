@@ -38,7 +38,6 @@ class AddItemShopFragment : Fragment() {
             shoppingViewModel.ambilShoppingListDenganId(idShopping)
                 .observe(viewLifecycleOwner) { shoppingList ->
                     tvToko1.text = shoppingList.namaToko
-                    tvToko2.text = shoppingList.namaToko
                     tvEmail.text = shoppingList.email
                     tvDate.text = shoppingList.tanggalTransaksi
                     tvAmountTotalShopping.text = shoppingList.totalBelanja

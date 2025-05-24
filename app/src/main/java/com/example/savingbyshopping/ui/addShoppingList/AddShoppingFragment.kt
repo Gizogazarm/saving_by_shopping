@@ -13,6 +13,7 @@ import com.example.savingbyshopping.data.response.ShoppingList
 import com.example.savingbyshopping.databinding.FragmentAddShoppingBinding
 import com.example.savingbyshopping.ui.ViewModelFactory
 import com.example.savingbyshopping.utils.CalendarUtils
+import com.example.savingbyshopping.utils.ambilDuaKataPertama
 import com.google.android.material.snackbar.Snackbar
 
 class AddShoppingFragment : Fragment() {
@@ -41,7 +42,7 @@ class AddShoppingFragment : Fragment() {
             edDate.setText(CalendarUtils.calendarToString((calendar)))
 
             btnAddShopping.setOnClickListener {
-                val namaToko = edNamaToko.text.toString()
+                val namaToko = edNamaToko.text.toString().ambilDuaKataPertama()
                 val email = edEmail.text.toString()
 
                 shoppingList = ShoppingList(
