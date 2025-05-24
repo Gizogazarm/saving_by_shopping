@@ -25,5 +25,16 @@
     <string name="success_addingShoppingReceipt">Success Adding Shopping Receipt</string>
     <string name="example">Example</string>
     <string name="note_titleProfileImgAddItemShop">Track your discount and shopping</string>
+    <string name="tv_toko1">Sugiono</string>
+    <string name="tv_toko2">Shop</string>
+    <string name="btn_addItem">Add Item</string>
+    <string name="note_emptyList">You do not have items in your shop list</string>
+    <string name="tv_discount">Set Discount for All Item</string>
+    <string name="button_Check">Check</string>
+    <string name="isi_diskon">fill discount</string>
+    <string name="percentage">%</string>
+    <string name="note_tvTotalSaving">Total Savings ( Discount )</string>
+    <string name="tv_totalShopping">Total Shopping</string>
+    <string name="btn_checkout">Checkout</string>
 
 </resources>

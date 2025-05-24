@@ -22,6 +22,8 @@
     <color name="tv_transparant">#757575</color>
     <color name="button_ripple">#2CB2AC</color>
     <color name="example_img">#A2A2A2</color>
+    <color name="button_item">#323333</color>
+    <color name="riple_btn_item">#378055</color>
 
 
 </resources>

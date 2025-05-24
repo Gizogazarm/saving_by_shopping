@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/backround_latar"
     android:contentDescription="@string/add_shopping"
     tools:context=".ui.addItemShop.AddItemShopFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/container_addItemShop"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:background="@color/backround_latar">
 
         <ImageView
             android:id="@+id/container_imageBannerAddItem"
@@ -30,6 +30,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginBottom="40dp"
             android:fontFamily="@font/roboto_serif_bold"
+            android:includeFontPadding="false"
             android:text="@string/add_shopping"
             android:textColor="@color/black"
             android:textSize="45sp"
@@ -47,6 +48,336 @@
             android:textSize="15sp"
             app:layout_constraintBottom_toTopOf="@+id/tv_titleImageAddShopping"
             app:layout_constraintStart_toStartOf="@+id/container_imageBannerAddItem" />
+
+        <!--BAGIAN AKHIR DARI IMAGE BANNER ADDSHOPPING-->
+
+        <TextView
+            android:id="@+id/tv_toko1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="29dp"
+            android:fontFamily="@font/roboto_serif_bold"
+            android:includeFontPadding="false"
+            android:text="@string/tv_toko1"
+            android:textColor="@color/hijau_gelap"
+            android:textSize="28sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/container_imageBannerAddItem" />
+
+        <TextView
+            android:id="@+id/tv_toko2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-2dp"
+            android:fontFamily="@font/roboto_serif_bold"
+            android:includeFontPadding="false"
+            android:text="@string/tv_toko2"
+            android:textColor="@color/hijau_gelap"
+            android:textSize="28sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_toko1" />
+
+        <TextView
+            android:id="@+id/tv_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/dm_sans"
+            android:text="@string/hint_email"
+            android:textColor="@color/tv_transparant"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_toko2" />
+
+        <!--BAGIAN AKHIR UNTUK TEXT TV 1 , TV 2 DAN TV EMAIL-->
+
+        <Button
+            android:id="@+id/btn_addItem"
+            style="@style/ButtonApp.versi1"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="45dp"
+            android:layout_marginEnd="20dp"
+            android:text="@string/btn_addItem"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_email" />
+
+        <!--BAGIAN AKHIR BUTTON ADD ITEM SHOP-->
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_itemShop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:visibility="gone"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_max="454dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_addItem" />
+
+        <!-- RECYCLEVIEW UNTUK LIST ADD ITEM SHOP-->
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/empty_list"
+            android:layout_width="match_parent"
+            android:layout_height="171dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/hijau_transparant"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_addItem">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_emptyList"
+                android:layout_width="match_parent"
+                android:layout_height="128dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"
+                app:cardBackgroundColor="@color/backround_latar"
+                app:cardElevation="3dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/container_emptyList"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/img_emptyList"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        android:contentDescription="@string/example"
+                        android:src="@drawable/ilustrasi_icon"
+                        app:layout_constraintBottom_toTopOf="@id/note_emptyList"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/note_emptyList"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:fontFamily="@font/outfit_medium"
+                        android:text="@string/note_emptyList"
+                        android:textColor="@color/hijau_gelap"
+                        android:textSize="17sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/img_emptyList" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!--BAGIAN AKHIR TENGAH UNUKT RV DAN EMPTY LIST-->
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="rv_itemShop,empty_list" />
+
+        <!--BARRIER DIGUNAKAN UNTUK MEMBUAT TEXTVIEW TITTLE DISCOUHT TETAP MUNCUL DIBAWAH
+        EMPTY LIST ATAU RV_ITEMSHOP-->
+
+        <TextView
+            android:id="@+id/tv_titleDiscount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="11dp"
+            android:fontFamily="@font/dm_sans_bold"
+            android:text="@string/tv_discount"
+            android:textColor="@color/hijau_gelap"
+            android:textSize="17sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/barrier_list" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btn_check"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/rounded_corner_button"
+            android:contentDescription="@string/button_Check"
+            android:scaleType="centerInside"
+            android:src="@drawable/check_icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_titleDiscount" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layout_edPercentage"
+            style="@style/EditText.fillItem"
+            android:layout_width="66dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="9dp"
+            android:layout_marginTop="10dp"
+            app:hintEnabled="false"
+            app:layout_constraintStart_toEndOf="@+id/btn_check"
+            app:layout_constraintTop_toBottomOf="@id/tv_titleDiscount">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ed_percentage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:hint="@string/isi_diskon"
+                android:inputType="number"
+                android:paddingTop="0dp"
+                android:paddingBottom="0dp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="9dp"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/dm_sans_bold"
+            android:includeFontPadding="false"
+            android:text="@string/percentage"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/layout_edPercentage"
+            app:layout_constraintTop_toBottomOf="@id/tv_titleDiscount" />
+
+        <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/divider_discount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            app:dividerColor="@color/black"
+            app:dividerInsetEnd="16dp"
+            app:dividerInsetStart="16dp"
+            app:dividerThickness="1dp"
+            app:layout_constraintTop_toBottomOf="@id/layout_edPercentage" />
+
+        <!--BAGIAN AKHIR DARI BAGIAN SET DISCIUNT FOR ALL ITEM-->
+
+        <TextView
+            android:id="@+id/tv_totaldiscount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/dm_sans_bold"
+            android:includeFontPadding="false"
+            android:text="@string/note_tvTotalSaving"
+            android:textColor="@color/hijau_gelap"
+            android:textSize="17sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider_discount" />
+
+        <TextView
+            android:id="@+id/tv_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:fontFamily="@font/dm_sans"
+            android:text="@string/hint_date"
+            android:textSize="17sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_totaldiscount" />
+
+        <TextView
+            android:id="@+id/tv_amountTotalSaving"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/source_serif_4_bold"
+            android:text="@string/amount_budget"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_date" />
+
+        <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/divider_totalSaving"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            app:dividerColor="@color/black"
+            app:dividerInsetEnd="16dp"
+            app:dividerInsetStart="16dp"
+            app:dividerThickness="1dp"
+            app:layout_constraintTop_toBottomOf="@id/tv_amountTotalSaving" />
+
+        <!--BAGIAN AKHIR DARI TOTAL SAVING-->
+
+        <TextView
+            android:id="@+id/tv_totalShopping"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/dm_sans_bold"
+            android:text="@string/tv_totalShopping"
+            android:textColor="@color/hijau_gelap"
+            android:textSize="17sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider_totalSaving" />
+
+        <TextView
+            android:id="@+id/tv_amountTotalShopping"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/source_serif_4_bold"
+            android:text="@string/amount_budget"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider_totalSaving" />
+
+        <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/divider_totalShopping"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            app:dividerColor="@color/black"
+            app:dividerInsetEnd="16dp"
+            app:dividerInsetStart="16dp"
+            app:dividerThickness="2dp"
+            app:layout_constraintTop_toBottomOf="@id/tv_amountTotalShopping" />
+
+        <!--BAGIAN AKHIR DARI TOTAL SHOPPING-->
+
+        <Button
+            android:id="@+id/btn_checkout"
+            style="@style/ButtonApp.versi2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="16dp"
+            android:background="@drawable/button_bg_checkout"
+            android:text="@string/btn_checkout"
+            app:layout_constraintTop_toBottomOf="@id/divider_totalShopping" />
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="@color/backround_latar"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_checkout" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

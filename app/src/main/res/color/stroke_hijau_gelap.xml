@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Fokus -->
+    <item android:color="@color/hijau_gelap" android:state_focused="true" android:state_enabled="true" />
+    <!-- Tidak fokus tapi aktif -->
+    <item android:color="@color/hijau_gelap" android:state_enabled="true" />
+    <!-- Default (nonaktif, dsb) -->
+    <item android:color="@color/hijau_gelap" />
+</selector>
