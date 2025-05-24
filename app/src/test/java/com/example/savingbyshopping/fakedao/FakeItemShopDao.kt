@@ -27,7 +27,11 @@ class FakeItemShopDao : ItemShopDao {
         return liveData
     }
 
-    fun ambilItemShopDenganIdShoppingList(id: Int): List<ItemShop> {
+    override fun ambilItembyId(id: Long): LiveData<ItemShop> {
+        TODO("Not yet implemented")
+    }
+
+    fun ambilItemShopDenganIdShoppingList(id: Long): List<ItemShop> {
         return itemShops.filter { it.idShoppingList == id }
     }
 

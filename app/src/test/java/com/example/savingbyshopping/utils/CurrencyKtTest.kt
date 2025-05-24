@@ -9,7 +9,7 @@ class CurrencyKtTest {
     private val input1: Long = 1000000
     private val input2: Long = 500
     private val input3: Long = 10000
-    private val input4: Long = 1
+    private val input4: Long = 0
 
     private val input1Str: String = "Rp1.000.000"
     private val input2Str: String = "Rp500"
@@ -18,19 +18,19 @@ class CurrencyKtTest {
 
     @Test
     fun `Mengubah Long ke String Rupiah`() {
-        val expected = "Rp1.000.000"
+        val expected = "Rp 1.000.000"
         val actual = input1.toRupiah()
         assertEquals(expected, actual)
 
-        val expected2 = "Rp500"
+        val expected2 = "Rp 500"
         val actual2 = input2.toRupiah()
         assertEquals(expected2, actual2)
 
-        val expected3 = "Rp10.000"
+        val expected3 = "Rp 10.000"
         val actual3 = input3.toRupiah()
         assertEquals(expected3, actual3)
 
-        val expected4 = "Rp1"
+        val expected4 = "Rp 0"
         val actual4 = input4.toRupiah()
         assertEquals(expected4, actual4)
     }
@@ -92,7 +92,7 @@ class CurrencyKtTest {
     @Test
     fun `Set Price Discount`(){
         val discount =  60.toDecimalPercetage()
-        val expected = 40000L
+        val expected = 400000L
         val actual = setPriceDiscount(discount, input1)
         assertEquals(expected, actual)
     }

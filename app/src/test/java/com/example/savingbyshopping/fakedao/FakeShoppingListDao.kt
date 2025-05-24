@@ -14,8 +14,10 @@ class FakeShoppingListDao : ShoppingListDao {
     private var itemshops = listOf<ItemShop>()
     private val fakeItemShopDao = FakeItemShopDao()
 
-    override suspend fun inputShoppingList(shoppingList: ShoppingList) {
+    override suspend fun inputShoppingList(shoppingList: ShoppingList): Long {
         shoppingLists.add(shoppingList)
+        return shoppingList.idShoppingList
+
     }
 
     override suspend fun perbaruiShoppingList(shoppingList: ShoppingList) {
@@ -33,19 +35,20 @@ class FakeShoppingListDao : ShoppingListDao {
         fakeItemShopDao.ambilItemShopDenganIdShoppingList(shoppingList.idShoppingList)
     }
 
-    override fun ambilShoppingListDenganId(id: Int): LiveData<ShoppingList> {
+    override fun ambilShoppingListDenganId(id: Long): LiveData<ShoppingList> {
         val liveData = MutableLiveData<ShoppingList>()
         liveData.value = shoppingLists.find { it.idShoppingList == id }
         return liveData
     }
 
-    override fun ambilShoppingListDenganItemShopById(id: Int): LiveData<ShoppingListWithItemShop> {
+    override fun ambilShoppingListDenganItemShopById(id: Long): LiveData<ShoppingListWithItemShop> {
         val shoppingListWithItemShop = MutableLiveData<ShoppingListWithItemShop>()
         val shoppingList = shoppingLists.find { it.idShoppingList == id }
         itemshops = itemshops.filter { it.idShoppingList == id }
         shoppingListWithItemShop.value = ShoppingListWithItemShop(shoppingList!!, itemshops)
         return shoppingListWithItemShop
     }
+
 
     fun copyDariDummyList(dummyList: List<ShoppingList>) {
         shoppingLists.clear()

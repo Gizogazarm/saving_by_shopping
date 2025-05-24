@@ -16,7 +16,7 @@ class AddItemShopFragment : Fragment() {
 
     private var _binding: FragmentAddItemShopBinding? = null
     private val binding get() = _binding!!
-    private lateinit var factory : ViewModelFactory
+    private lateinit var factory: ViewModelFactory
     private val shoppingViewModel: AddShoppingListViewModel by viewModels { factory }
     private val itemShopViewModel: AddItemShopViewModel by viewModels { factory }
 
@@ -33,11 +33,19 @@ class AddItemShopFragment : Fragment() {
 
         setViewModelFactory()
         val idShopping = AddItemShopFragmentArgs.fromBundle(arguments as Bundle).idShopping
-        shoppingViewModel.ambilShoppingListDenganId(idShopping).observe(viewLifecycleOwner) {
-            Log.d("Data Shopping", "print data: $it ")
+
+        with(binding) {
+            shoppingViewModel.ambilShoppingListDenganId(idShopping)
+                .observe(viewLifecycleOwner) { shoppingList ->
+                    tvToko1.text = shoppingList.namaToko
+                    tvToko2.text = shoppingList.namaToko
+                    tvEmail.text = shoppingList.email
+                    tvDate.text = shoppingList.tanggalTransaksi
+                    tvAmountTotalShopping.text = shoppingList.totalBelanja
+                    tvAmountTotalSaving.text = shoppingList.totalDiskon
+                    Log.d("Data Shopping", "idShopping: $idShopping ")
+                }
         }
-
-
     }
 
     private fun setViewModelFactory() {
