@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android" android:color="@color/backround_latar">
+
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/backround_latar"/>
+        </shape>
+    </item>
+
+    <item android:drawable="@drawable/ripple_cancel_icon"/>
+
+
+</ripple>
+

@@ -36,5 +36,6 @@
     <string name="note_tvTotalSaving">Total Savings ( Discount )</string>
     <string name="tv_totalShopping">Total Shopping</string>
     <string name="btn_checkout">Checkout</string>
+    <string name="cancel_dialog">Cancel Dialog</string>
 
 </resources>

@@ -29,9 +29,12 @@ class DialogAddItemShopFragment : DialogFragment() {
 
     override fun onStart() {
         super.onStart()
+        val fixedHeightInPx = resources.getDimensionPixelSize(R.dimen.my_dialog_fixed_height)
+        val fixedWidthInPx = resources.getDimensionPixelSize(R.dimen.my_dialog_fixed_width)
+
         dialog?.window?.setLayout(
-            ViewGroup.LayoutParams.WRAP_CONTENT,
-            ViewGroup.LayoutParams.WRAP_CONTENT
+            fixedWidthInPx,
+            fixedHeightInPx
         )
     }
 
