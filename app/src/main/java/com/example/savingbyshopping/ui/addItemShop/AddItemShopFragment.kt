@@ -6,7 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
+import androidx.navigation.findNavController
 import com.example.savingbyshopping.databinding.FragmentAddItemShopBinding
 import com.example.savingbyshopping.ui.ViewModelFactory
 import com.example.savingbyshopping.ui.addShoppingList.AddShoppingListViewModel
@@ -18,7 +20,7 @@ class AddItemShopFragment : Fragment() {
     private val binding get() = _binding!!
     private lateinit var factory: ViewModelFactory
     private val shoppingViewModel: AddShoppingListViewModel by viewModels { factory }
-    private val itemShopViewModel: AddItemShopViewModel by viewModels { factory }
+    private val itemShopViewModel: AddItemShopViewModel by activityViewModels { factory }
 
 
     override fun onCreateView(
@@ -43,6 +45,11 @@ class AddItemShopFragment : Fragment() {
                     tvAmountTotalShopping.text = shoppingList.totalBelanja
                     tvAmountTotalSaving.text = shoppingList.totalDiskon
                     Log.d("Data Shopping", "idShopping: $idShopping ")
+
+                    btnAddItem.setOnClickListener {
+                        val action = AddItemShopFragmentDirections.actionAddItemShopFragmentToDialogAddItemShopFragment(idShopping)
+                        view.findNavController().navigate(action)
+                    }
                 }
         }
     }

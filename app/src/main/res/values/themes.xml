@@ -73,4 +73,9 @@
         <item name="boxBackgroundColor">@color/white</item>
     </style>
 
+    <style name="Theme.SavingByShopping.FullScreenDialog" parent="Theme.Material3.DayNight.Dialog">
+        <item name="android:windowBackground">@drawable/container_dialog_additemshop</item>
+        <item name="android:backgroundDimAmount">0.5</item>
+    </style>
+
 </resources>

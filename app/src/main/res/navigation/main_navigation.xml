@@ -42,6 +42,18 @@
         <argument
             android:name="IdShopping"
             app:argType="long" />
+        <action
+            android:id="@+id/action_addItemShopFragment_to_dialogAddItemShopFragment"
+            app:destination="@id/dialogAddItemShopFragment" />
     </fragment>
+    <dialog
+        android:id="@+id/dialogAddItemShopFragment"
+        android:name="com.example.savingbyshopping.ui.addItemShop.DialogAddItemShopFragment"
+        android:label="fragment_dialog_add_item_shop"
+        tools:layout="@layout/fragment_dialog_add_item_shop" >
+        <argument
+            android:name="IdShopping"
+            app:argType="long" />
+    </dialog>
 
 </navigation>
