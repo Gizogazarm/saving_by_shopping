@@ -9,7 +9,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <ImageButton
             android:id="@+id/btn_cancel"
@@ -46,8 +46,8 @@
             android:fontFamily="@font/roboto_serif_bold"
             android:text="@string/title_dialogItem"
             android:textAlignment="center"
-            android:textSize="24sp"
             android:textColor="@color/black"
+            android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/divider_atasTitle"
@@ -81,7 +81,6 @@
             app:layout_constraintTop_toBottomOf="@id/divider_bawahTitle" />
 
 
-
         <!--BAGIAN AWAL EDIT TEXT NAMA ITEM-->
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/input_layoutNamaItem"
@@ -109,15 +108,55 @@
         </com.google.android.material.textfield.TextInputLayout>
         <!--BAGIAN AKHIR EDIT TEXT NAMA ITEM-->
 
+        <!--BAGIAN AWAL DROPDOWN JENIS ITEM-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/input_layoutJenisProduk"
+            style="@style/EditText.dropdown"
+            android:layout_width="191dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/input_layoutNamaItem">
+
+            <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                android:id="@+id/ed_JenisProduk"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:dropDownBackgroundTint="@color/hijau_transparant"
+                android:fontFamily="@font/dm_sans"
+                android:textAppearance="@font/dm_sans_bold"
+                android:dropDownHeight="144dp"
+                android:inputType="none"
+                android:textSize="13sp"
+                tools:ignore="LabelFor,SpeakableTextPresentCheck" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!--BAGIAN AKHIR DROPDOWN JENIS ITEM-->
+
+        <TextView
+            android:id="@+id/tv_jenisItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="14sp"
+            android:fontFamily="@font/dm_sans_bold"
+            android:text="@string/jenis_produk"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toStartOf="@id/input_layoutJenisProduk"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/input_layoutNamaItem" />
 
 
-
-        <!-- <View
-             android:id="@+id/view_test"
-             android:layout_width="match_parent"
-             android:layout_height="1000dp"
-             app:layout_constraintStart_toStartOf="parent"
-             app:layout_constraintTop_toBottomOf="@+id/tv_itemDetails" />-->
+        <View
+            android:id="@+id/view_test"
+            android:layout_width="match_parent"
+            android:layout_height="1000dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_jenisItem" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

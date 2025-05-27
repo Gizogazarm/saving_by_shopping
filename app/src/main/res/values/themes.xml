@@ -73,6 +73,18 @@
         <item name="boxBackgroundColor">@color/white</item>
     </style>
 
+    <style name="EditText.dropdown" parent="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu">
+        <item name="boxCornerRadiusBottomStart">20dp</item>
+        <item name="boxCornerRadiusBottomEnd">20dp</item>
+        <item name="boxCornerRadiusTopEnd">20dp</item>
+        <item name="boxCornerRadiusTopStart">20dp</item>
+        <item name="boxStrokeColor">@color/stroke_hijau_gelap</item>
+        <item name="boxStrokeWidth">1dp</item>
+        <item name="cursorColor">@color/black</item>
+        <item name="boxBackgroundColor">@color/white</item>
+    </style>
+
+
     <style name="Theme.SavingByShopping.FullScreenDialog" parent="Theme.Material3.DayNight.Dialog">
         <item name="android:windowBackground">@drawable/container_dialog_additemshop</item>
         <item name="android:backgroundDimAmount">0.5</item>

@@ -41,6 +41,7 @@
     <string name="title_itemDetails">ITEM DETAILS</string>
     <string name="tv_itemName">Item Name</string>"
     <string name="hint_namaItem">Nama Item</string>
+    <string name="jenis_produk">Product Type</string>
 
 
 </resources>

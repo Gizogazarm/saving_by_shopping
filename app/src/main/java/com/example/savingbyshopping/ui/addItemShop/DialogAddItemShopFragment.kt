@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import androidx.fragment.app.DialogFragment
 import com.example.savingbyshopping.R
 import com.example.savingbyshopping.databinding.FragmentDialogAddItemShopBinding
@@ -30,6 +31,13 @@ class DialogAddItemShopFragment : DialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val list = JenisProduk.entries.map { it.value }
+        val adapter = ArrayAdapter(requireContext(),R.layout.dropdown_list_jenis_produk,list)
+
+        with(binding) {
+
+            edJenisProduk.setAdapter(adapter)
+
+        }
     }
 
     override fun onStart() {
