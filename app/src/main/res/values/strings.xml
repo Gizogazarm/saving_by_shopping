@@ -37,5 +37,10 @@
     <string name="tv_totalShopping">Total Shopping</string>
     <string name="btn_checkout">Checkout</string>
     <string name="cancel_dialog">Cancel Dialog</string>
+    <string name="title_dialogItem">Add Shopping Item</string>
+    <string name="title_itemDetails">ITEM DETAILS</string>
+    <string name="tv_itemName">Item Name</string>"
+    <string name="hint_namaItem">Nama Item</string>
+
 
 </resources>

@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
 import com.example.savingbyshopping.R
 import com.example.savingbyshopping.databinding.FragmentDialogAddItemShopBinding
+import com.example.savingbyshopping.utils.JenisProduk
 
 
 class DialogAddItemShopFragment : DialogFragment() {
@@ -25,6 +26,10 @@ class DialogAddItemShopFragment : DialogFragment() {
         _binding = FragmentDialogAddItemShopBinding.inflate(layoutInflater, container, false)
         val view = binding.root
         return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        val list = JenisProduk.entries.map { it.value }
     }
 
     override fun onStart() {

@@ -13,35 +13,111 @@
 
         <ImageButton
             android:id="@+id/btn_cancel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="@string/cancel_dialog"
-            android:scaleType="centerInside"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_marginTop="30dp"
             android:layout_marginEnd="18dp"
-            android:background="@drawable/ripple_cancel_icon"
+            android:background="@drawable/rounded_corner_button"
+            android:contentDescription="@string/cancel_dialog"
+            android:scaleType="centerInside"
             android:src="@drawable/cancel_icon"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <!--BAGIAN AKHIT BUTTON CLOSE DIALOG-->
 
-      <TextView
-             android:id="@+id/tv_test"
-             app:layout_constraintTop_toBottomOf="@id/view_test"
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content"
-             android:text="@string/app_name"
-             android:layout_marginTop="1000dp"
-             android:textAlignment="center"
-             android:textSize="20sp"
-             app:layout_constraintStart_toStartOf="parent" />
+        <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/divider_atasTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="26dp"
+            app:dividerColor="@color/black"
+            app:dividerInsetEnd="25dp"
+            app:dividerInsetStart="25dp"
+            app:dividerThickness="2dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_cancel" />
 
-         <View
+        <TextView
+            android:id="@+id/tv_titleDialogAddItem"
+            android:layout_width="201dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_serif_bold"
+            android:text="@string/title_dialogItem"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider_atasTitle"
+            tools:ignore="TextSizeCheck" />
+
+        <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/divider_bawahTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:dividerColor="@color/black"
+            app:dividerInsetEnd="25dp"
+            app:dividerInsetStart="25dp"
+            app:dividerThickness="2dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_titleDialogAddItem" />
+
+        <!--BAGIAN AKHIR TITLE DIALOG ADD SHOPPING ITEM-->
+
+        <TextView
+            android:id="@+id/tv_itemDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="34dp"
+            android:fontFamily="@font/dm_sans_bold"
+            android:text="@string/title_itemDetails"
+            android:textColor="@color/hijau_gelap"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider_bawahTitle" />
+
+
+
+        <!--BAGIAN AWAL EDIT TEXT NAMA ITEM-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/input_layoutNamaItem"
+            style="@style/EditText.Open"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="14dp"
+            app:hintEnabled="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_itemDetails"
+            app:startIconDrawable="@drawable/store_icon">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ed_namaItem"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:hint="@string/hint_namaItem"
+                android:inputType="text"
+                android:paddingTop="0dp"
+                android:paddingBottom="0dp"
+                tools:ignore="TextContrastCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <!--BAGIAN AKHIR EDIT TEXT NAMA ITEM-->
+
+
+
+
+        <!-- <View
              android:id="@+id/view_test"
              android:layout_width="match_parent"
              android:layout_height="1000dp"
              app:layout_constraintStart_toStartOf="parent"
-             app:layout_constraintTop_toBottomOf="@id/btn_cancel" />
+             app:layout_constraintTop_toBottomOf="@+id/tv_itemDetails" />-->
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
