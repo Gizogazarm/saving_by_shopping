@@ -201,7 +201,7 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/tv_qty"
+            android:id="@+id/tv_titleQty"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="23dp"
@@ -215,7 +215,18 @@
 
         <!--BATAS AKHIR DARU TV ITEM DETAILS SAMPAI QTY (BAGIAN ATAS)-->
 
-
+        <TextView
+            android:id="@+id/tv_priceDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="63dp"
+            android:fontFamily="@font/dm_sans_bold"
+            android:text="@string/price_detail"
+            android:textColor="@color/hijau_gelap"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_titleQty" />
 
 
         <!--<View

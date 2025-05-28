@@ -46,6 +46,7 @@
     <string name="button_minus">button minus</string>
     <string name="qty">0</string>
     <string name="tv_qty">QTY</string>
+    <string name="price_detail">PRICE DETAILS</string>
 
 
 </resources>
