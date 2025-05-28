@@ -93,7 +93,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_itemDetails"
-            app:startIconDrawable="@drawable/store_icon">
+            app:startIconDrawable="@drawable/item_icon">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/ed_namaItem"
@@ -228,16 +228,182 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_titleQty" />
 
+        <TextView
+            android:id="@+id/tv_originalPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/dm_sans_bold"
+            android:text="@string/original_price"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_priceDetail" />
 
-        <!--<View
+        <!--BAGIAN AWAL EDIT TEXT ORIGINAL PRICE-->
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/input_originalPrice"
+            style="@style/EditText.Open"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="14dp"
+            app:hintEnabled="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_originalPrice"
+            app:startIconDrawable="@drawable/item_icon">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ed_originalPrice"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:hint="@string/amount_budget"
+                android:inputType="number"
+                android:paddingTop="0dp"
+                android:paddingBottom="0dp"
+                tools:ignore="TextContrastCheck,DuplicateSpeakableTextCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!--BAGIAN AKHIR EDIT TEXT ORIGINAL PRICE-->
+
+        <TextView
+            android:id="@+id/tv_setDiscountItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="24dp"
+            android:fontFamily="@font/dm_sans_bold"
+            android:text="@string/tv_dicountPerItem"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/input_originalPrice" />
+
+        <!--BAGIAN AWAL UNTUK TOMBOL SETTING DISCOUNT DAN EDIT TEXT-->
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btn_checkDialog"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/rounded_corner_button"
+            android:contentDescription="@string/button_Check"
+            android:scaleType="centerInside"
+            android:src="@drawable/check_icon"
+            app:layout_constraintEnd_toStartOf="@id/layout_edPercentageDialog"
+            app:layout_constraintTop_toBottomOf="@id/tv_setDiscountItem" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layout_edPercentageDialog"
+            style="@style/EditText.fillItem"
+            android:layout_width="66dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="9dp"
+            android:layout_marginTop="10dp"
+            app:hintEnabled="false"
+            app:layout_constraintStart_toEndOf="@+id/btn_checkDialog"
+            app:layout_constraintTop_toBottomOf="@id/tv_setDiscountItem">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ed_percentageDialog"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:hint="@string/isi_diskon"
+                android:inputType="number"
+                android:paddingTop="0dp"
+                android:paddingBottom="0dp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/tv_percentageDialogItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="9dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="24dp"
+            android:fontFamily="@font/dm_sans_bold"
+            android:includeFontPadding="false"
+            android:text="@string/percentage"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@id/layout_edPercentageDialog"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_setDiscountItem" />
+
+        <!--BAGIAN AKHIR UNTUK TOMBOL SETTING DISCOUNT DAN EDIT TEXT-->
+
+        <TextView
+            android:id="@+id/tv_priceAfterDiskon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="24dp"
+            android:fontFamily="@font/dm_sans_bold"
+            android:text="@string/tv_afterDiscount"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_checkDialog" />
+
+        <!--BAGIAN AWAL UNTUK EDIT TEXT AFTER DISCOUNT-->
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/input_afterPrice"
+            style="@style/EditText.Open"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="14dp"
+            app:hintEnabled="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_priceAfterDiskon"
+            app:startIconDrawable="@drawable/item_icon">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ed_afterlPrice"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:hint="@string/amount_budget"
+                android:inputType="number"
+                android:paddingTop="0dp"
+                android:paddingBottom="0dp"
+                tools:ignore="TextContrastCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!--BAGIAN AKHIR UNTUK EDIT TEXT AFTER DISCOUNT-->
+
+        <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/divider_akhirPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="34dp"
+            app:dividerColor="@color/black"
+            app:dividerInsetEnd="25dp"
+            app:dividerInsetStart="25dp"
+            app:dividerThickness="2dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/input_afterPrice" />
+
+
+
+        <View
             android:id="@+id/view_test"
             android:layout_width="match_parent"
-            android:layout_height="1000dp"
+            android:layout_height="300dp"
             android:layout_marginStart="16dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_jenisItem" />
+            app:layout_constraintTop_toBottomOf="@+id/divider_akhirPrice" />
 
--->
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
