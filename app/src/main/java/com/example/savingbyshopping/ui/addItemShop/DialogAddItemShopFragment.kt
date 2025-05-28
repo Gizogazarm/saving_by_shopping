@@ -31,9 +31,13 @@ class DialogAddItemShopFragment : DialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val list = JenisProduk.entries.map { it.value }
-        val adapter = ArrayAdapter(requireContext(),R.layout.dropdown_list_jenis_produk,list)
+        val adapter = ArrayAdapter(requireContext(), R.layout.dropdown_list_jenis_produk, list)
 
         with(binding) {
+
+            btnCancel.setOnClickListener {
+                dismiss()
+            }
 
             edJenisProduk.setAdapter(adapter)
 
@@ -49,6 +53,11 @@ class DialogAddItemShopFragment : DialogFragment() {
             fixedWidthInPx,
             fixedHeightInPx
         )
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
 

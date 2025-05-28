@@ -62,6 +62,11 @@ class AddShoppingFragment : Fragment() {
         }
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
     private fun setViewModelFactory() {
         factory = ViewModelFactory.getInstance(requireActivity())
     }

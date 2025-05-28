@@ -42,6 +42,10 @@
     <string name="tv_itemName">Item Name</string>"
     <string name="hint_namaItem">Nama Item</string>
     <string name="jenis_produk">Product Type</string>
+    <string name="button_plus">button plus</string>
+    <string name="button_minus">button minus</string>
+    <string name="qty">0</string>
+    <string name="tv_qty">QTY</string>
 
 
 </resources>

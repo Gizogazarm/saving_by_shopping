@@ -123,12 +123,12 @@
                 android:id="@+id/ed_JenisProduk"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:dropDownBackgroundTint="@color/hijau_transparant"
-                android:fontFamily="@font/dm_sans"
-                android:textAppearance="@font/dm_sans_bold"
                 android:dropDownHeight="144dp"
+                android:fontFamily="@font/dm_sans"
                 android:inputType="none"
+                android:textAppearance="@font/dm_sans_bold"
                 android:textSize="13sp"
+                app:dropDownBackgroundTint="@color/hijau_transparant"
                 tools:ignore="LabelFor,SpeakableTextPresentCheck" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -145,20 +145,88 @@
             android:fontFamily="@font/dm_sans_bold"
             android:text="@string/jenis_produk"
             android:textColor="@color/black"
-            android:textSize="14sp"
+            android:textSize="16sp"
             app:layout_constraintEnd_toStartOf="@id/input_layoutJenisProduk"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/input_layoutNamaItem" />
 
+        <LinearLayout
+            android:id="@+id/layout_btnQuantity"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginEnd="24dp"
+            android:background="@drawable/rounded_corner_button"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/input_layoutJenisProduk">
 
-        <View
+            <!-- Tombol minus -->
+            <ImageButton
+                android:id="@+id/btn_minQty"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/button_minus"
+                android:scaleType="centerInside"
+                android:src="@drawable/baseline_horizontal_rule_24"
+                app:tint="@color/black"
+                tools:ignore="RedundantDescriptionCheck" />
+
+            <!-- Text jumlah -->
+            <TextView
+                android:id="@+id/tv_quantity"
+                android:layout_width="40dp"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/dm_sans"
+                android:gravity="center"
+                android:text="@string/qty"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <!-- Tombol plus -->
+            <ImageButton
+                android:id="@+id/btn_addQty"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/button_plus"
+                android:scaleType="centerInside"
+                android:src="@drawable/baseline_add_24"
+                app:tint="@color/black"
+                tools:ignore="RedundantDescriptionCheck" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_qty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="23dp"
+            android:layout_marginEnd="15dp"
+            android:fontFamily="@font/dm_sans_bold"
+            android:text="@string/tv_qty"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@id/layout_btnQuantity"
+            app:layout_constraintTop_toBottomOf="@id/input_layoutJenisProduk" />
+
+        <!--BATAS AKHIR DARU TV ITEM DETAILS SAMPAI QTY (BAGIAN ATAS)-->
+
+
+
+
+        <!--<View
             android:id="@+id/view_test"
             android:layout_width="match_parent"
             android:layout_height="1000dp"
+            android:layout_marginStart="16dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_jenisItem" />
 
-
+-->
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
