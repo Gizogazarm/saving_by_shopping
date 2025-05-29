@@ -314,11 +314,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical"
-                android:hint="@string/isi_diskon"
+                android:hint="@string/qty"
                 android:inputType="number"
                 android:paddingTop="0dp"
                 android:paddingBottom="0dp"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                tools:ignore="DuplicateSpeakableTextCheck" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -380,6 +381,41 @@
                 tools:ignore="TextContrastCheck" />
         </com.google.android.material.textfield.TextInputLayout>
 
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/input_afterPriceLock"
+            style="@style/EditText.Lock"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="14dp"
+            android:visibility="gone"
+            app:hintEnabled="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_priceAfterDiskon"
+            app:startIconDrawable="@drawable/item_icon">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ed_afterlPriceLock"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:enabled="false"
+                android:gravity="center_vertical"
+                android:inputType="number"
+                android:paddingTop="0dp"
+                android:paddingBottom="0dp"
+                tools:ignore="TextContrastCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier_afterPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="input_afterPrice,input_afterPriceLock"
+            app:layout_constraintStart_toStartOf="parent" />
+
         <!--BAGIAN AKHIR UNTUK EDIT TEXT AFTER DISCOUNT-->
 
         <com.google.android.material.divider.MaterialDivider
@@ -393,7 +429,7 @@
             app:dividerThickness="2dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/input_afterPrice" />
+            app:layout_constraintTop_toBottomOf="@id/barrier_afterPrice" />
 
         <!--BAGIAN AKHIR DARI PRICE DETAILS-->
 
@@ -459,6 +495,7 @@
                     android:id="@+id/ed_buyItem"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:enabled="false"
                     android:gravity="center_vertical"
                     android:hint="@string/qty"
                     android:inputType="number"
@@ -491,6 +528,7 @@
                     android:id="@+id/ed_FreeItem"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:enabled="false"
                     android:gravity="center_vertical"
                     android:hint="@string/qty"
                     android:inputType="number"

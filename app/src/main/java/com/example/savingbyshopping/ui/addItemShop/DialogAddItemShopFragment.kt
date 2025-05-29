@@ -17,11 +17,12 @@ class DialogAddItemShopFragment : DialogFragment() {
 
     private var _binding: FragmentDialogAddItemShopBinding? = null
     private val binding get() = _binding!!
-    private lateinit var factory : ViewModelFactory
+    private lateinit var factory: ViewModelFactory
     private val itemShopViewModel: AddItemShopViewModel by activityViewModels { factory }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        isCancelable = false
         setStyle(STYLE_NORMAL, R.style.Theme_SavingByShopping_FullScreenDialog)
     }
 
@@ -40,6 +41,8 @@ class DialogAddItemShopFragment : DialogFragment() {
 
         with(binding) {
 
+            btnCheckBuyItemFreeItem.isEnabled = false
+
             btnAddQty.setOnClickListener {
                 itemShopViewModel.incrementQuantity()
             }
@@ -52,11 +55,15 @@ class DialogAddItemShopFragment : DialogFragment() {
                 tvQuantity.text = it.toString()
             }
 
+            //BAGIAN QUANTITY TAMBAH DAN KURANG
+
             rbNone.setOnCheckedChangeListener { _, isChecked ->
                 if (isChecked) {
                     rbBuyOneFree.isChecked = false
                     rbNoDiscount.isChecked = false
                 }
+                visibleEditTextAfterPrice(!isChecked)
+                visibleEditTextBuyFreeitem(isChecked)
             }
 
             rbBuyOneFree.setOnCheckedChangeListener { _, isChecked ->
@@ -64,6 +71,8 @@ class DialogAddItemShopFragment : DialogFragment() {
                     rbNone.isChecked = false
                     rbNoDiscount.isChecked = false
                 }
+                visibleEditTextAfterPrice(isChecked)
+                visibleEditTextBuyFreeitem(!isChecked)
             }
 
             rbNoDiscount.setOnCheckedChangeListener { _, isChecked ->
@@ -71,6 +80,8 @@ class DialogAddItemShopFragment : DialogFragment() {
                     rbNone.isChecked = false
                     rbBuyOneFree.isChecked = false
                 }
+                visibleEditTextAfterPrice(isChecked)
+                visibleEditTextBuyFreeitem(isChecked)
             }
 
             btnCancel.setOnClickListener {
@@ -99,6 +110,32 @@ class DialogAddItemShopFragment : DialogFragment() {
 
     private fun setViewModelFactory() {
         factory = ViewModelFactory.getInstance(requireActivity())
+    }
+
+    private fun visibleEditTextAfterPrice(status: Boolean) {
+        with(binding) {
+            if (status) {
+                inputAfterPriceLock.visibility = View.VISIBLE
+                inputAfterPrice.visibility = View.GONE
+            } else {
+                inputAfterPriceLock.visibility = View.GONE
+                inputAfterPrice.visibility = View.VISIBLE
+            }
+        }
+    }
+
+    private fun visibleEditTextBuyFreeitem(status: Boolean) {
+        with(binding) {
+            if (status) {
+                edBuyItem.isEnabled = false
+                edFreeItem.isEnabled = false
+                btnCheckBuyItemFreeItem.isEnabled = false
+            } else {
+                edBuyItem.isEnabled = true
+                edFreeItem.isEnabled = true
+                btnCheckBuyItemFreeItem.isEnabled = true
+            }
+        }
     }
 
 
