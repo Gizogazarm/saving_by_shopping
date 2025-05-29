@@ -35,6 +35,27 @@ class DialogAddItemShopFragment : DialogFragment() {
 
         with(binding) {
 
+            rbNone.setOnCheckedChangeListener { _, isChecked ->
+                if (isChecked) {
+                    rbBuyOneFree.isChecked = false
+                    rbNoDiscount.isChecked = false
+                }
+            }
+
+            rbBuyOneFree.setOnCheckedChangeListener { _, isChecked ->
+                if (isChecked) {
+                    rbNone.isChecked = false
+                    rbNoDiscount.isChecked = false
+                }
+            }
+
+            rbNoDiscount.setOnCheckedChangeListener { _, isChecked ->
+                if (isChecked) {
+                    rbNone.isChecked = false
+                    rbBuyOneFree.isChecked = false
+                }
+            }
+
             btnCancel.setOnClickListener {
                 dismiss()
             }
@@ -50,8 +71,7 @@ class DialogAddItemShopFragment : DialogFragment() {
         val fixedWidthInPx = resources.getDimensionPixelSize(R.dimen.my_dialog_fixed_width)
 
         dialog?.window?.setLayout(
-            fixedWidthInPx,
-            fixedHeightInPx
+            fixedWidthInPx, fixedHeightInPx
         )
     }
 

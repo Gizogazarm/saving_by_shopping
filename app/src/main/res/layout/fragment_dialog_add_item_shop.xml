@@ -289,14 +289,14 @@
             android:id="@+id/btn_checkDialog"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_marginStart="16dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/rounded_corner_button"
             android:contentDescription="@string/button_Check"
             android:scaleType="centerInside"
             android:src="@drawable/check_icon"
             app:layout_constraintEnd_toStartOf="@id/layout_edPercentageDialog"
-            app:layout_constraintTop_toBottomOf="@id/tv_setDiscountItem" />
+            app:layout_constraintTop_toBottomOf="@id/tv_setDiscountItem"
+            tools:ignore="DuplicateSpeakableTextCheck" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/layout_edPercentageDialog"
@@ -317,7 +317,8 @@
                 android:hint="@string/isi_diskon"
                 android:inputType="number"
                 android:paddingTop="0dp"
-                android:paddingBottom="0dp" />
+                android:paddingBottom="0dp"
+                android:textAlignment="center" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -333,8 +334,8 @@
             android:text="@string/percentage"
             android:textColor="@color/black"
             android:textSize="20sp"
-            app:layout_constraintStart_toEndOf="@id/layout_edPercentageDialog"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/layout_edPercentageDialog"
             app:layout_constraintTop_toBottomOf="@id/tv_setDiscountItem" />
 
         <!--BAGIAN AKHIR UNTUK TOMBOL SETTING DISCOUNT DAN EDIT TEXT-->
@@ -343,8 +344,8 @@
             android:id="@+id/tv_priceAfterDiskon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:layout_marginStart="24dp"
+            android:layout_marginTop="10dp"
             android:fontFamily="@font/dm_sans_bold"
             android:text="@string/tv_afterDiscount"
             android:textColor="@color/black"
@@ -372,7 +373,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical"
-                android:hint="@string/amount_budget"
+                android:hint="@string/hint_inputManually"
                 android:inputType="number"
                 android:paddingTop="0dp"
                 android:paddingBottom="0dp"
@@ -394,15 +395,158 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/input_afterPrice" />
 
+        <!--BAGIAN AKHIR DARI PRICE DETAILS-->
+
+        <TextView
+            android:id="@+id/tv_specialCondition"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="47dp"
+            android:fontFamily="@font/dm_sans_bold"
+            android:text="@string/tv_specialCondition"
+            android:textColor="@color/hijau_gelap"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider_akhirPrice" />
+
+        <RadioButton
+            android:id="@+id/rb_none"
+            style="@style/RadioButton.App"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="27dp"
+            android:checked="true"
+            android:enabled="true"
+            android:fontFamily="@font/dm_sans_bold"
+            android:text="@string/none"
+            android:textSize="17sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_specialCondition"
+            tools:ignore="TextSizeCheck" />
+
+        <LinearLayout
+            android:id="@+id/layout_buyItemFreeItem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="14dp"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rb_none">
+
+            <RadioButton
+                android:id="@+id/rb_buyOneFree"
+                style="@style/RadioButton.App"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:enabled="true"
+                android:fontFamily="@font/dm_sans_bold"
+                android:text="@string/rb_buy"
+                android:textSize="17sp"
+                tools:ignore="TextSizeCheck" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout_edBuyItem"
+                style="@style/EditText.fillItem"
+                android:layout_width="66dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="9dp"
+                app:hintEnabled="false">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/ed_buyItem"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:hint="@string/qty"
+                    android:inputType="number"
+                    android:paddingTop="0dp"
+                    android:paddingBottom="0dp"
+                    android:textAlignment="center"
+                    tools:ignore="DuplicateSpeakableTextCheck" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/tv_free"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="9dp"
+                android:fontFamily="@font/dm_sans_bold"
+                android:text="@string/tv_free"
+                android:textSize="17sp" />
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout_edFreeItem"
+                style="@style/EditText.fillItem"
+                android:layout_width="66dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="9dp"
+                app:hintEnabled="false">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/ed_FreeItem"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:hint="@string/qty"
+                    android:inputType="number"
+                    android:paddingTop="0dp"
+                    android:paddingBottom="0dp"
+                    android:textAlignment="center" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/btn_checkBuyItemFreeItem"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="16dp"
+                android:background="@drawable/rounded_corner_button"
+                android:contentDescription="@string/button_Check"
+                android:scaleType="centerInside"
+                android:src="@drawable/check_icon" />
+
+        </LinearLayout>
+
+        <RadioButton
+            android:id="@+id/rb_noDiscount"
+            style="@style/RadioButton.App"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="14dp"
+            android:enabled="true"
+            android:fontFamily="@font/dm_sans_bold"
+            android:text="@string/no_discount"
+            android:textSize="17sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layout_buyItemFreeItem"
+            tools:ignore="TextSizeCheck" />
+
+
+        <Button
+            android:id="@+id/btn_saveItem"
+            style="@style/ButtonApp.versi1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="41dp"
+            android:text="@string/save"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rb_noDiscount" />
 
 
         <View
             android:id="@+id/view_test"
             android:layout_width="match_parent"
-            android:layout_height="300dp"
+            android:layout_height="70dp"
             android:layout_marginStart="16dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/divider_akhirPrice" />
+            app:layout_constraintTop_toBottomOf="@+id/btn_saveItem" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

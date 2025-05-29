@@ -240,7 +240,8 @@
                 android:hint="@string/isi_diskon"
                 android:inputType="number"
                 android:paddingTop="0dp"
-                android:paddingBottom="0dp" />
+                android:paddingBottom="0dp"
+                android:textAlignment="center" />
 
         </com.google.android.material.textfield.TextInputLayout>
 

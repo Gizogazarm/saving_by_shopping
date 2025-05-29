@@ -50,6 +50,13 @@
     <string name="tv_qty">QTY</string>
     <string name="price_detail">PRICE DETAILS</string>
     <string name="original_price">Original Price</string>
+    <string name="hint_inputManually">Input Manually</string>
+    <string name="tv_specialCondition">SPECIAL CONDITION</string>
+    <string name="none">None</string>
+    <string name="rb_buy">Buy</string>
+    <string name="tv_free">Free</string>
+    <string name="no_discount">No Discount</string>
+    <string name="save">Save</string>
 
 
 </resources>
