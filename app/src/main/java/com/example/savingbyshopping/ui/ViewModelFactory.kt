@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.savingbyshopping.data.injection.Injection
 import com.example.savingbyshopping.data.repository.ShoppingListRepository
+import com.example.savingbyshopping.ui.addItemShop.AddItemShopViewModel
 import com.example.savingbyshopping.ui.addShoppingList.AddShoppingListViewModel
 
 class ViewModelFactory private constructor(private val shoppingListRepository: ShoppingListRepository) :
@@ -25,8 +26,8 @@ class ViewModelFactory private constructor(private val shoppingListRepository: S
         if (modelClass.isAssignableFrom(AddShoppingListViewModel::class.java)) {
             return AddShoppingListViewModel(shoppingListRepository) as T
         }
-        if (modelClass.isAssignableFrom(AddShoppingListViewModel::class.java)) {
-            return AddShoppingListViewModel(shoppingListRepository) as T
+        if (modelClass.isAssignableFrom(AddItemShopViewModel::class.java)) {
+            return AddItemShopViewModel(shoppingListRepository) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
     }

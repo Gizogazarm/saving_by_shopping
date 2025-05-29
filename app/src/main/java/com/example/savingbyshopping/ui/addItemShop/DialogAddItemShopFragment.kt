@@ -6,8 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.activityViewModels
 import com.example.savingbyshopping.R
 import com.example.savingbyshopping.databinding.FragmentDialogAddItemShopBinding
+import com.example.savingbyshopping.ui.ViewModelFactory
 import com.example.savingbyshopping.utils.JenisProduk
 
 
@@ -15,6 +17,8 @@ class DialogAddItemShopFragment : DialogFragment() {
 
     private var _binding: FragmentDialogAddItemShopBinding? = null
     private val binding get() = _binding!!
+    private lateinit var factory : ViewModelFactory
+    private val itemShopViewModel: AddItemShopViewModel by activityViewModels { factory }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,10 +34,23 @@ class DialogAddItemShopFragment : DialogFragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        setViewModelFactory()
         val list = JenisProduk.entries.map { it.value }
         val adapter = ArrayAdapter(requireContext(), R.layout.dropdown_list_jenis_produk, list)
 
         with(binding) {
+
+            btnAddQty.setOnClickListener {
+                itemShopViewModel.incrementQuantity()
+            }
+
+            btnMinQty.setOnClickListener {
+                itemShopViewModel.decrementQuantity()
+            }
+
+            itemShopViewModel.quantity.observe(viewLifecycleOwner) {
+                tvQuantity.text = it.toString()
+            }
 
             rbNone.setOnCheckedChangeListener { _, isChecked ->
                 if (isChecked) {
@@ -78,6 +95,10 @@ class DialogAddItemShopFragment : DialogFragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun setViewModelFactory() {
+        factory = ViewModelFactory.getInstance(requireActivity())
     }
 
 
