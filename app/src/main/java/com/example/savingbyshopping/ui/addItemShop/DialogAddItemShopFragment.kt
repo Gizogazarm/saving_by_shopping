@@ -7,9 +7,11 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import com.example.savingbyshopping.R
 import com.example.savingbyshopping.databinding.FragmentDialogAddItemShopBinding
 import com.example.savingbyshopping.ui.ViewModelFactory
+import com.example.savingbyshopping.utils.Condition
 import com.example.savingbyshopping.utils.JenisProduk
 
 
@@ -19,6 +21,7 @@ class DialogAddItemShopFragment : DialogFragment() {
     private val binding get() = _binding!!
     private lateinit var factory: ViewModelFactory
     private val itemShopViewModel: AddItemShopViewModel by activityViewModels { factory }
+    private val dialogAddItemShopViewModel: DialogAddItemShopViewModel by viewModels { factory }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,15 +47,23 @@ class DialogAddItemShopFragment : DialogFragment() {
             btnCheckBuyItemFreeItem.isEnabled = false
 
             btnAddQty.setOnClickListener {
-                itemShopViewModel.incrementQuantity()
+                dialogAddItemShopViewModel.incrementQuantity()
             }
 
             btnMinQty.setOnClickListener {
-                itemShopViewModel.decrementQuantity()
+                dialogAddItemShopViewModel.decrementQuantity()
             }
 
-            itemShopViewModel.quantity.observe(viewLifecycleOwner) {
+            dialogAddItemShopViewModel.quantity.observe(viewLifecycleOwner) {
                 tvQuantity.text = it.toString()
+            }
+
+            dialogAddItemShopViewModel.isAfterPriceLocked.observe(viewLifecycleOwner){
+                visibleEditTextAfterPrice(it)
+            }
+
+            dialogAddItemShopViewModel.isBuyFreeEditable.observe(viewLifecycleOwner) {
+                visibleEditTextBuyFreeitem(it)
             }
 
             //BAGIAN QUANTITY TAMBAH DAN KURANG
@@ -61,27 +72,25 @@ class DialogAddItemShopFragment : DialogFragment() {
                 if (isChecked) {
                     rbBuyOneFree.isChecked = false
                     rbNoDiscount.isChecked = false
+                    dialogAddItemShopViewModel.setCondition(Condition.NONE)
                 }
-                visibleEditTextAfterPrice(!isChecked)
-                visibleEditTextBuyFreeitem(isChecked)
             }
 
             rbBuyOneFree.setOnCheckedChangeListener { _, isChecked ->
                 if (isChecked) {
                     rbNone.isChecked = false
                     rbNoDiscount.isChecked = false
+                    dialogAddItemShopViewModel.setCondition(Condition.BUY_ITEM_FREE_ITEM)
                 }
-                visibleEditTextAfterPrice(isChecked)
-                visibleEditTextBuyFreeitem(!isChecked)
             }
 
             rbNoDiscount.setOnCheckedChangeListener { _, isChecked ->
                 if (isChecked) {
                     rbNone.isChecked = false
                     rbBuyOneFree.isChecked = false
+                    dialogAddItemShopViewModel.setCondition(Condition.NO_DISCOUNT)
                 }
-                visibleEditTextAfterPrice(isChecked)
-                visibleEditTextBuyFreeitem(isChecked)
+
             }
 
             btnCancel.setOnClickListener {
