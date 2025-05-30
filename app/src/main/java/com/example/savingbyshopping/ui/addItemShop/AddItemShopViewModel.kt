@@ -10,8 +10,6 @@ import kotlinx.coroutines.launch
 class AddItemShopViewModel(private val shoppingListRepository: ShoppingListRepository) :
     ViewModel() {
 
-
-
     fun ambilSemuaItemShop() = shoppingListRepository.ambilSemuaItemShop()
     fun inputItemShop(itemShop: ItemShop) = viewModelScope.launch {
         shoppingListRepository.inputItemShop(itemShop)
