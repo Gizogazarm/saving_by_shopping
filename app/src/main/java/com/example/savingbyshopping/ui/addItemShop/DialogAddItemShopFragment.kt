@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.example.savingbyshopping.R
 import com.example.savingbyshopping.databinding.FragmentDialogAddItemShopBinding
 import com.example.savingbyshopping.ui.ViewModelFactory
@@ -39,10 +40,12 @@ class DialogAddItemShopFragment : DialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         setViewModelFactory()
+        val idShopping = DialogAddItemShopFragmentArgs.fromBundle(arguments as Bundle).idShopping
         val list = JenisProduk.entries.map { it.value }
         val adapter = ArrayAdapter(requireContext(), R.layout.dropdown_list_jenis_produk, list)
 
         with(binding) {
+            edJenisProduk.setAdapter(adapter)
 
             btnCheckBuyItemFreeItem.isEnabled = false
 
@@ -58,7 +61,7 @@ class DialogAddItemShopFragment : DialogFragment() {
                 tvQuantity.text = it.toString()
             }
 
-            dialogAddItemShopViewModel.isAfterPriceLocked.observe(viewLifecycleOwner){
+            dialogAddItemShopViewModel.isAfterPriceLocked.observe(viewLifecycleOwner) {
                 visibleEditTextAfterPrice(it)
             }
 
@@ -97,7 +100,14 @@ class DialogAddItemShopFragment : DialogFragment() {
                 dismiss()
             }
 
-            edJenisProduk.setAdapter(adapter)
+            btnSaveItem.setOnClickListener {
+                val action =
+                    DialogAddItemShopFragmentDirections.actionDialogAddItemShopFragmentToAddItemShopFragment(
+                        idShopping
+                    )
+                findNavController().navigate(action)
+            }
+
 
         }
     }

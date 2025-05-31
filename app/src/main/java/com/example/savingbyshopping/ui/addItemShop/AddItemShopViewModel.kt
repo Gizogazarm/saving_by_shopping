@@ -1,6 +1,5 @@
 package com.example.savingbyshopping.ui.addItemShop
 
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.savingbyshopping.data.repository.ShoppingListRepository

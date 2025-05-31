@@ -54,6 +54,10 @@
         <argument
             android:name="IdShopping"
             app:argType="long" />
+        <action
+            android:id="@+id/action_dialogAddItemShopFragment_to_addItemShopFragment"
+            app:destination="@id/addItemShopFragment"
+            app:popUpTo="@id/homeFragment" />
     </dialog>
 
 </navigation>
