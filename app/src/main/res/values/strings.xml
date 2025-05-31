@@ -57,6 +57,7 @@
     <string name="tv_free">Free</string>
     <string name="no_discount">No Discount</string>
     <string name="save">Save</string>
+    <string name="error_namaToko">Nama Toko Tidak Boleh Kosong</string>
 
 
 </resources>

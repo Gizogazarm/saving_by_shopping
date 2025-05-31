@@ -21,6 +21,7 @@ class AddShoppingFragment : Fragment() {
     private var _binding: FragmentAddShoppingBinding? = null
     private lateinit var factory: ViewModelFactory
     private val viewModel: AddShoppingListViewModel by viewModels { factory }
+    private lateinit var namaToko: String
     private lateinit var shoppingList: ShoppingList
     private val binding get() = _binding!!
 
@@ -42,7 +43,9 @@ class AddShoppingFragment : Fragment() {
             edDate.setText(CalendarUtils.calendarToString((calendar)))
 
             btnAddShopping.setOnClickListener {
-                val namaToko = edNamaToko.text.toString().ambilDuaKataPertama()
+                if (!edNamaToko.isValid(getString(R.string.error_namaToko))) return@setOnClickListener
+
+                namaToko = edNamaToko.text.toString().ambilDuaKataPertama()
                 val email = edEmail.text.toString()
 
                 shoppingList = ShoppingList(
@@ -52,9 +55,12 @@ class AddShoppingFragment : Fragment() {
                 )
                 viewModel.inputShoppingList(shoppingList)
                 viewModel.insertResult.observe(viewLifecycleOwner) { id ->
-                        makeSnackbar(getString(R.string.success_addingShoppingReceipt))
-                        val action = AddShoppingFragmentDirections.actionAddShoppingFragmentToAddItemShopFragment(id)
-                        view.findNavController().navigate(action)
+                    makeSnackbar(getString(R.string.success_addingShoppingReceipt))
+                    val action =
+                        AddShoppingFragmentDirections.actionAddShoppingFragmentToAddItemShopFragment(
+                            id
+                        )
+                    view.findNavController().navigate(action)
 
                 }
 

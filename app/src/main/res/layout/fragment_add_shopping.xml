@@ -41,7 +41,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_titleAddShopping"
         app:startIconDrawable="@drawable/store_icon">
 
-        <com.google.android.material.textfield.TextInputEditText
+        <com.example.savingbyshopping.utils.EditTextCustom
             android:id="@+id/ed_namaToko"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

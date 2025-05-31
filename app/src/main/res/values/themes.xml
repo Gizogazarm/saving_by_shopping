@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- Base application theme. -->
     <style name="Theme.SavingByShopping" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Warna utama -->
@@ -23,6 +23,10 @@
         <item name="android:windowLightStatusBar">true</item>
     </style>
 
+    <style name="CustomErrorTextAppearance" parent="TextAppearance.Material3.BodySmall">
+        <item name="fontFamily">@font/dm_sans_bold</item>
+    </style>
+
     <style name="ButtonApp.versi1" parent="@style/Widget.Material3.Button.TonalButton">
         <item name="android:textColor">@color/hijau_gelap</item>
         <item name="backgroundTint">@color/button_normal</item>
@@ -41,6 +45,7 @@
 
     <style name="EditText.Open" parent="@style/Widget.Material3.TextInputLayout.FilledBox.Dense">
         <item name="boxCornerRadiusBottomStart">20dp</item>
+        <item name="errorTextAppearance">@style/CustomErrorTextAppearance</item>
         <item name="cursorColor">@color/black</item>
         <item name="boxCornerRadiusBottomEnd">20dp</item>
         <item name="boxCornerRadiusTopEnd">20dp</item>
