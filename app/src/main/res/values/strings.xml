@@ -58,6 +58,9 @@
     <string name="no_discount">No Discount</string>
     <string name="save">Save</string>
     <string name="error_namaToko">Nama Toko Tidak Boleh Kosong</string>
+    <string name="error_item">Item Masih Kosong</string>
+    <string name="error_price">Original Price Masih Kosong</string>
+    <string name="error_jenisProduk">Jenis Produk Masih Kosong</string>
 
 
 </resources>

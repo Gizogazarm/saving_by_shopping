@@ -27,6 +27,11 @@
         <item name="fontFamily">@font/dm_sans_bold</item>
     </style>
 
+    <style name="JenisTextErrorTextAppearance" parent="TextAppearance.Material3.BodySmall">
+        <item name="fontFamily">@font/dm_sans_bold</item>
+        <item name="android:textSize">10sp</item>
+    </style>
+    
     <style name="ButtonApp.versi1" parent="@style/Widget.Material3.Button.TonalButton">
         <item name="android:textColor">@color/hijau_gelap</item>
         <item name="backgroundTint">@color/button_normal</item>
@@ -81,6 +86,7 @@
     <style name="EditText.dropdown" parent="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu">
         <item name="boxCornerRadiusBottomStart">20dp</item>
         <item name="boxCornerRadiusBottomEnd">20dp</item>
+        <item name="errorTextAppearance">@style/JenisTextErrorTextAppearance</item>
         <item name="boxCornerRadiusTopEnd">20dp</item>
         <item name="boxCornerRadiusTopStart">20dp</item>
         <item name="boxStrokeColor">@color/stroke_hijau_gelap</item>

@@ -14,6 +14,7 @@ import com.example.savingbyshopping.databinding.FragmentDialogAddItemShopBinding
 import com.example.savingbyshopping.ui.ViewModelFactory
 import com.example.savingbyshopping.utils.Condition
 import com.example.savingbyshopping.utils.JenisProduk
+import com.google.android.material.snackbar.Snackbar
 
 
 class DialogAddItemShopFragment : DialogFragment() {
@@ -101,6 +102,19 @@ class DialogAddItemShopFragment : DialogFragment() {
             }
 
             btnSaveItem.setOnClickListener {
+                if(!edNamaItem.isValid(getString(R.string.error_item))) {
+                    Snackbar.make(view, getString(R.string.error_item), Snackbar.LENGTH_SHORT).show()
+                    return@setOnClickListener
+                }
+                if (!edJenisProduk.isValid(getString(R.string.error_jenisProduk))) {
+                    Snackbar.make(view, getString(R.string.error_jenisProduk), Snackbar.LENGTH_SHORT).show()
+                    return@setOnClickListener
+                }
+                if (!edOriginalPrice.isValid(getString(R.string.error_price))) {
+                    Snackbar.make(view, getString(R.string.error_price), Snackbar.LENGTH_SHORT).show()
+                    return@setOnClickListener
+                }
+
                 val action =
                     DialogAddItemShopFragmentDirections.actionDialogAddItemShopFragmentToAddItemShopFragment(
                         idShopping

@@ -81,8 +81,6 @@ class AddShoppingFragment : Fragment() {
         val bottomNav = requireActivity().findViewById<View>(R.id.bottom_navigation)
 
         Snackbar.make(requireContext(), binding.root, message, Snackbar.LENGTH_SHORT)
-            .setBackgroundTint(resources.getColor(R.color.button_normal))
-            .setTextColor(resources.getColor(R.color.black))
             .setAnchorView(bottomNav)
             .show()
 
