@@ -99,7 +99,7 @@
         app:layout_constraintTop_toBottomOf="@+id/input_layoutDate"
         app:startIconDrawable="@drawable/email_icon">
 
-        <com.google.android.material.textfield.TextInputEditText
+        <com.example.savingbyshopping.utils.EmailCustomText
             android:id="@+id/ed_email"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

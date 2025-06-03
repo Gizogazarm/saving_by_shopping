@@ -44,6 +44,7 @@ class AddShoppingFragment : Fragment() {
 
             btnAddShopping.setOnClickListener {
                 if (!edNamaToko.isValid(getString(R.string.error_namaToko))) return@setOnClickListener
+                if (!edEmail.isValid(getString(R.string.error_email)) || !edEmail.validateEmail()) return@setOnClickListener
 
                 namaToko = edNamaToko.text.toString().ambilDuaKataPertama()
                 val email = edEmail.text.toString()

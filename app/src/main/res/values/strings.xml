@@ -61,6 +61,8 @@
     <string name="error_item">Item Masih Kosong</string>
     <string name="error_price">Original Price Masih Kosong</string>
     <string name="error_jenisProduk">Jenis Produk Masih Kosong</string>
+    <string name="error_formatEmail">Format Email Tidak Valid</string>
+    <string name="error_email">Email Tidak Boleh Kosong</string>
 
 
 </resources>
