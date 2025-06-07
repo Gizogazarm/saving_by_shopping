@@ -35,7 +35,7 @@ open class EditTextCustom @JvmOverloads constructor(
     fun isValid(message: String): Boolean {
         val textStr = text?.toString()?.trim()
         val parentLayout = parent?.parent
-        return if (textStr.isNullOrEmpty()) {
+        return if (textStr.isNullOrBlank()) {
             if (parentLayout is TextInputLayout) {
                 parentLayout.error = message
                 parentLayout.isErrorEnabled = true

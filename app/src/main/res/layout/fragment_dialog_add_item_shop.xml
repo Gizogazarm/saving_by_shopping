@@ -286,17 +286,32 @@
         <!--BAGIAN AWAL UNTUK TOMBOL SETTING DISCOUNT DAN EDIT TEXT-->
 
         <androidx.appcompat.widget.AppCompatImageButton
-            android:id="@+id/btn_checkDialog"
+            android:id="@+id/btn_checkPercentage"
             android:layout_width="30dp"
             android:layout_height="30dp"
+            android:layout_marginEnd="7dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/rounded_corner_button"
             android:contentDescription="@string/button_Check"
             android:scaleType="centerInside"
             android:src="@drawable/check_icon"
-            app:layout_constraintEnd_toStartOf="@id/layout_edPercentageDialog"
+            app:layout_constraintEnd_toStartOf="@id/btn_cancelPercentage"
             app:layout_constraintTop_toBottomOf="@id/tv_setDiscountItem"
             tools:ignore="DuplicateSpeakableTextCheck" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btn_cancelPercentage"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="9dp"
+            android:background="@drawable/rounded_corner_button"
+            android:contentDescription="@string/button_cancel"
+            android:scaleType="centerInside"
+            android:src="@drawable/btn_cancel_icon"
+            app:layout_constraintEnd_toStartOf="@id/layout_edPercentageDialog"
+            app:layout_constraintTop_toBottomOf="@id/tv_setDiscountItem"
+            tools:ignore="DuplicateSpeakableTextCheck,RedundantDescriptionCheck" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/layout_edPercentageDialog"
@@ -306,7 +321,7 @@
             android:layout_marginStart="9dp"
             android:layout_marginTop="10dp"
             app:hintEnabled="false"
-            app:layout_constraintStart_toEndOf="@+id/btn_checkDialog"
+            app:layout_constraintStart_toEndOf="@+id/btn_checkPercentage"
             app:layout_constraintTop_toBottomOf="@id/tv_setDiscountItem">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -352,7 +367,7 @@
             android:textColor="@color/black"
             android:textSize="17sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btn_checkDialog" />
+            app:layout_constraintTop_toBottomOf="@id/btn_checkPercentage" />
 
         <!--BAGIAN AWAL UNTUK EDIT TEXT AFTER DISCOUNT-->
 

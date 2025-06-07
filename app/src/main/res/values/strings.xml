@@ -63,6 +63,7 @@
     <string name="error_jenisProduk">Jenis Produk Masih Kosong</string>
     <string name="error_formatEmail">Format Email Tidak Valid</string>
     <string name="error_email">Email Tidak Boleh Kosong</string>
+    <string name="button_cancel">Button Cancel Percentage</string>
 
 
 </resources>
