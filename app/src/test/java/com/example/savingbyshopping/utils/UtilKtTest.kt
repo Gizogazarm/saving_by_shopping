@@ -11,10 +11,10 @@ class UtilKtTest {
     private val input3: Long = 10000
     private val input4: Long = 0
 
-    private val input1Str: String = "Rp1.000.000"
-    private val input2Str: String = "Rp500"
-    private val input3Str: String = "Rp10.000"
-    private val input4Str: String = "Rp1"
+    private val input1Str: String = "1000000"
+    private val input2Str: String = "500"
+    private val input3Str: String = "10000"
+    private val input4Str: String = "1"
 
     @Test
     fun `Mengubah Long ke String Rupiah`() {

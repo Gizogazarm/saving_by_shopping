@@ -14,6 +14,7 @@ import com.example.savingbyshopping.databinding.FragmentDialogAddItemShopBinding
 import com.example.savingbyshopping.ui.ViewModelFactory
 import com.example.savingbyshopping.utils.Condition
 import com.example.savingbyshopping.utils.JenisProduk
+import com.example.savingbyshopping.utils.fromRupiah
 import com.google.android.material.snackbar.Snackbar
 
 
@@ -114,6 +115,9 @@ class DialogAddItemShopFragment : DialogFragment() {
                     Snackbar.make(view, getString(R.string.error_price), Snackbar.LENGTH_SHORT).show()
                     return@setOnClickListener
                 }
+
+                val afterPrice = edAfterlPrice.text.toString().fromRupiah()
+                dialogAddItemShopViewModel.setAfterPriceManually(afterPrice)
 
                 val action =
                     DialogAddItemShopFragmentDirections.actionDialogAddItemShopFragmentToAddItemShopFragment(
