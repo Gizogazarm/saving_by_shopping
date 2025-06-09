@@ -384,7 +384,7 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_priceAfterDiskon"
             app:startIconDrawable="@drawable/item_icon">
 
-            <com.google.android.material.textfield.TextInputEditText
+            <com.example.savingbyshopping.utils.EditTextCustom
                 android:id="@+id/ed_afterlPrice"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -633,7 +633,7 @@
                     android:fontFamily="@font/revalia"
                     android:text="@string/tv_TotalPrice"
                     android:textColor="@color/black"
-                    android:textSize="16dp"
+                    android:textSize="16sp"
                     app:layout_constraintStart_toEndOf="@id/img_checkout_icon"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -686,7 +686,6 @@
             android:id="@+id/view_test"
             android:layout_width="match_parent"
             android:layout_height="70dp"
-            android:layout_marginStart="16dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btn_saveItem" />
 

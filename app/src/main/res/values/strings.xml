@@ -67,6 +67,7 @@
     <string name="total_icon">Title Total Icon</string>
     <string name="tv_TotalPrice">Total Price</string>
     <string name="tv_TotalSavingAmount">+ Rp 0</string>
+    <string name="error_afterPrice">Masukkan Harga Setelah Diskon Dahulu</string>
 
 
 </resources>

@@ -14,7 +14,7 @@ import com.example.savingbyshopping.databinding.FragmentDialogAddItemShopBinding
 import com.example.savingbyshopping.ui.ViewModelFactory
 import com.example.savingbyshopping.utils.Condition
 import com.example.savingbyshopping.utils.JenisProduk
-import com.example.savingbyshopping.utils.fromRupiah
+import com.example.savingbyshopping.utils.toRupiah
 import com.google.android.material.snackbar.Snackbar
 
 
@@ -71,6 +71,10 @@ class DialogAddItemShopFragment : DialogFragment() {
                 visibleEditTextBuyFreeitem(it)
             }
 
+            dialogAddItemShopViewModel.afterPriceManual.observe(viewLifecycleOwner) {
+                edAfterlPrice.setText(it.toRupiah())
+            }
+
             //BAGIAN QUANTITY TAMBAH DAN KURANG
 
             rbNone.setOnCheckedChangeListener { _, isChecked ->
@@ -103,21 +107,30 @@ class DialogAddItemShopFragment : DialogFragment() {
             }
 
             btnSaveItem.setOnClickListener {
-                if(!edNamaItem.isValid(getString(R.string.error_item))) {
-                    Snackbar.make(view, getString(R.string.error_item), Snackbar.LENGTH_SHORT).show()
+
+                val curentCondition = dialogAddItemShopViewModel.condition.value
+
+                if (!edNamaItem.isValid(getString(R.string.error_item))) {
+                    Snackbar.make(view, getString(R.string.error_item), Snackbar.LENGTH_SHORT)
+                        .show()
                     return@setOnClickListener
                 }
                 if (!edJenisProduk.isValid(getString(R.string.error_jenisProduk))) {
-                    Snackbar.make(view, getString(R.string.error_jenisProduk), Snackbar.LENGTH_SHORT).show()
+                    Snackbar.make(
+                        view, getString(R.string.error_jenisProduk), Snackbar.LENGTH_SHORT
+                    ).show()
                     return@setOnClickListener
                 }
                 if (!edOriginalPrice.isValid(getString(R.string.error_price))) {
-                    Snackbar.make(view, getString(R.string.error_price), Snackbar.LENGTH_SHORT).show()
+                    Snackbar.make(view, getString(R.string.error_price), Snackbar.LENGTH_SHORT)
+                        .show()
                     return@setOnClickListener
                 }
 
-                val afterPrice = edAfterlPrice.text.toString().fromRupiah()
-                dialogAddItemShopViewModel.setAfterPriceManually(afterPrice)
+                if (curentCondition == Condition.NONE) {
+                    if (!edAfterlPrice.isValid(getString(R.string.error_afterPrice))) return@setOnClickListener
+                }
+
 
                 val action =
                     DialogAddItemShopFragmentDirections.actionDialogAddItemShopFragmentToAddItemShopFragment(

@@ -11,12 +11,12 @@ class DialogAddItemShopViewModel : ViewModel() {
     val quantity: LiveData<Int> = _quantity
 
     private val _afterPriceManual = MutableLiveData<Long>()
-    val afterpriceManual: LiveData<Long> = _afterPriceManual
+    val afterPriceManual: LiveData<Long> = _afterPriceManual
 
     private val _afterPriceLocked = MutableLiveData<Long>(0)
     val afterPriceLocked: LiveData<Long> = _afterPriceLocked
 
-    private val _condition = MutableLiveData<Condition>()
+    private val _condition = MutableLiveData(Condition.NONE)
     val condition: LiveData<Condition> = _condition
 
     private val _isAfterPriceLocked = MutableLiveData(false)
@@ -60,11 +60,11 @@ class DialogAddItemShopViewModel : ViewModel() {
     fun settingAfterPrice(condition: Condition, price: Long) {
         when(condition) {
             Condition.NONE -> {
+                _afterPriceLocked.value = _afterPriceManual.value
 
             }
             Condition.BUY_ITEM_FREE_ITEM -> {
-                val afterPrice = price * _quantity.value
-                _afterPriceLocked.value = afterPrice
+                _afterPriceLocked.value = 0
             }
             Condition.NO_DISCOUNT -> {
                 _afterPriceLocked.value = 0
