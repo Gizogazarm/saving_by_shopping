@@ -289,8 +289,8 @@
             android:id="@+id/btn_checkPercentage"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_marginEnd="7dp"
             android:layout_marginTop="10dp"
+            android:layout_marginEnd="7dp"
             android:background="@drawable/rounded_corner_button"
             android:contentDescription="@string/button_Check"
             android:scaleType="centerInside"
@@ -453,13 +453,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="24dp"
-            android:layout_marginTop="47dp"
+            android:layout_marginTop="15dp"
             android:fontFamily="@font/dm_sans_bold"
             android:text="@string/tv_specialCondition"
             android:textColor="@color/hijau_gelap"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/divider_akhirPrice" />
+
+        <!--BAGIAN AWAL DARI RADIO BUTTON NONE-->
 
         <RadioButton
             android:id="@+id/rb_none"
@@ -476,6 +478,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_specialCondition"
             tools:ignore="TextSizeCheck" />
+
+        <!--BAGIAN AWAL DARI RADIO BUTTON BUY ITEM FREE ITEM-->
 
         <LinearLayout
             android:id="@+id/layout_buyItemFreeItem"
@@ -565,6 +569,8 @@
 
         </LinearLayout>
 
+        <!--BAGIAN AWAL DARI RADIO BUTTON NODISCOUNT-->
+
         <RadioButton
             android:id="@+id/rb_noDiscount"
             style="@style/RadioButton.App"
@@ -580,6 +586,90 @@
             app:layout_constraintTop_toBottomOf="@id/layout_buyItemFreeItem"
             tools:ignore="TextSizeCheck" />
 
+        <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/divider_radioButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="26dp"
+            app:dividerColor="@color/black"
+            app:dividerInsetEnd="25dp"
+            app:dividerInsetStart="25dp"
+            app:dividerThickness="2dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rb_noDiscount" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_titleTotalPrice"
+            style="@style/CardTitle.TotalPrice"
+            android:layout_width="172dp"
+            android:layout_height="42dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="26dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider_radioButton">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/img_checkout_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="7dp"
+                    android:layout_marginTop="5dp"
+                    android:contentDescription="@string/total_icon"
+                    android:src="@drawable/checkout_icon"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_totalPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="7dp"
+                    android:layout_marginTop="9dp"
+                    android:fontFamily="@font/revalia"
+                    android:text="@string/tv_TotalPrice"
+                    android:textColor="@color/black"
+                    android:textSize="16dp"
+                    app:layout_constraintStart_toEndOf="@id/img_checkout_icon"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+        <TextView
+            android:id="@+id/tv_totalPriceAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="7dp"
+            android:fontFamily="@font/dm_sans_bold_italic"
+            android:text="@string/amount_budget"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/card_titleTotalPrice" />
+
+        <TextView
+            android:id="@+id/tv_totalSavingAmount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="25dp"
+            android:fontFamily="@font/dm_sans_bold"
+            android:text="@string/tv_TotalSavingAmount"
+            android:textAlignment="textEnd"
+            android:textColor="@color/hijau_gelap"
+            android:textSize="17sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_totalPriceAmount" />
+
 
         <Button
             android:id="@+id/btn_saveItem"
@@ -590,8 +680,7 @@
             android:layout_marginTop="41dp"
             android:text="@string/save"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/rb_noDiscount" />
-
+            app:layout_constraintTop_toBottomOf="@+id/tv_totalSavingAmount" />
 
         <View
             android:id="@+id/view_test"

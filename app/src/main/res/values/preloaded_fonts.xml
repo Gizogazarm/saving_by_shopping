@@ -4,8 +4,10 @@
         <item>@font/</item>
         <item>@font/dm_sans</item>
         <item>@font/dm_sans_bold</item>
+        <item>@font/dm_sans_bold_italic</item>
         <item>@font/do_hyeon</item>
         <item>@font/outfit_medium</item>
+        <item>@font/revalia</item>
         <item>@font/roboto_serif_bold</item>
         <item>@font/source_serif_4_bold</item>
     </array>
