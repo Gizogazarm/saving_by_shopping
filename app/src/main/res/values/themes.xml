@@ -105,4 +105,11 @@
         <item name="buttonTint">@color/rb_button_tint</item>
     </style>
 
+    <style name="CardTitle.TotalPrice" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardBackgroundColor">@color/tab_active</item>
+        <item name="cardElevation">3dp</item>
+
+
+    </style>
+
 </resources>

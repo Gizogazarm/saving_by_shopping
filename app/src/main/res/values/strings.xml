@@ -7,7 +7,7 @@
     <string name="fitur_machine_learning"> Fitur Machine Learning</string>"
     <string name="title_budget">Your Budget</string>
     <string name="month">Month</string>
-    <string name="amount_budget">Rp XXX.XXX</string>
+    <string name="amount_budget">Rp 0</string>
     <string name="fitur_HealthBudget"> Fitur Health Budget</string>"
     <string name="total_saving">Total Saving</string>
     <string name="overall">Overall</string>
@@ -64,6 +64,9 @@
     <string name="error_formatEmail">Format Email Tidak Valid</string>
     <string name="error_email">Email Tidak Boleh Kosong</string>
     <string name="button_cancel">Button Cancel Percentage</string>
+    <string name="total_icon">Title Total Icon</string>
+    <string name="tv_TotalPrice">Total Price</string>
+    <string name="tv_TotalSavingAmount">+ Rp 0</string>
 
 
 </resources>
