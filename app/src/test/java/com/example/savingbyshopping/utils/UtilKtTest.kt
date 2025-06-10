@@ -11,9 +11,9 @@ class UtilKtTest {
     private val input3: Long = 10000
     private val input4: Long = 0
 
-    private val input1Str: String = "1000000"
+    private val input1Str: String = "1.000.000"
     private val input2Str: String = "500"
-    private val input3Str: String = "10000"
+    private val input3Str: String = "10.000"
     private val input4Str: String = "1"
 
     @Test

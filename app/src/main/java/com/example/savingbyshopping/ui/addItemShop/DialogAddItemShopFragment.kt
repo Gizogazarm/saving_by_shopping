@@ -73,7 +73,7 @@ class DialogAddItemShopFragment : DialogFragment() {
 
             dialogAddItemShopViewModel.afterPriceManual.observe(viewLifecycleOwner) {
                 edAfterlPrice.setText(it.toRupiah())
-            }
+            } // PERLU DI OBSERVASI KARENA NILAI TIDAK HILANG PADA EDAFTERPRICE
 
             //BAGIAN QUANTITY TAMBAH DAN KURANG
 
