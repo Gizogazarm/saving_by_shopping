@@ -4,6 +4,7 @@ import android.content.Context
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.AttributeSet
+import com.google.android.material.textfield.TextInputLayout
 
 class EditCurrencyCustom(context: Context, attrs: AttributeSet? = null) :
     EditTextCustom(context, attrs) {
@@ -51,5 +52,27 @@ class EditCurrencyCustom(context: Context, attrs: AttributeSet? = null) :
             }
 
         })
+    }
+
+    fun notBiggerValue(value: String, message: String): Boolean {
+        val values = value.fromRupiah()
+        val text = text?.toString()
+        val aPrice = text?.fromRupiah()!!
+        val parentLayout = parent?.parent
+
+       return if (values < aPrice) {
+           if (parentLayout is TextInputLayout) {
+                parentLayout.error = message
+                parentLayout.isErrorEnabled = true
+            }
+            false
+        } else {
+            if (parentLayout is TextInputLayout) {
+                parentLayout.error = null
+                parentLayout.isErrorEnabled = false
+            }
+            true
+        }
+
     }
 }

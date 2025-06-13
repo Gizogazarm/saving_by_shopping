@@ -58,7 +58,7 @@ class UtilKtTest {
     fun `Menghitung Harga Belanja dari Harga Diskon dan Quantity`() {
         val expected: Long = 3000000
         val quantity = 3
-        val actual = menghitungHargaBelanja(input1, quantity)
+        val actual = hitungHarga(input1, quantity)
         assertEquals(expected, actual)
     }
 

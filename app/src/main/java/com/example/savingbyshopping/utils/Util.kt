@@ -16,8 +16,8 @@ fun Int.toDecimalPercetage(): Double {
     return this.toDouble() / 100
 }
 
-fun menghitungHargaBelanja(hargaDiskon: Long, quantity: Int): Long { //hanya parameter
-    return hargaDiskon * quantity
+fun hitungHarga(harga: Long, quantity: Int): Long { //hanya parameter
+    return harga * quantity
 }
 
 fun menghitungSavingDiskon(

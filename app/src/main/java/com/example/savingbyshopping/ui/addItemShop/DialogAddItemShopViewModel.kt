@@ -10,7 +10,7 @@ import com.example.savingbyshopping.utils.toDecimalPercetage
 
 class DialogAddItemShopViewModel : ViewModel() {
 
-    private val _quantity = MutableLiveData(0)
+    private val _quantity = MutableLiveData(1)
     val quantity: LiveData<Int> = _quantity
 
     private val _statusPercentage = MutableLiveData(false)
@@ -39,10 +39,10 @@ class DialogAddItemShopViewModel : ViewModel() {
     }
 
     fun decrementQuantity() {
-        if (_quantity.value!! > 0) {
+        if (_quantity.value!! > 1) {
             _quantity.value = _quantity.value?.minus(1)
         } else {
-            _quantity.value = 0
+            _quantity.value = 1
         }
     }
 
@@ -74,7 +74,7 @@ class DialogAddItemShopViewModel : ViewModel() {
     }
 
 
-    fun setPercentage(status: Boolean) {
+    fun setStatusPercentage(status: Boolean) {
         _statusPercentage.value = status
     }
 
@@ -90,8 +90,8 @@ class DialogAddItemShopViewModel : ViewModel() {
     }
 
 
-    fun setAfterPriceManually(afterPrice: Long) {
-        _afterPriceManual.value = afterPrice
+    fun setAfterPriceManually(afterPrice: String) {
+        _afterPriceManual.value = afterPrice.fromRupiah()
     }
 
 }

@@ -18,7 +18,7 @@ object DataDummy {
                 hargaAsli = 10000,
                 hargaDiskon = 8000,
                 quantity = i,
-                totalHarga = menghitungHargaBelanja(8000, quantity = i),
+                totalHarga = hitungHarga(8000, quantity = i),
                 saveDiskon = menghitungSavingDiskon(10000, 8000, i)
             )
             itemShopList.add(itemShop)
@@ -79,7 +79,7 @@ object DataDummy {
                 hargaAsli = 10000,
                 hargaDiskon = 8000,
                 quantity = 1,
-                totalHarga = menghitungHargaBelanja(8000, quantity = 1),
+                totalHarga = hitungHarga(8000, quantity = 1),
                 saveDiskon = menghitungSavingDiskon(10000, 8000, 1)
             ), ItemShop(
                 idItem = 2.toLong(),
@@ -89,7 +89,7 @@ object DataDummy {
                 hargaAsli = 15000,
                 hargaDiskon = 12000,
                 quantity = 1,
-                totalHarga = menghitungHargaBelanja(12000, quantity = 1),
+                totalHarga = hitungHarga(12000, quantity = 1),
                 saveDiskon = menghitungSavingDiskon(15000, 12000, 1)
             ), ItemShop(
                 idItem = 3.toLong(),
@@ -99,7 +99,7 @@ object DataDummy {
                 hargaAsli = 8000,
                 hargaDiskon = 6400,
                 quantity = 2,
-                totalHarga = menghitungHargaBelanja(6400, quantity = 2),
+                totalHarga = hitungHarga(6400, quantity = 2),
                 saveDiskon = menghitungSavingDiskon(8000, 6400, 2)
             )
         )
