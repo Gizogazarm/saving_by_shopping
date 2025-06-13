@@ -49,7 +49,7 @@ class DialogAddItemShopFragment : DialogFragment() {
         with(binding) {
             edJenisProduk.setAdapter(adapter)
 
-            btnCheckBuyItemFreeItem.isEnabled = false
+            btnCheckBuyItemFreeItem.isEnabled = false // CHECK BUY ITEM FREE ITEM
 
             btnAddQty.setOnClickListener {
                 dialogAddItemShopViewModel.incrementQuantity()
@@ -73,6 +73,14 @@ class DialogAddItemShopFragment : DialogFragment() {
 
             dialogAddItemShopViewModel.afterPriceLocked.observe(viewLifecycleOwner) {
                 edAfterlPriceLock.setText(it.toRupiah())
+            }
+
+            dialogAddItemShopViewModel.isPercentageEdit.observe(viewLifecycleOwner) {
+                visiblePercentageDialog(it)
+            }
+
+            dialogAddItemShopViewModel.statusPercentage.observe(viewLifecycleOwner) {
+                visibleSetPercentageDiscount(it)
             }
 
             rbNone.setOnCheckedChangeListener { _, isChecked ->
@@ -104,9 +112,25 @@ class DialogAddItemShopFragment : DialogFragment() {
                 dismiss()
             }
 
+            btnCheckPercentage.setOnClickListener {
+                if (!edOriginalPrice.isValid(getString(R.string.error_price))) return@setOnClickListener
+                dialogAddItemShopViewModel.setPercentage(true)
+                dialogAddItemShopViewModel.setCountDiscount(
+                    edPercentageDialog.text.toString(), edOriginalPrice.text.toString()
+                )
+
+
+            }
+
+            btnCancelPercentage.setOnClickListener {
+                dialogAddItemShopViewModel.setPercentage(false)
+                dialogAddItemShopViewModel.resetAfterPriceLocked()
+            }
+
             btnSaveItem.setOnClickListener {
 
                 val curentCondition = dialogAddItemShopViewModel.condition.value
+                val percentageCondition = dialogAddItemShopViewModel.statusPercentage.value
 
                 if (!edNamaItem.isValid(getString(R.string.error_item))) {
                     Snackbar.make(view, getString(R.string.error_item), Snackbar.LENGTH_SHORT)
@@ -125,7 +149,7 @@ class DialogAddItemShopFragment : DialogFragment() {
                     return@setOnClickListener
                 }
 
-                if (curentCondition == Condition.NONE) {
+                if (curentCondition == Condition.NONE && percentageCondition == false) {
                     if (!edAfterlPrice.isValid(getString(R.string.error_afterPrice))) return@setOnClickListener
                 }
 
@@ -184,6 +208,43 @@ class DialogAddItemShopFragment : DialogFragment() {
                 btnCheckBuyItemFreeItem.isEnabled = true
             }
         }
+    }
+
+    private fun visiblePercentageDialog(status: Boolean) {
+        with(binding) {
+            when (status) {
+                false -> {
+                    edPercentageDialog.isEnabled = true
+                    btnCheckPercentage.isEnabled = true
+                    btnCancelPercentage.isEnabled = true
+                }
+
+                true -> {
+                    edPercentageDialog.isEnabled = false
+                    btnCheckPercentage.isEnabled = false
+                    btnCancelPercentage.isEnabled = false
+                }
+            }
+        }
+
+    }
+
+    private fun visibleSetPercentageDiscount(status: Boolean) {
+        with(binding) {
+            when (status) {
+                true -> {
+                    inputAfterPriceLock.visibility = View.VISIBLE
+                    inputAfterPrice.visibility = View.GONE
+                }
+
+                false -> {
+                    inputAfterPriceLock.visibility = View.GONE
+                    inputAfterPrice.visibility = View.VISIBLE
+                }
+
+            }
+        }
+
     }
 
 
