@@ -10,6 +10,8 @@ class EditCurrencyCustom(context: Context, attrs: AttributeSet? = null) :
     EditTextCustom(context, attrs) {
 
     private var isEditing = false
+    private var maxValue: Long? = null
+    private var messageError: String? = null
 
     init {
         addTextChangedListener(object : TextWatcher {
@@ -34,45 +36,36 @@ class EditCurrencyCustom(context: Context, attrs: AttributeSet? = null) :
                     return
                 }
 
-                val cleanString =
-                    original.replace("Rp", "").replace(".", "").replace("\\s".toRegex(), "")
+                val parsed = original.fromRupiah()
+                val formatted = parsed.toRupiah()
+                setText(formatted)
+                setSelection(formatted.length)
 
-                if (cleanString.isNotEmpty()) {
-                    try {
-                        val parsed = cleanString.toLong()
-                        val formatted = parsed.toRupiah()
-                        setText(formatted)
-                        setSelection(formatted.length)
-                    } catch (e: NumberFormatException) {
-                        // jika input tidak valid, biarkan kosong atau abaikan
-                    }
-                }
-
+                notBiggerValue(parsed)
                 isEditing = false
             }
 
         })
     }
 
-    fun notBiggerValue(value: String, message: String): Boolean {
-        val values = value.fromRupiah()
-        val text = text?.toString()
-        val aPrice = text?.fromRupiah()!!
+    private fun notBiggerValue(currentValue: Long) {
+        val max = maxValue ?: return
         val parentLayout = parent?.parent
 
-       return if (values < aPrice) {
-           if (parentLayout is TextInputLayout) {
-                parentLayout.error = message
+        if (parentLayout is TextInputLayout) {
+            if (currentValue > max) {
+                parentLayout.error = messageError
                 parentLayout.isErrorEnabled = true
-            }
-            false
-        } else {
-            if (parentLayout is TextInputLayout) {
+            } else {
                 parentLayout.error = null
                 parentLayout.isErrorEnabled = false
             }
-            true
         }
+    }
 
+    fun setMaxValueError(value: String, message: String) {
+        maxValue = value.fromRupiah()
+        messageError = message
+        notBiggerValue(text?.toString()?.fromRupiah() ?: 0)
     }
 }

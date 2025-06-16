@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
@@ -50,6 +51,10 @@ class DialogAddItemShopFragment : DialogFragment() {
             edJenisProduk.setAdapter(adapter)
 
             btnCheckBuyItemFreeItem.isEnabled = false // CHECK BUY ITEM FREE ITEM
+
+            edOriginalPrice.addTextChangedListener {
+              edAfterlPrice.setMaxValueError(edOriginalPrice.text.toString(),getString(R.string.error_notBigger))
+            }
 
             btnAddQty.setOnClickListener {
                 dialogAddItemShopViewModel.incrementQuantity()
@@ -151,7 +156,6 @@ class DialogAddItemShopFragment : DialogFragment() {
 
                 if (curentCondition == Condition.NONE && percentageCondition == false) {
                     if (!edAfterlPrice.isValid(getString(R.string.error_afterPrice))) return@setOnClickListener
-                    if (!edAfterlPrice.notBiggerValue(edOriginalPrice.text.toString(), getString(R.string.error_notBigger))) return@setOnClickListener
                 }
 
 
