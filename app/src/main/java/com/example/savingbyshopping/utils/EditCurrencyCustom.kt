@@ -12,6 +12,7 @@ class EditCurrencyCustom(context: Context, attrs: AttributeSet? = null) :
     private var isEditing = false
     private var maxValue: Long? = null
     private var messageError: String? = null
+    private var isError = false
 
     init {
         addTextChangedListener(object : TextWatcher {
@@ -56,9 +57,11 @@ class EditCurrencyCustom(context: Context, attrs: AttributeSet? = null) :
             if (currentValue > max) {
                 parentLayout.error = messageError
                 parentLayout.isErrorEnabled = true
+                isError = true
             } else {
                 parentLayout.error = null
                 parentLayout.isErrorEnabled = false
+                isError = false
             }
         }
     }
@@ -67,5 +70,9 @@ class EditCurrencyCustom(context: Context, attrs: AttributeSet? = null) :
         maxValue = value.fromRupiah()
         messageError = message
         notBiggerValue(text?.toString()?.fromRupiah() ?: 0)
+    }
+
+    fun getStatusError(): Boolean {
+        return isError
     }
 }

@@ -156,6 +156,8 @@ class DialogAddItemShopFragment : DialogFragment() {
 
                 if (curentCondition == Condition.NONE && percentageCondition == false) {
                     if (!edAfterlPrice.isValid(getString(R.string.error_afterPrice))) return@setOnClickListener
+                    edAfterlPrice.setMaxValueError(edOriginalPrice.text.toString(), getString(R.string.error_notBigger))
+                    if (edAfterlPrice.getStatusError()) return@setOnClickListener
                 }
 
 
