@@ -385,7 +385,7 @@
             app:startIconDrawable="@drawable/item_icon">
 
             <com.example.savingbyshopping.utils.EditCurrencyCustom
-                android:id="@+id/ed_afterlPrice"
+                android:id="@+id/ed_after_price"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical"

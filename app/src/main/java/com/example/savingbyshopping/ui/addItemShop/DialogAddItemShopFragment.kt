@@ -53,7 +53,24 @@ class DialogAddItemShopFragment : DialogFragment() {
             btnCheckBuyItemFreeItem.isEnabled = false // CHECK BUY ITEM FREE ITEM
 
             edOriginalPrice.addTextChangedListener {
-              edAfterlPrice.setMaxValueError(edOriginalPrice.text.toString(),getString(R.string.error_notBigger))
+                edAfterPrice.setMaxValueError(edOriginalPrice.text.toString(), getString(R.string.error_notBigger))
+                dialogAddItemShopViewModel.setOriginalPrice(edOriginalPrice.text.toString())
+            }
+
+            edAfterPrice.addTextChangedListener {
+                dialogAddItemShopViewModel.setAfterPriceManually(edAfterPrice.text.toString())
+            }
+
+            dialogAddItemShopViewModel.totalPrice.observe(viewLifecycleOwner) {
+                tvTotalPriceAmount.text = it.toRupiah()
+            }
+
+            dialogAddItemShopViewModel.quantityBuyFree.observe(viewLifecycleOwner) {
+                edBuyItem.setText(it.toString())
+            }
+
+            dialogAddItemShopViewModel.quantityItemFree.observe(viewLifecycleOwner) {
+                edFreeItem.setText(it.toString())
             }
 
             btnAddQty.setOnClickListener {
@@ -120,6 +137,8 @@ class DialogAddItemShopFragment : DialogFragment() {
             btnCheckPercentage.setOnClickListener {
                 if (!edOriginalPrice.isValid(getString(R.string.error_price))) return@setOnClickListener
                 dialogAddItemShopViewModel.setStatusPercentage(true)
+                dialogAddItemShopViewModel.setQuantityBuyFree(edBuyItem.text.toString())
+                dialogAddItemShopViewModel.setQuantityItemFree(edFreeItem.text.toString())
                 dialogAddItemShopViewModel.setCountDiscount(
                     edPercentageDialog.text.toString(), edOriginalPrice.text.toString()
                 )
@@ -155,9 +174,11 @@ class DialogAddItemShopFragment : DialogFragment() {
                 }
 
                 if (curentCondition == Condition.NONE && percentageCondition == false) {
-                    if (!edAfterlPrice.isValid(getString(R.string.error_afterPrice))) return@setOnClickListener
-                    edAfterlPrice.setMaxValueError(edOriginalPrice.text.toString(), getString(R.string.error_notBigger))
-                    if (edAfterlPrice.getStatusError()) return@setOnClickListener
+                    if (!edAfterPrice.isValid(getString(R.string.error_afterPrice))) return@setOnClickListener
+                    edAfterPrice.setMaxValueError(
+                        edOriginalPrice.text.toString(), getString(R.string.error_notBigger)
+                    )
+                    if (edAfterPrice.getStatusError()) return@setOnClickListener
                 }
 
 
