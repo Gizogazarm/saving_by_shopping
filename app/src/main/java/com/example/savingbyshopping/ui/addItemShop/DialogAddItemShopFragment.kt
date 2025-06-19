@@ -137,8 +137,6 @@ class DialogAddItemShopFragment : DialogFragment() {
             btnCheckPercentage.setOnClickListener {
                 if (!edOriginalPrice.isValid(getString(R.string.error_price))) return@setOnClickListener
                 dialogAddItemShopViewModel.setStatusPercentage(true)
-                dialogAddItemShopViewModel.setQuantityBuyFree(edBuyItem.text.toString())
-                dialogAddItemShopViewModel.setQuantityItemFree(edFreeItem.text.toString())
                 dialogAddItemShopViewModel.setCountDiscount(
                     edPercentageDialog.text.toString(), edOriginalPrice.text.toString()
                 )
@@ -149,6 +147,11 @@ class DialogAddItemShopFragment : DialogFragment() {
             btnCancelPercentage.setOnClickListener {
                 dialogAddItemShopViewModel.setStatusPercentage(false)
                 dialogAddItemShopViewModel.resetAfterPriceLocked()
+            }
+
+            btnCheckBuyItemFreeItem.setOnClickListener {
+                dialogAddItemShopViewModel.setQuantityBuyFree(edBuyItem.text.toString())
+                dialogAddItemShopViewModel.setQuantityItemFree(edFreeItem.text.toString())
             }
 
             btnSaveItem.setOnClickListener {
