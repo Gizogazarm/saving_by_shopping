@@ -67,6 +67,7 @@ class DialogAddItemShopViewModel : ViewModel() {
         }
 
         addSource(_quantity) { update() }
+        addSource(_originalPrice) { update() }
         addSource(_afterPriceManual) { update() }
         addSource(_quatityItemFree) { update() }
         addSource(_quantityBuyFree) { update() }
@@ -101,6 +102,7 @@ class DialogAddItemShopViewModel : ViewModel() {
 
         addSource(_quantity) { update() }
         addSource(_afterPriceManual) { update() }
+        addSource(_originalPrice) { update() }
         addSource(_quatityItemFree) { update() }
         addSource(_quantityBuyFree) { update() }
         addSource(_afterPriceLocked) { update() }
