@@ -15,6 +15,7 @@ import com.example.savingbyshopping.databinding.FragmentDialogAddItemShopBinding
 import com.example.savingbyshopping.ui.ViewModelFactory
 import com.example.savingbyshopping.utils.Condition
 import com.example.savingbyshopping.utils.JenisProduk
+import com.example.savingbyshopping.utils.setNotMinus
 import com.example.savingbyshopping.utils.toRupiah
 import com.google.android.material.snackbar.Snackbar
 
@@ -63,6 +64,12 @@ class DialogAddItemShopFragment : DialogFragment() {
 
             dialogAddItemShopViewModel.totalPrice.observe(viewLifecycleOwner) {
                 tvTotalPriceAmount.text = it.toRupiah()
+            }
+
+            dialogAddItemShopViewModel.savingPrice.observe(viewLifecycleOwner) {
+                val data = it.setNotMinus().toRupiah()
+                val showData = "+ $data"
+                tvTotalSavingAmount.text = showData
             }
 
             dialogAddItemShopViewModel.quantityBuyFree.observe(viewLifecycleOwner) {

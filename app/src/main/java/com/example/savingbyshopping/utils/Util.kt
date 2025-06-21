@@ -36,6 +36,10 @@ fun setPriceDiscount(discount: Double, price: Long): Long { // Setting discount 
     return (price * (1 - discount)).toLong()
 }
 
+fun Long.setNotMinus(): Long {
+    return if (this < 0) 0L else this
+}
+
 fun String.ambilDuaKataPertama(): String = this.split(" ").take(2).joinToString(" ")
 
 

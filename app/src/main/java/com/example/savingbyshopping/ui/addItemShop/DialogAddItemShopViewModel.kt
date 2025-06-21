@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel
 import com.example.savingbyshopping.utils.Condition
 import com.example.savingbyshopping.utils.fromRupiah
 import com.example.savingbyshopping.utils.hitungHarga
+import com.example.savingbyshopping.utils.menghitungSavingDiskon
 import com.example.savingbyshopping.utils.setPriceDiscount
 import com.example.savingbyshopping.utils.toDecimalPercetage
 
@@ -46,7 +47,7 @@ class DialogAddItemShopViewModel : ViewModel() {
         fun update() {
             val curentCondition = condition.value ?: Condition.NONE
             val statusPercentage = statusPercentage.value ?: false
-            value = when(curentCondition){
+            value = when (curentCondition) {
                 Condition.NONE -> {
                     if (statusPercentage) {
                         calculateAfterPriceLocked()
@@ -65,13 +66,46 @@ class DialogAddItemShopViewModel : ViewModel() {
             }
         }
 
-        addSource(_quantity) {update()}
-        addSource(_afterPriceManual) {update()}
-        addSource(_quatityItemFree) {update()}
-        addSource(_quantityBuyFree) {update()}
-        addSource(_afterPriceLocked) {update()}
-        addSource(_condition) {update()}
-        addSource(_statusPercentage) {update()}
+        addSource(_quantity) { update() }
+        addSource(_afterPriceManual) { update() }
+        addSource(_quatityItemFree) { update() }
+        addSource(_quantityBuyFree) { update() }
+        addSource(_afterPriceLocked) { update() }
+        addSource(_condition) { update() }
+        addSource(_statusPercentage) { update() }
+        update()
+    }
+
+    val savingPrice: LiveData<Long> = MediatorLiveData<Long>().apply {
+        fun update() {
+            val curentCondition = condition.value ?: Condition.NONE
+            val statusPercentage = statusPercentage.value ?: false
+            value = when (curentCondition) {
+                Condition.NONE -> {
+                    if (statusPercentage) {
+                        calculateSavingPriceAfterPriceLocked()
+                    } else {
+                        calculateSavingPriceManually()
+                    }
+                }
+
+                Condition.BUY_ITEM_FREE_ITEM -> {
+                    calculateSavingFreeItem()
+                }
+
+                Condition.NO_DISCOUNT -> {
+                    0L
+                }
+            }
+        }
+
+        addSource(_quantity) { update() }
+        addSource(_afterPriceManual) { update() }
+        addSource(_quatityItemFree) { update() }
+        addSource(_quantityBuyFree) { update() }
+        addSource(_afterPriceLocked) { update() }
+        addSource(_condition) { update() }
+        addSource(_statusPercentage) { update() }
         update()
     }
 
@@ -85,6 +119,27 @@ class DialogAddItemShopViewModel : ViewModel() {
         } else {
             _quantity.value = 1
         }
+    }
+
+    private fun calculateSavingPriceManually(): Long {
+        val originPrice = _originalPrice.value ?: 0L
+        val afterPriceManually = _afterPriceManual.value ?: 0L
+        val quantity = _quantity.value ?: 0
+        return menghitungSavingDiskon(originPrice, afterPriceManually, quantity)
+    }
+
+    private fun calculateSavingFreeItem(): Long {
+        val originPrice = _originalPrice.value ?: 0L
+        val quantity = _quatityItemFree.value ?: 1
+        return hitungHarga(originPrice, quantity)
+    }
+
+    private fun calculateSavingPriceAfterPriceLocked(): Long {
+        val originPrice = _originalPrice.value ?: 0L
+        val afterPriceLocked = _afterPriceLocked.value ?: 0L
+        val quantity = _quantity.value ?: 0
+        return menghitungSavingDiskon(originPrice, afterPriceLocked, quantity)
+
     }
 
     fun setCondition(condition: Condition) {
@@ -131,7 +186,7 @@ class DialogAddItemShopViewModel : ViewModel() {
         _afterPriceLocked.value = 0
     }
 
-    private fun calculateNoDiscountPrice() : Long {
+    private fun calculateNoDiscountPrice(): Long {
         val price = _originalPrice.value ?: 0L
         val quantity = quantity.value ?: 1
         return hitungHarga(price, quantity)
