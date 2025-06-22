@@ -14,6 +14,8 @@ import com.example.savingbyshopping.utils.toDecimalPercetage
 class DialogAddItemShopViewModel : ViewModel() {
 
     private val _originalPrice = MutableLiveData<Long>(0)
+    val originalPrice: LiveData<Long> = _originalPrice
+
     private val _afterPriceManual = MutableLiveData<Long>(0)
 
     private val _quantity = MutableLiveData(1)
@@ -109,6 +111,18 @@ class DialogAddItemShopViewModel : ViewModel() {
         addSource(_condition) { update() }
         addSource(_statusPercentage) { update() }
         update()
+    }
+
+    fun getLatestHargaDiskon(): Long {
+        val curentCondition = _condition.value ?: Condition.NONE
+        val statusPercentage = _statusPercentage.value ?: false
+        return when (curentCondition) {
+            Condition.NONE -> {
+                if (statusPercentage) _afterPriceLocked.value ?: 0L else _afterPriceManual.value ?: 0L
+            }
+            Condition.BUY_ITEM_FREE_ITEM,
+            Condition.NO_DISCOUNT -> _afterPriceLocked.value ?: 0L
+        }
     }
 
     fun incrementQuantity() {

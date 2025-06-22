@@ -11,6 +11,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.savingbyshopping.R
+import com.example.savingbyshopping.data.response.ItemShop
 import com.example.savingbyshopping.databinding.FragmentDialogAddItemShopBinding
 import com.example.savingbyshopping.ui.ViewModelFactory
 import com.example.savingbyshopping.utils.Condition
@@ -143,12 +144,10 @@ class DialogAddItemShopFragment : DialogFragment() {
 
             btnCheckPercentage.setOnClickListener {
                 if (!edOriginalPrice.isValid(getString(R.string.error_price))) return@setOnClickListener
-                dialogAddItemShopViewModel.setStatusPercentage(true)
                 dialogAddItemShopViewModel.setCountDiscount(
                     edPercentageDialog.text.toString(), edOriginalPrice.text.toString()
                 )
-
-
+                dialogAddItemShopViewModel.setStatusPercentage(true)
             }
 
             btnCancelPercentage.setOnClickListener {
@@ -165,6 +164,7 @@ class DialogAddItemShopFragment : DialogFragment() {
 
                 val curentCondition = dialogAddItemShopViewModel.condition.value
                 val percentageCondition = dialogAddItemShopViewModel.statusPercentage.value
+
 
                 if (!edNamaItem.isValid(getString(R.string.error_item))) {
                     Snackbar.make(view, getString(R.string.error_item), Snackbar.LENGTH_SHORT)
@@ -190,6 +190,20 @@ class DialogAddItemShopFragment : DialogFragment() {
                     )
                     if (edAfterPrice.getStatusError()) return@setOnClickListener
                 }
+
+                itemShopViewModel.inputItemShop(
+                    ItemShop(
+                        idShoppingList = idShopping,
+                        namaItem = edNamaItem.text.toString(),
+                        jenisProduk = edJenisProduk.text.toString(),
+                        hargaAsli = dialogAddItemShopViewModel.originalPrice.value ?: 0L,
+                        hargaDiskon = dialogAddItemShopViewModel.getLatestHargaDiskon(),
+                        quantity = dialogAddItemShopViewModel.quantity.value ?: 1,
+                        totalHarga = dialogAddItemShopViewModel.totalPrice.value ?: 0L,
+                        saveDiskon = dialogAddItemShopViewModel.savingPrice.value ?: 0L
+
+                    )
+                )
 
 
                 val action =
