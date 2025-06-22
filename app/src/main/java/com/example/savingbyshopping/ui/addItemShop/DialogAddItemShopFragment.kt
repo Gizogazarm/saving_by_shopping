@@ -191,6 +191,7 @@ class DialogAddItemShopFragment : DialogFragment() {
                     if (edAfterPrice.getStatusError()) return@setOnClickListener
                 }
 
+
                 itemShopViewModel.inputItemShop(
                     ItemShop(
                         idShoppingList = idShopping,
@@ -198,7 +199,7 @@ class DialogAddItemShopFragment : DialogFragment() {
                         jenisProduk = edJenisProduk.text.toString(),
                         hargaAsli = dialogAddItemShopViewModel.originalPrice.value ?: 0L,
                         hargaDiskon = dialogAddItemShopViewModel.getLatestHargaDiskon(),
-                        quantity = dialogAddItemShopViewModel.quantity.value ?: 1,
+                        quantity = dialogAddItemShopViewModel.getLatestQuantity(),
                         totalHarga = dialogAddItemShopViewModel.totalPrice.value ?: 0L,
                         saveDiskon = dialogAddItemShopViewModel.savingPrice.value ?: 0L
 

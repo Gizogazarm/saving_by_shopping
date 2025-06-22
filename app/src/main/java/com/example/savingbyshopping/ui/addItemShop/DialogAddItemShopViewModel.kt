@@ -118,10 +118,21 @@ class DialogAddItemShopViewModel : ViewModel() {
         val statusPercentage = _statusPercentage.value ?: false
         return when (curentCondition) {
             Condition.NONE -> {
-                if (statusPercentage) _afterPriceLocked.value ?: 0L else _afterPriceManual.value ?: 0L
+                if (statusPercentage) _afterPriceLocked.value ?: 0L else _afterPriceManual.value
+                    ?: 0L
             }
+
             Condition.BUY_ITEM_FREE_ITEM,
             Condition.NO_DISCOUNT -> _afterPriceLocked.value ?: 0L
+        }
+    }
+
+    fun getLatestQuantity(): Int {
+        val curentCondition = _condition.value ?: Condition.NONE
+        return when (curentCondition) {
+            Condition.NONE -> _quantity.value ?: 1
+            Condition.BUY_ITEM_FREE_ITEM -> _quantityBuyFree.value ?: 1
+            Condition.NO_DISCOUNT -> _quantity.value ?: 1
         }
     }
 
