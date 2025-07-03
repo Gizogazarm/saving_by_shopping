@@ -69,6 +69,10 @@
     <string name="tv_TotalSavingAmount">+ Rp 0</string>
     <string name="error_afterPrice">Masukkan Harga Setelah Diskon Dahulu</string>
     <string name="error_notBigger">Harga Tidak Boleh Lebih Besar dari Harga Original</string>
+    <string name="title_itemList">Nama Item</string>
+    <string name="jumlahQty">X Pcs</string>
+    <string name="img_itemlist">Image Item List</string>
+    <string name="kosong"></string>
 
 
 </resources>

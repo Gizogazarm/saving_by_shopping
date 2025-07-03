@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="152dp"
+    android:background="@color/hijau_transparant">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="128dp"
+        android:layout_marginHorizontal="12dp"
+        android:layout_marginTop="12dp"
+        android:elevation="6dp"
+        app:cardCornerRadius="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_imglist"
+                android:layout_width="89dp"
+                android:layout_height="89dp"
+                android:layout_marginStart="27dp"
+                android:layout_marginTop="19dp"
+                app:cardBackgroundColor="@color/tab_active"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:strokeColor="@color/hijau_gelap"
+                app:strokeWidth="3dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/img_viewItemList"
+                        android:layout_width="46dp"
+                        android:layout_height="46dp"
+                        android:contentDescription="@string/img_itemlist"
+                        android:src="@drawable/baseline_image_24"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </com.google.android.material.card.MaterialCardView>
+            <!-- BAGIAN AKHIR GAMBAR IMG LIST-->
+
+            <TextView
+                android:id="@+id/tv_titleItemList"
+                android:layout_width="182dp"
+                android:layout_height="46dp"
+                android:layout_marginStart="13dp"
+                android:layout_marginTop="19dp"
+                android:fontFamily="@font/source_serif_4_semibold"
+                android:maxLines="2"
+                android:text="@string/title_itemList"
+                android:textAlignment="textStart"
+                android:textColor="@color/hijau_gelap"
+                android:textSize="17sp"
+                app:layout_constraintStart_toEndOf="@id/card_imglist"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_quantityItemList"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="13dp"
+                android:fontFamily="@font/source_serif_4_semibold"
+                android:text="@string/jumlahQty"
+                android:textColor="@color/tv_transparant"
+                android:textSize="11sp"
+                app:layout_constraintStart_toEndOf="@id/card_imglist"
+                app:layout_constraintTop_toBottomOf="@id/tv_titleItemList" />
+
+            <!--BAGIAN AKHIR DARI TV_NAMA ITEM DAN -->
+
+            <!--BAGIAN AWAL BUTTON QUANTITY-->
+
+            <LinearLayout
+                android:id="@+id/layout_qtyRvItem"
+                android:layout_width="wrap_content"
+                android:layout_height="21dp"
+                android:layout_marginStart="13dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/rounded_corner_button"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toEndOf="@+id/card_imglist"
+                app:layout_constraintTop_toBottomOf="@id/tv_quantityItemList">
+
+                <!-- Tombol minus -->
+                <ImageButton
+                    android:id="@+id/btn_minQtyItem"
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:layout_marginStart="8dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@string/button_minus"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/baseline_horizontal_rule_24"
+                    app:tint="@color/black"
+                    tools:ignore="RedundantDescriptionCheck" />
+
+                <!-- Text jumlah -->
+                <TextView
+                    android:id="@+id/tv_quantityItem"
+                    android:layout_width="20dp"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/dm_sans"
+                    android:gravity="center"
+                    android:text="@string/qty"
+                    android:textColor="@color/black"
+                    android:textSize="10sp" />
+
+                <!-- Tombol plus -->
+                <ImageButton
+                    android:id="@+id/btn_addQtyItem"
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@string/button_plus"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/baseline_add_24"
+                    app:tint="@color/black"
+                    tools:ignore="RedundantDescriptionCheck" />
+
+            </LinearLayout>
+
+            <!--BAGIAN AKHIR DARI BTN QUANTITY ITEM-->
+
+            <ImageView
+                android:id="@+id/btn_deleteItemShop"
+                android:layout_width="21dp"
+                android:layout_height="23dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="17dp"
+                android:foregroundGravity="center"
+                android:src="@drawable/trash_icon"
+                app:layout_constraintStart_toEndOf="@+id/tv_titleItemList"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_statusItemShop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="31dp"
+                android:layout_marginEnd="13dp"
+                android:fontFamily="@font/dm_sans"
+                android:text="@string/kosong"
+                android:textAlignment="textEnd"
+                android:textColor="@color/hijau_gelap"
+                android:textSize="8sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btn_deleteItemShop" />
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    
+
+
+

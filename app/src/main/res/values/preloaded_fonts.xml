@@ -10,5 +10,6 @@
         <item>@font/revalia</item>
         <item>@font/roboto_serif_bold</item>
         <item>@font/source_serif_4_bold</item>
+        <item>@font/source_serif_4_semibold</item>
     </array>
 </resources>
