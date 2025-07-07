@@ -149,8 +149,10 @@
                 app:layout_constraintStart_toEndOf="@+id/tv_titleItemList"
                 app:layout_constraintTop_toTopOf="parent" />
 
+            <!--BAGIAN AKHIR BUTTON DELETE ITEMSHOP-->
+
             <TextView
-                android:id="@+id/tv_statusItemShop"
+                android:id="@+id/tv_statusItemList"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="31dp"
@@ -163,6 +165,31 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/btn_deleteItemShop" />
 
+            <TextView
+                android:id="@+id/tv_amounTotalShopItemList"
+                android:layout_width="154dp"
+                android:layout_height="18dp"
+                android:layout_marginEnd="13dp"
+                android:fontFamily="@font/dm_sans_bold"
+                android:maxLines="1"
+                android:text="@string/kosong"
+                android:textAlignment="textEnd"
+                android:textSize="13sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_statusItemList" />
+
+            <TextView
+                android:id="@+id/tv_totalSavingItemList"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="13dp"
+                android:fontFamily="@font/dm_sans"
+                android:text="@string/kosong"
+                android:textAlignment="textEnd"
+                android:textColor="@color/hijau_gelap"
+                android:textSize="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_amounTotalShopItemList" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
