@@ -7,6 +7,7 @@ import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 import androidx.room.Relation
+import com.example.savingbyshopping.utils.Condition
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
@@ -31,6 +32,7 @@ data class ItemShop(
     val quantity: Int,
     val totalHarga: Long,
     val saveDiskon: Long,
+    var condition: Condition = Condition.NONE,
     var isDiskon: Boolean = false
 ) : Parcelable
 

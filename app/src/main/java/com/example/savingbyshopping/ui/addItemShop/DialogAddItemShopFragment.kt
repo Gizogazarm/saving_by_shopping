@@ -55,7 +55,9 @@ class DialogAddItemShopFragment : DialogFragment() {
             btnCheckBuyItemFreeItem.isEnabled = false // CHECK BUY ITEM FREE ITEM
 
             edOriginalPrice.addTextChangedListener {
-                edAfterPrice.setMaxValueError(edOriginalPrice.text.toString(), getString(R.string.error_notBigger))
+                edAfterPrice.setMaxValueError(
+                    edOriginalPrice.text.toString(), getString(R.string.error_notBigger)
+                )
                 dialogAddItemShopViewModel.setOriginalPrice(edOriginalPrice.text.toString())
             }
 
@@ -200,6 +202,7 @@ class DialogAddItemShopFragment : DialogFragment() {
                         hargaAsli = dialogAddItemShopViewModel.originalPrice.value ?: 0L,
                         hargaDiskon = dialogAddItemShopViewModel.getLatestHargaDiskon(),
                         quantity = dialogAddItemShopViewModel.getLatestQuantity(),
+                        condition = dialogAddItemShopViewModel.condition.value ?: Condition.NONE,
                         totalHarga = dialogAddItemShopViewModel.totalPrice.value ?: 0L,
                         saveDiskon = dialogAddItemShopViewModel.savingPrice.value ?: 0L
 
