@@ -14,6 +14,12 @@ import com.example.savingbyshopping.utils.toRupiah
 class ListItemShopAdapter :
     ListAdapter<ItemShop, ListItemShopAdapter.ItemShopViewHolder>(DiffCallback) {
 
+    private lateinit var onItemClickListener: OnItemClickListener
+
+    fun setOnItemClickListener(listener: OnItemClickListener) {
+        onItemClickListener = listener
+    }
+
 
     companion object {
         val DiffCallback = object : DiffUtil.ItemCallback<ItemShop>() {
@@ -29,7 +35,10 @@ class ListItemShopAdapter :
 
     }
 
-    class ItemShopViewHolder(private val binding: ItemshopListBinding) :
+    class ItemShopViewHolder(
+        private val binding: ItemshopListBinding,
+        private val onItemClickListener: OnItemClickListener
+    ) :
         RecyclerView.ViewHolder(binding.root) {
 
         @SuppressLint("SetTextI18n")
@@ -41,6 +50,18 @@ class ListItemShopAdapter :
                 tvAmounTotalShopItemList.text = itemShop.totalHarga.toRupiah()
                 tvTotalSavingItemList.text = "+ ${itemShop.saveDiskon.toRupiah()}"
                 tvStatusItemList.text = setCondition(itemShop.condition)
+
+                btnDeleteItemShop.setOnClickListener {
+                    onItemClickListener.onItemDelete(itemShop)
+                }
+
+                btnAddQtyItem.setOnClickListener {
+                    onItemClickListener.onItemPlus(itemShop)
+                }
+
+                btnMinQtyItem.setOnClickListener {
+                    onItemClickListener.onItemMinus(itemShop)
+                }
 
             }
         }
@@ -58,13 +79,23 @@ class ListItemShopAdapter :
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemShopViewHolder {
         val binding =
             ItemshopListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return ItemShopViewHolder(binding)
+        return ItemShopViewHolder(binding,onItemClickListener)
 
     }
 
     override fun onBindViewHolder(holder: ItemShopViewHolder, position: Int) {
         val item = getItem(position)
+        holder.itemView.setOnClickListener {
+            onItemClickListener.onItemClick(item)
+        }
         holder.bind(item)
+    }
+
+    interface OnItemClickListener {
+        fun onItemPlus(item: ItemShop)
+        fun onItemMinus(item: ItemShop)
+        fun onItemDelete(item: ItemShop)
+        fun onItemClick(item: ItemShop)
     }
 
 }

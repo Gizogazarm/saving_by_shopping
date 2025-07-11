@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
@@ -71,6 +72,28 @@ class AddItemShopFragment : Fragment() {
             binding.rvItemShop.visibility = View.VISIBLE
             binding.emptyList.visibility = View.GONE
             val adapter = ListItemShopAdapter()
+            adapter.setOnItemClickListener( object : ListItemShopAdapter.OnItemClickListener {
+                override fun onItemPlus(item: ItemShop) {
+                    val newItem = itemShopViewModel.plusItemQuantity(item)
+                    itemShopViewModel.perbaruiItemShop(newItem)
+                }
+
+                override fun onItemMinus(item: ItemShop) {
+                    val newItem = itemShopViewModel.minItemQuantity(item)
+                    itemShopViewModel.perbaruiItemShop(newItem)
+                }
+
+                override fun onItemDelete(item: ItemShop) {
+                    itemShopViewModel.hapusItemShop(item)
+                }
+
+                override fun onItemClick(item: ItemShop) {
+                    Toast.makeText(requireContext(), "TESTING DULU", Toast.LENGTH_SHORT).show()
+                }
+
+
+            })
+
             adapter.submitList(itemShop)
             binding.rvItemShop.adapter = adapter
 
