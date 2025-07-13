@@ -131,7 +131,7 @@ class DialogAddItemShopViewModel : ViewModel() {
         val curentCondition = _condition.value ?: Condition.NONE
         return when (curentCondition) {
             Condition.NONE -> _quantity.value ?: 1
-            Condition.BUY_ITEM_FREE_ITEM -> _quantityBuyFree.value ?: 1
+            Condition.BUY_ITEM_FREE_ITEM -> 1
             Condition.NO_DISCOUNT -> _quantity.value ?: 1
         }
     }
@@ -254,5 +254,18 @@ class DialogAddItemShopViewModel : ViewModel() {
     fun setAfterPriceManually(afterPrice: String) {
         _afterPriceManual.value = afterPrice.fromRupiah()
     }
+
+    fun getBuyItem() = if (condition.value == Condition.BUY_ITEM_FREE_ITEM) {
+        quantityBuyFree.value ?: 0
+    } else {
+        0
+    }
+
+    fun getFreeItem() = if (condition.value == Condition.BUY_ITEM_FREE_ITEM) {
+        quantityItemFree.value ?: 0
+    } else {
+        0
+    }
+
 
 }

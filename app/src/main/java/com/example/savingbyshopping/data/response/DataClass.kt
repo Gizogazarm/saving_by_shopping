@@ -32,6 +32,8 @@ data class ItemShop(
     val quantity: Int,
     val totalHarga: Long,
     val saveDiskon: Long,
+    var buyItemFree: Int = 0,
+    var freeItem: Int = 0,
     var condition: Condition = Condition.NONE,
     var isDiskon: Boolean = false
 ) : Parcelable

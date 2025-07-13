@@ -204,8 +204,9 @@ class DialogAddItemShopFragment : DialogFragment() {
                         quantity = dialogAddItemShopViewModel.getLatestQuantity(),
                         condition = dialogAddItemShopViewModel.condition.value ?: Condition.NONE,
                         totalHarga = dialogAddItemShopViewModel.totalPrice.value ?: 0L,
-                        saveDiskon = dialogAddItemShopViewModel.savingPrice.value ?: 0L
-
+                        saveDiskon = dialogAddItemShopViewModel.savingPrice.value ?: 0L,
+                        buyItemFree = dialogAddItemShopViewModel.getBuyItem(),
+                        freeItem = dialogAddItemShopViewModel.getFreeItem()
                     )
                 )
 
