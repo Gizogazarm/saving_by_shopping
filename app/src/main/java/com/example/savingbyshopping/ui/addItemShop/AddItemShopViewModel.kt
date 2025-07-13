@@ -42,7 +42,8 @@ class AddItemShopViewModel(private val shoppingListRepository: ShoppingListRepos
             }
 
             Condition.BUY_ITEM_FREE_ITEM -> {
-                itemShop // Perlu di Maintenance Ulang
+                val newQuantity = itemShop.quantity + 1
+                calculateBuyItem(newQuantity, itemShop)
             }
 
             Condition.NO_DISCOUNT -> {
@@ -83,7 +84,13 @@ class AddItemShopViewModel(private val shoppingListRepository: ShoppingListRepos
             }
 
             Condition.BUY_ITEM_FREE_ITEM -> {
-                item // perlu di maintenance ulang
+                if (item.quantity > 1) {
+                    val newQuantity = item.quantity - 1
+                    calculateBuyItem(newQuantity, item)
+                } else {
+                    val newQuantity = 1
+                    calculateBuyItem(newQuantity, item)
+                }
             }
 
             Condition.NO_DISCOUNT -> {
@@ -101,5 +108,16 @@ class AddItemShopViewModel(private val shoppingListRepository: ShoppingListRepos
         }
     }
 
+    private fun calculateBuyItem(batch: Int, itemShop: ItemShop): ItemShop {
+        val newBuyItem = itemShop.buyItemFree * batch
+        val newFreeItem = itemShop.freeItem * batch
+        val newTotalHarga = hitungHarga(itemShop.hargaAsli, newBuyItem)
+        val newSaveDiskon = hitungHarga(itemShop.hargaAsli, newFreeItem)
+        return itemShop.copy(
+            quantity = batch,
+            totalHarga = newTotalHarga,
+            saveDiskon = newSaveDiskon
+        )
+    }
 
 }
