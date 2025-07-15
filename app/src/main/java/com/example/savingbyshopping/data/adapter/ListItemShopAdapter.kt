@@ -44,7 +44,7 @@ class ListItemShopAdapter :
         fun bind(itemShop: ItemShop) {
             with(binding) {
                 tvTitleItemList.text = itemShop.namaItem
-                tvQuantityItemList.text = "${itemShop.quantity} PCS"
+                tvQuantityItemList.text = setStatusQuantity(itemShop)
                 edQtyItemList.setOnEditorActionListener { _, _, _ ->
                     val input = edQtyItemList.text.toString().toIntOrNull()
                     if (input != null) {
@@ -78,7 +78,16 @@ class ListItemShopAdapter :
                 Condition.BUY_ITEM_FREE_ITEM -> "(Free Item)"
                 Condition.NO_DISCOUNT -> "(No Discount)"
             }
+        }
 
+        private fun setStatusQuantity(itemShop: ItemShop) : String {
+            return if(itemShop.condition == Condition.BUY_ITEM_FREE_ITEM) {
+                val buyQuantity = itemShop.quantity * itemShop.buyItemFree
+                val freeQuantity = itemShop.quantity * itemShop.freeItem
+                "Buy $buyQuantity PCS Free $freeQuantity PCS"
+            } else {
+                "Buy ${itemShop.quantity} PCS"
+            }
         }
     }
 
