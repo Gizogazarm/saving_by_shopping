@@ -38,15 +38,21 @@ class ListItemShopAdapter :
     class ItemShopViewHolder(
         private val binding: ItemshopListBinding,
         private val onItemClickListener: OnItemClickListener
-    ) :
-        RecyclerView.ViewHolder(binding.root) {
+    ) : RecyclerView.ViewHolder(binding.root) {
 
         @SuppressLint("SetTextI18n")
         fun bind(itemShop: ItemShop) {
             with(binding) {
                 tvTitleItemList.text = itemShop.namaItem
                 tvQuantityItemList.text = "${itemShop.quantity} PCS"
-                tvQuantityItem.text = itemShop.quantity.toString()
+                edQtyItemList.setOnEditorActionListener { _, _, _ ->
+                    val input = edQtyItemList.text.toString().toIntOrNull()
+                    if (input != null) {
+                        onItemClickListener.onUpdateQuantity(itemShop, input)
+                    }
+                    false
+                }
+
                 tvAmounTotalShopItemList.text = itemShop.totalHarga.toRupiah()
                 tvTotalSavingItemList.text = "+ ${itemShop.saveDiskon.toRupiah()}"
                 tvStatusItemList.text = setCondition(itemShop.condition)
@@ -79,7 +85,7 @@ class ListItemShopAdapter :
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemShopViewHolder {
         val binding =
             ItemshopListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return ItemShopViewHolder(binding,onItemClickListener)
+        return ItemShopViewHolder(binding, onItemClickListener)
 
     }
 
@@ -96,6 +102,7 @@ class ListItemShopAdapter :
         fun onItemMinus(item: ItemShop)
         fun onItemDelete(item: ItemShop)
         fun onItemClick(item: ItemShop)
+        fun onUpdateQuantity(item: ItemShop, newqty: Int)
     }
 
 }

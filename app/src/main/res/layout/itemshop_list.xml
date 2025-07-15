@@ -58,12 +58,12 @@
 
             <TextView
                 android:id="@+id/tv_titleItemList"
-                android:layout_width="182dp"
-                android:layout_height="46dp"
+                android:layout_width="210dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="13dp"
                 android:layout_marginTop="19dp"
                 android:fontFamily="@font/source_serif_4_semibold"
-                android:maxLines="2"
+                android:maxLines="1"
                 android:text="@string/title_itemList"
                 android:textAlignment="textStart"
                 android:textColor="@color/hijau_gelap"
@@ -85,60 +85,64 @@
 
             <!--BAGIAN AKHIR DARI TV_NAMA ITEM DAN -->
 
-            <!--BAGIAN AWAL BUTTON QUANTITY-->
 
-            <LinearLayout
-                android:id="@+id/layout_qtyRvItem"
-                android:layout_width="wrap_content"
-                android:layout_height="21dp"
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/btn_minQtyItem"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="25dp"
                 android:layout_marginStart="13dp"
-                android:layout_marginTop="8dp"
                 android:background="@drawable/rounded_corner_button"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                app:layout_constraintStart_toEndOf="@+id/card_imglist"
+                android:contentDescription="@string/button_Check"
+                android:scaleType="centerInside"
+                android:src="@drawable/min_icon"
+                app:layout_constraintStart_toEndOf="@id/card_imglist"
+                app:layout_constraintTop_toBottomOf="@id/tv_quantityItemList"
+                tools:ignore="DuplicateSpeakableTextCheck" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout_edQtyItemList"
+                style="@style/EditText.fillItem"
+                android:layout_width="37dp"
+                android:layout_height="26dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="27dp"
+                app:hintEnabled="false"
+                app:layout_constraintStart_toEndOf="@+id/btn_minQtyItem"
                 app:layout_constraintTop_toBottomOf="@id/tv_quantityItemList">
 
-                <!-- Tombol minus -->
-                <ImageButton
-                    android:id="@+id/btn_minQtyItem"
-                    android:layout_width="10dp"
-                    android:layout_height="10dp"
-                    android:layout_marginStart="8dp"
-                    android:background="?attr/selectableItemBackgroundBorderless"
-                    android:contentDescription="@string/button_minus"
-                    android:scaleType="centerInside"
-                    android:src="@drawable/baseline_horizontal_rule_24"
-                    app:tint="@color/black"
-                    tools:ignore="RedundantDescriptionCheck" />
-
-                <!-- Text jumlah -->
-                <TextView
-                    android:id="@+id/tv_quantityItem"
-                    android:layout_width="20dp"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/ed_QtyItemList"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:fontFamily="@font/dm_sans"
-                    android:gravity="center"
-                    android:text="@string/qty"
+                    android:gravity="center_vertical"
+                    android:textSize="10sp"
                     android:textColor="@color/black"
-                    android:textSize="10sp" />
+                    android:hint="@string/qty"
+                    android:inputType="number"
+                    android:paddingTop="0dp"
+                    android:paddingBottom="0dp"
+                    android:textAlignment="textStart"
+                    tools:ignore="DuplicateSpeakableTextCheck" />
 
-                <!-- Tombol plus -->
-                <ImageButton
-                    android:id="@+id/btn_addQtyItem"
-                    android:layout_width="10dp"
-                    android:layout_height="10dp"
-                    android:layout_marginEnd="8dp"
-                    android:background="?attr/selectableItemBackgroundBorderless"
-                    android:contentDescription="@string/button_plus"
-                    android:scaleType="centerInside"
-                    android:src="@drawable/baseline_add_24"
-                    app:tint="@color/black"
-                    tools:ignore="RedundantDescriptionCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-            </LinearLayout>
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/btn_addQtyItem"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginStart="4dp"
+                android:background="@drawable/rounded_corner_button"
+                android:contentDescription="@string/button_Check"
+                android:scaleType="centerInside"
+                android:src="@drawable/plus_icon"
+                app:layout_constraintStart_toEndOf="@id/layout_edQtyItemList"
+                app:layout_constraintTop_toBottomOf="@id/tv_quantityItemList"
+                tools:ignore="DuplicateSpeakableTextCheck" />
 
-            <!--BAGIAN AKHIR DARI BTN QUANTITY ITEM-->
+
+            <!--BUAT BAGIAN BUTTON QTY PLUS OR MINUS-->
 
             <ImageView
                 android:id="@+id/btn_deleteItemShop"
@@ -150,6 +154,8 @@
                 android:foregroundGravity="center"
                 android:src="@drawable/trash_icon"
                 app:layout_constraintTop_toTopOf="parent" />
+
+
 
             <!--BAGIAN AKHIR BUTTON DELETE ITEMSHOP-->
 
@@ -169,7 +175,7 @@
 
             <TextView
                 android:id="@+id/tv_amounTotalShopItemList"
-                android:layout_width="154dp"
+                android:layout_width="135dp"
                 android:layout_height="18dp"
                 android:layout_marginEnd="13dp"
                 android:fontFamily="@font/dm_sans_bold"

@@ -91,6 +91,11 @@ class AddItemShopFragment : Fragment() {
                     Toast.makeText(requireContext(), "TESTING DULU", Toast.LENGTH_SHORT).show()
                 }
 
+                override fun onUpdateQuantity(item: ItemShop, newqty: Int) {
+                    val newItem = itemShopViewModel.setQuantity(item, newqty)
+                    itemShopViewModel.perbaruiItemShop(newItem)
+                }
+
 
             })
 

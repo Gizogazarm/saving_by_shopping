@@ -27,88 +27,77 @@ class AddItemShopViewModel(private val shoppingListRepository: ShoppingListRepos
 
     fun ambilItemShopById(id: Long) = shoppingListRepository.ambilItemShopById(id)
 
+    fun setQuantity(itemShop: ItemShop, quantity: Int): ItemShop {
+        return when (itemShop.condition) {
+            Condition.NONE -> {
+                calculateItemPrice(itemShop, quantity)
+            }
+
+            Condition.BUY_ITEM_FREE_ITEM -> {
+                calculateBuyItemFreeItem(quantity, itemShop)
+            }
+
+            Condition.NO_DISCOUNT -> {
+                calculateItemPrice(itemShop, quantity)
+            }
+        }
+    }
+
     fun plusItemQuantity(itemShop: ItemShop): ItemShop {
         return when (itemShop.condition) {
             Condition.NONE -> {
                 val newQuantity = itemShop.quantity + 1
-                val newTotalHarga = hitungHarga(itemShop.hargaDiskon, newQuantity)
-                val newSaveDiskon =
-                    menghitungSavingDiskon(itemShop.hargaAsli, itemShop.hargaDiskon, newQuantity)
-                itemShop.copy(
-                    quantity = newQuantity,
-                    totalHarga = newTotalHarga,
-                    saveDiskon = newSaveDiskon
-                )
+                calculateItemPrice(itemShop, newQuantity)
             }
 
             Condition.BUY_ITEM_FREE_ITEM -> {
                 val newQuantity = itemShop.quantity + 1
-                calculateBuyItem(newQuantity, itemShop)
+                calculateBuyItemFreeItem(newQuantity, itemShop)
             }
 
             Condition.NO_DISCOUNT -> {
                 val newQuantity = itemShop.quantity + 1
-                val newTotalHarga = hitungHarga(itemShop.hargaAsli, newQuantity)
-                itemShop.copy(
-                    quantity = newQuantity,
-                    totalHarga = newTotalHarga
-                )
+                calculateItemPrice(itemShop, newQuantity)
             }
         }
     }
 
-    fun minItemQuantity(item: ItemShop): ItemShop {
-        return when (item.condition) {
+    fun minItemQuantity(itemShop: ItemShop): ItemShop {
+        return when (itemShop.condition) {
             Condition.NONE -> {
-                if (item.quantity > 1) {
-                    val newQuantity = item.quantity - 1
-                    val newTotalHarga = hitungHarga(item.hargaDiskon, newQuantity)
-                    val newSaveDiskon =
-                        menghitungSavingDiskon(item.hargaAsli, item.hargaDiskon, newQuantity)
-                    item.copy(
-                        quantity = newQuantity,
-                        totalHarga = newTotalHarga,
-                        saveDiskon = newSaveDiskon
-                    )
+                if (itemShop.quantity > 1) {
+                    val newQuantity = itemShop.quantity - 1
+                    calculateItemPrice(itemShop, newQuantity)
                 } else {
                     val newQuantity = 1
-                    val newTotalHarga = hitungHarga(item.hargaDiskon, newQuantity)
-                    val newSaveDiskon =
-                        menghitungSavingDiskon(item.hargaAsli, item.hargaDiskon, newQuantity)
-                    item.copy(
-                        quantity = newQuantity,
-                        totalHarga = newTotalHarga,
-                        saveDiskon = newSaveDiskon
-                    )
+                    calculateItemPrice(itemShop, newQuantity)
                 }
             }
 
             Condition.BUY_ITEM_FREE_ITEM -> {
-                if (item.quantity > 1) {
-                    val newQuantity = item.quantity - 1
-                    calculateBuyItem(newQuantity, item)
+                if (itemShop.quantity > 1) {
+                    val newQuantity = itemShop.quantity - 1
+                    calculateBuyItemFreeItem(newQuantity, itemShop)
                 } else {
                     val newQuantity = 1
-                    calculateBuyItem(newQuantity, item)
+                    calculateBuyItemFreeItem(newQuantity, itemShop)
                 }
             }
 
             Condition.NO_DISCOUNT -> {
-                if (item.quantity > 1) {
-                    val newQuantity = item.quantity - 1
-                    val newTotalHarga = hitungHarga(item.hargaAsli, newQuantity)
-                    item.copy(quantity = newQuantity, totalHarga = newTotalHarga)
+                if (itemShop.quantity > 1) {
+                    val newQuantity = itemShop.quantity - 1
+                    calculateItemPrice(itemShop, newQuantity)
                 } else {
                     val newQuantity = 1
-                    val newTotalHarga = hitungHarga(item.hargaAsli, newQuantity)
-                    item.copy(quantity = newQuantity, totalHarga = newTotalHarga)
+                    calculateItemPrice(itemShop, newQuantity)
                 }
             }
 
         }
     }
 
-    private fun calculateBuyItem(batch: Int, itemShop: ItemShop): ItemShop {
+    private fun calculateBuyItemFreeItem(batch: Int, itemShop: ItemShop): ItemShop {
         val newBuyItem = itemShop.buyItemFree * batch
         val newFreeItem = itemShop.freeItem * batch
         val newTotalHarga = hitungHarga(itemShop.hargaAsli, newBuyItem)
@@ -118,6 +107,25 @@ class AddItemShopViewModel(private val shoppingListRepository: ShoppingListRepos
             totalHarga = newTotalHarga,
             saveDiskon = newSaveDiskon
         )
+    }
+
+    private fun calculateItemPrice(itemShop: ItemShop, newQuantity: Int): ItemShop {
+        return if (itemShop.condition == Condition.NONE) {
+            val newTotalHarga = hitungHarga(itemShop.hargaDiskon, newQuantity)
+            val newSavingDiskon =
+                menghitungSavingDiskon(itemShop.hargaAsli, itemShop.hargaDiskon, newQuantity)
+            itemShop.copy(
+                quantity = newQuantity,
+                totalHarga = newTotalHarga,
+                saveDiskon = newSavingDiskon
+            )
+        } else {
+            val newTotalHarga = hitungHarga(itemShop.hargaAsli, newQuantity)
+            itemShop.copy(
+                quantity = newQuantity,
+                totalHarga = newTotalHarga
+            )
+        }
     }
 
 }
