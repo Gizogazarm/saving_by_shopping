@@ -15,6 +15,7 @@ import com.example.savingbyshopping.data.response.ItemShop
 import com.example.savingbyshopping.databinding.FragmentAddItemShopBinding
 import com.example.savingbyshopping.ui.ViewModelFactory
 import com.example.savingbyshopping.ui.addShoppingList.AddShoppingListViewModel
+import com.example.savingbyshopping.utils.toRupiah
 
 
 class AddItemShopFragment : Fragment() {
@@ -45,8 +46,8 @@ class AddItemShopFragment : Fragment() {
                     tvToko1.text = it.shoppingList.namaToko
                     tvEmail.text = it.shoppingList.email
                     tvDate.text = it.shoppingList.tanggalTransaksi
-                    tvAmountTotalShopping.text = it.shoppingList.totalBelanja
-                    tvAmountTotalSaving.text = it.shoppingList.totalDiskon
+                    tvAmountTotalShopping.text = itemShopViewModel.calculateAllItemPrice(it.itemShop).toRupiah()
+                    tvAmountTotalSaving.text = itemShopViewModel.calculateAllItemDiscount(it.itemShop).toRupiah()
                     showRv(it.itemShop)
                     Log.d("data shopping list", "data shopping list $it")
                 }

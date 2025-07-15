@@ -5,6 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.savingbyshopping.data.repository.ShoppingListRepository
 import com.example.savingbyshopping.data.response.ItemShop
 import com.example.savingbyshopping.utils.Condition
+import com.example.savingbyshopping.utils.ItemHarga
 import com.example.savingbyshopping.utils.hitungHarga
 import com.example.savingbyshopping.utils.menghitungSavingDiskon
 import kotlinx.coroutines.launch
@@ -95,6 +96,16 @@ class AddItemShopViewModel(private val shoppingListRepository: ShoppingListRepos
             }
 
         }
+    }
+
+    fun calculateAllItemPrice(itemShop: List<ItemShop>): Long {
+        val data = ItemHarga(itemShop)
+        return data.hitungTotalHarga()
+    }
+
+    fun calculateAllItemDiscount(itemShop: List<ItemShop>): Long {
+        val data = ItemHarga(itemShop)
+        return data.hitungTotalDiskon()
     }
 
     private fun calculateBuyItemFreeItem(batch: Int, itemShop: ItemShop): ItemShop {
