@@ -45,6 +45,12 @@
         <action
             android:id="@+id/action_addItemShopFragment_to_dialogAddItemShopFragment"
             app:destination="@id/dialogAddItemShopFragment" />
+        <action
+            android:id="@+id/action_addItemShopFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:launchSingleTop="false"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <dialog
         android:id="@+id/dialogAddItemShopFragment"

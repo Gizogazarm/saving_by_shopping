@@ -46,8 +46,8 @@ data class ShoppingList(
     val idShoppingList: Long = 0L,
     val tanggalTransaksi: String,
     var namaToko: String,
-    var totalBelanja: String = "Rp 0",
-    var totalDiskon: String = "Rp 0",
+    var totalBelanja: Long = 0L,
+    var totalDiskon: Long = 0L,
     var email: String? = "default"
 
 ) : Parcelable

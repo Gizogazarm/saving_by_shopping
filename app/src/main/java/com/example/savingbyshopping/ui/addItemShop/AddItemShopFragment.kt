@@ -1,7 +1,6 @@
 package com.example.savingbyshopping.ui.addItemShop
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,6 +14,8 @@ import com.example.savingbyshopping.data.response.ItemShop
 import com.example.savingbyshopping.databinding.FragmentAddItemShopBinding
 import com.example.savingbyshopping.ui.ViewModelFactory
 import com.example.savingbyshopping.ui.addShoppingList.AddShoppingListViewModel
+import com.example.savingbyshopping.utils.fromRupiah
+import com.example.savingbyshopping.utils.observeOnce
 import com.example.savingbyshopping.utils.toRupiah
 
 
@@ -46,18 +47,46 @@ class AddItemShopFragment : Fragment() {
                     tvToko1.text = it.shoppingList.namaToko
                     tvEmail.text = it.shoppingList.email
                     tvDate.text = it.shoppingList.tanggalTransaksi
-                    tvAmountTotalShopping.text = itemShopViewModel.calculateAllItemPrice(it.itemShop).toRupiah()
-                    tvAmountTotalSaving.text = itemShopViewModel.calculateAllItemDiscount(it.itemShop).toRupiah()
+                    tvAmountTotalShopping.text =
+                        itemShopViewModel.calculateAllItemPrice(it.itemShop).toRupiah()
+                    tvAmountTotalSaving.text =
+                        itemShopViewModel.calculateAllItemDiscount(it.itemShop).toRupiah()
                     showRv(it.itemShop)
-                    Log.d("data shopping list", "data shopping list $it")
                 }
 
             btnAddItem.setOnClickListener {
-                val action = AddItemShopFragmentDirections.actionAddItemShopFragmentToDialogAddItemShopFragment(idShopping)
+                val action =
+                    AddItemShopFragmentDirections.actionAddItemShopFragmentToDialogAddItemShopFragment(
+                        idShopping
+                    )
+                view.findNavController().navigate(action)
+            }
+
+            btnCheckout.setOnClickListener {
+                val totalBelanja = tvAmountTotalShopping.text.toString().fromRupiah()
+                val totalDiskon = tvAmountTotalSaving.text.toString().fromRupiah()
+
+                if (totalBelanja == 0L)  {
+                    Toast.makeText(requireContext(),"Data Belanja Masih Kosong", Toast.LENGTH_SHORT).show()
+                    return@setOnClickListener
+                }
+
+                shoppingViewModel.ambilShoppingListDenganId(idShopping)
+                    .observeOnce(viewLifecycleOwner) { shoppingList ->
+                        shoppingViewModel.perbaruiShoppingList(
+                            shoppingList.copy(
+                                totalBelanja = totalBelanja,
+                                totalDiskon = totalDiskon
+                            )
+                        )
+                    }
+
+                val action = AddItemShopFragmentDirections.actionAddItemShopFragmentToHomeFragment()
                 view.findNavController().navigate(action)
             }
         }
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()
@@ -73,7 +102,7 @@ class AddItemShopFragment : Fragment() {
             binding.rvItemShop.visibility = View.VISIBLE
             binding.emptyList.visibility = View.GONE
             val adapter = ListItemShopAdapter()
-            adapter.setOnItemClickListener( object : ListItemShopAdapter.OnItemClickListener {
+            adapter.setOnItemClickListener(object : ListItemShopAdapter.OnItemClickListener {
                 override fun onItemPlus(item: ItemShop) {
                     val newItem = itemShopViewModel.plusItemQuantity(item)
                     itemShopViewModel.perbaruiItemShop(newItem)

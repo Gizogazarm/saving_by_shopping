@@ -1,5 +1,8 @@
 package com.example.savingbyshopping.utils
 
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.Observer
 import java.text.NumberFormat
 
 fun Long.toRupiah(): String {
@@ -42,6 +45,13 @@ fun Long.setNotMinus(): Long {
 
 fun String.ambilDuaKataPertama(): String = this.split(" ").take(2).joinToString(" ")
 
-
+fun <T> LiveData<T>.observeOnce(lifecycleOwner: LifecycleOwner, observer: (T) -> Unit) {
+    observe(lifecycleOwner, object : Observer<T> {
+        override fun onChanged(value: T) {
+            observer(value)
+            removeObserver(this)
+        }
+    })
+}
 
 
