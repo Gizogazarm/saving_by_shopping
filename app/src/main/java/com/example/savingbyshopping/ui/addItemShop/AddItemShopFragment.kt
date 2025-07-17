@@ -1,7 +1,6 @@
 package com.example.savingbyshopping.ui.addItemShop
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -67,24 +66,24 @@ class AddItemShopFragment : Fragment() {
                 val totalBelanja = tvAmountTotalShopping.text.toString().fromRupiah()
                 val totalDiskon = tvAmountTotalSaving.text.toString().fromRupiah()
 
-                if (totalBelanja == 0L)  {
-                    Toast.makeText(requireContext(),"Data Belanja Masih Kosong", Toast.LENGTH_SHORT).show()
+                if (totalBelanja == 0L) {
+                    Toast.makeText(requireContext(), "Data Belanja Masih Kosong", Toast.LENGTH_SHORT).show()
                     return@setOnClickListener
                 }
+                
+                shoppingViewModel.ambilShoppingListDenganId(idShopping).observeOnce(viewLifecycleOwner) { shoppingList ->
+                    val updatedShoppingList = shoppingList.copy(
+                        totalBelanja = totalBelanja,
+                        totalDiskon = totalDiskon
+                    )
 
-                shoppingViewModel.ambilShoppingListDenganId(idShopping)
-                    .observeOnce(viewLifecycleOwner) { shoppingList ->
-                        shoppingViewModel.perbaruiShoppingList(
-                            shoppingList.copy(
-                                totalBelanja = totalBelanja,
-                                totalDiskon = totalDiskon
-                            )
-                        )
-                        Log.d("data_1", "tunjukan $shoppingList, $totalBelanja, $totalDiskon ")
-                    }
+                    shoppingViewModel.perbaruiShoppingList(updatedShoppingList)
 
-                val action = AddItemShopFragmentDirections.actionAddItemShopFragmentToHomeFragment()
-                view.findNavController().navigate(action)
+
+                    val action = AddItemShopFragmentDirections.actionAddItemShopFragmentToHomeFragment()
+                    view.findNavController().navigate(action)
+
+                }
             }
         }
     }
