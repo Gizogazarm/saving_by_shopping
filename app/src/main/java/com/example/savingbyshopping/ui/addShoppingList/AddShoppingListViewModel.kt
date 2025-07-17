@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.savingbyshopping.data.repository.ShoppingListRepository
 import com.example.savingbyshopping.data.response.ShoppingList
+import com.example.savingbyshopping.utils.toRupiah
 import kotlinx.coroutines.launch
 
 class AddShoppingListViewModel(private val shoppingListRepository: ShoppingListRepository) : ViewModel() {
@@ -30,6 +31,20 @@ class AddShoppingListViewModel(private val shoppingListRepository: ShoppingListR
     fun hapusShoppingList(shoppingList: ShoppingList) = viewModelScope.launch {
         shoppingListRepository.hapusShoppingList(shoppingList)
 
+    }
+
+    fun calculateAllSavingDiscountUser(list: List<ShoppingList>): String {
+        var total = 0L
+
+        if (list.isEmpty()) {
+            total = 0L
+        } else {
+            for (item in list) {
+                total += item.totalDiskon
+            }
+        }
+
+        return total.toRupiah()
     }
 
 

@@ -1,6 +1,7 @@
 package com.example.savingbyshopping.ui.addItemShop
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -79,6 +80,7 @@ class AddItemShopFragment : Fragment() {
                                 totalDiskon = totalDiskon
                             )
                         )
+                        Log.d("data_1", "tunjukan $shoppingList, $totalBelanja, $totalDiskon ")
                     }
 
                 val action = AddItemShopFragmentDirections.actionAddItemShopFragmentToHomeFragment()
