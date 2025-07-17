@@ -1,6 +1,7 @@
 package com.example.savingbyshopping.ui.addItemShop
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -66,23 +67,29 @@ class AddItemShopFragment : Fragment() {
                 val totalBelanja = tvAmountTotalShopping.text.toString().fromRupiah()
                 val totalDiskon = tvAmountTotalSaving.text.toString().fromRupiah()
 
-                if (totalBelanja == 0L)  {
-                    Toast.makeText(requireContext(),"Data Belanja Masih Kosong", Toast.LENGTH_SHORT).show()
+                if (totalBelanja == 0L) {
+                    Toast.makeText(requireContext(), "Data Belanja Masih Kosong", Toast.LENGTH_SHORT).show()
                     return@setOnClickListener
                 }
 
-                shoppingViewModel.ambilShoppingListDenganId(idShopping)
-                    .observeOnce(viewLifecycleOwner) { shoppingList ->
-                        shoppingViewModel.perbaruiShoppingList(
-                            shoppingList.copy(
-                                totalBelanja = totalBelanja,
-                                totalDiskon = totalDiskon
-                            )
-                        )
-                    }
 
-                val action = AddItemShopFragmentDirections.actionAddItemShopFragmentToHomeFragment()
-                view.findNavController().navigate(action)
+                shoppingViewModel.ambilShoppingListDenganId(idShopping).observeOnce(viewLifecycleOwner) { shoppingList ->
+                    if (shoppingList != null) {
+                        val updatedShoppingList = shoppingList.copy(
+                            totalBelanja = totalBelanja,
+                            totalDiskon = totalDiskon
+                        )
+
+                        shoppingViewModel.perbaruiShoppingList(updatedShoppingList)
+
+
+                        val action = AddItemShopFragmentDirections.actionAddItemShopFragmentToHomeFragment()
+                        view.findNavController().navigate(action)
+
+                    } else {
+                        Toast.makeText(requireContext(), "Gagal mengambil data ShoppingList", Toast.LENGTH_SHORT).show()
+                    }
+                }
             }
         }
     }
