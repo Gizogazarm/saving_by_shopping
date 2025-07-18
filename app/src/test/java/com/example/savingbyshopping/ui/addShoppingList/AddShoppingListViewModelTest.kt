@@ -70,8 +70,8 @@ class AddShoppingListViewModelTest {
     fun `test berhasil perbarui Shopping List`() = runTest {
         fakeShoppingListDao.copyDariDummyList(dummyShoppingList)
         val data = viewModel.ambilShoppingListDenganId(37).getOrAwaitValue()
-        data.totalBelanja = "Rp1.000.000"
-        data.totalDiskon = "Rp100.000"
+        data.totalBelanja = 1500000
+        data.totalDiskon = 100000
         viewModel.perbaruiShoppingList(data)
         val actual = viewModel.ambilShoppingListDenganId(37).getOrAwaitValue()
         assertEquals(data, actual)
