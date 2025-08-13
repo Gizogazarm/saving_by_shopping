@@ -73,6 +73,7 @@
     <string name="jumlahQty">X Pcs</string>
     <string name="img_itemlist">Image Item List</string>
     <string name="kosong"></string>
+    <string name="error_percentage">Input Nilai 1 - 99</string>
 
 
 </resources>
