@@ -267,5 +267,10 @@ class DialogAddItemShopViewModel : ViewModel() {
         0
     }
 
+    fun handlePercentageNumber(number: String): Boolean {
+        val numberInt = number.toIntOrNull() ?: 0
+        return numberInt in 1..99
+    }
+
 
 }

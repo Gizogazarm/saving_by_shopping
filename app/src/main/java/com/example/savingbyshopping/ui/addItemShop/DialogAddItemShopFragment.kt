@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.activityViewModels
@@ -146,6 +147,11 @@ class DialogAddItemShopFragment : DialogFragment() {
 
             btnCheckPercentage.setOnClickListener {
                 if (!edOriginalPrice.isValid(getString(R.string.error_price))) return@setOnClickListener
+                val data = dialogAddItemShopViewModel.handlePercentageNumber(edPercentageDialog.text.toString())
+                if(!data) {
+                    Toast.makeText(context, getString(R.string.error_percentage), Toast.LENGTH_SHORT).show()
+                    return@setOnClickListener
+                }
                 dialogAddItemShopViewModel.setCountDiscount(
                     edPercentageDialog.text.toString(), edOriginalPrice.text.toString()
                 )
