@@ -1,10 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:backgroundTint="@color/backround_latar"
     tools:context=".ui.DialogSuccess">
 
+    <ImageButton
+        android:id="@+id/btn_cclDialogSucces"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="18dp"
+        android:background="@drawable/rounded_corner_button"
+        android:contentDescription="@string/cancel_dialog"
+        android:scaleType="centerInside"
+        android:src="@drawable/cancel_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/cclDialog_Guidline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.06" />
+
+
+    <ImageView
+        android:id="@+id/img_dialogSuccess"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ilustrasi_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cclDialog_Guidline" />
+
+    <TextView
+        android:id="@+id/tv_titleDialogSuccess1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:fontFamily="@font/outfit_medium"
+        android:text="@string/tv_dialogSuccess1"
+        android:textAlignment="center"
+        android:textColor="@color/hijau_gelap"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@id/img_dialogSuccess" />
+
+    <TextView
+        android:id="@+id/tv_titleDialogSuccess2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/outfit_medium"
+        android:text="@string/tv_dialogSuccess2"
+        android:textAlignment="center"
+        android:textColor="@color/hijau_gelap"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@id/tv_titleDialogSuccess1" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_dialogSuccess"
+        style="@style/Widget.Material3.Button.ElevatedButton"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/button_normal"
+        android:fontFamily="@font/source_serif_4_semibold"
+        android:text="@string/txt_btnTrackingSaving"
+        android:textColor="@color/hijau_gelap"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_titleDialogSuccess2" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

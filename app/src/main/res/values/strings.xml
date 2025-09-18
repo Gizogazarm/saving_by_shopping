@@ -74,6 +74,9 @@
     <string name="img_itemlist">Image Item List</string>
     <string name="kosong"></string>
     <string name="error_percentage">Input Nilai 1 - 99</string>
+    <string name="tv_dialogSuccess1">Thank You !</string>
+    <string name="txt_btnTrackingSaving">Tracking Saving</string>
+    <string name="tv_dialogSuccess2">The shopping receipt has been added.</string>
 
 
 </resources>
