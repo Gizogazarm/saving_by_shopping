@@ -80,7 +80,9 @@ class AddItemShopFragment : Fragment() {
                     shoppingViewModel.perbaruiShoppingList(updatedShoppingList)
 
 
-                    val action = AddItemShopFragmentDirections.actionAddItemShopFragmentToHomeFragment()
+                    val action =
+                        AddItemShopFragmentDirections
+                            .actionAddItemShopFragmentToHomeFragment(true)
                     view.findNavController().navigate(action)
 
                 }
