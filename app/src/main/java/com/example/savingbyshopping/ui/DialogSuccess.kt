@@ -5,11 +5,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
+import androidx.navigation.fragment.findNavController
 import com.example.savingbyshopping.R
 import com.example.savingbyshopping.databinding.FragmentDialogSuccessBinding
 
 
 class DialogSuccess : DialogFragment() {
+    // fix bug untuk dialog succes jika back dari homefragment
+    // makaa tidak bisa balik ke dialog lagi dan jika back maka
+    // langsung keluar aplikasi
 
     private var _binding: FragmentDialogSuccessBinding? = null
     private val binding get() = _binding!!
@@ -33,7 +37,9 @@ class DialogSuccess : DialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding.btnCclDialogSucces.setOnClickListener {
-            dismiss()
+            findNavController().navigate(
+                DialogSuccessDirections.actionDialogSuccessToHomeFragment(false)
+            )
         }
     }
 

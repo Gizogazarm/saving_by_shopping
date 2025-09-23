@@ -81,7 +81,13 @@
         tools:layout="@layout/fragment_dialog_success" >
         <action
             android:id="@+id/action_dialogSuccess_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true">
+            <argument
+                android:name="showDialogSuccess"
+                app:argType="boolean" />
+        </action>
     </dialog>
 
 </navigation>

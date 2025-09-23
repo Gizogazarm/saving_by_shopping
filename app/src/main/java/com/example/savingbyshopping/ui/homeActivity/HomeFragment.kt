@@ -10,7 +10,6 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.savingbyshopping.R
 import com.example.savingbyshopping.databinding.FragmentHomeBinding
-import com.example.savingbyshopping.ui.DialogSuccess
 import com.example.savingbyshopping.ui.ViewModelFactory
 import com.example.savingbyshopping.ui.addShoppingList.AddShoppingListViewModel
 
@@ -46,7 +45,7 @@ class HomeFragment : Fragment() {
             }
 
             if (args.showDialogSuccess) {
-                DialogSuccess().show(childFragmentManager, "Dialog Success")
+                view.findNavController().navigate(R.id.dialogSuccess)
             }
         }
 
