@@ -11,9 +11,6 @@ import com.example.savingbyshopping.databinding.FragmentDialogSuccessBinding
 
 
 class DialogSuccess : DialogFragment() {
-    // fix bug untuk dialog succes jika back dari homefragment
-    // makaa tidak bisa balik ke dialog lagi dan jika back maka
-    // langsung keluar aplikasi
 
     private var _binding: FragmentDialogSuccessBinding? = null
     private val binding get() = _binding!!
