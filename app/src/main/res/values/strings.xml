@@ -77,6 +77,11 @@
     <string name="tv_dialogSuccess1">Thank You !</string>
     <string name="txt_btnTrackingSaving">Tracking Saving</string>
     <string name="tv_dialogSuccess2">The shopping receipt has been added.</string>
+    <string name="title_tracking_saving1">Tracking</string>
+    <string name="title_tracking_saving2">Saving</string>
+    <string name="date_txt">MTH 20XX</string>
+    <string name="tv_accum_discount">Accumulated Discount</string>
+    <string name="accumulated_discount">Accumulated Discount</string>
 
 
 </resources>

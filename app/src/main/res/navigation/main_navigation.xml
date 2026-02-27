@@ -17,6 +17,9 @@
             android:name="showDialogSuccess"
             app:argType="boolean"
             android:defaultValue="false" />
+        <action
+            android:id="@+id/action_homeFragment_to_trackingSavingFragment"
+            app:destination="@id/trackingSavingFragment" />
     </fragment>
     <fragment
         android:id="@+id/savingFragment"
@@ -88,6 +91,15 @@
                 android:name="showDialogSuccess"
                 app:argType="boolean" />
         </action>
+        <action
+            android:id="@+id/action_dialogSuccess_to_trackingSavingFragment"
+            app:destination="@id/trackingSavingFragment"
+            app:popUpTo="@id/homeFragment" />
     </dialog>
+    <fragment
+        android:id="@+id/trackingSavingFragment"
+        android:name="com.example.savingbyshopping.ui.trackingSave.TrackingSavingFragment"
+        android:label="fragment_tracking_saving"
+        tools:layout="@layout/fragment_tracking_saving" />
 
 </navigation>

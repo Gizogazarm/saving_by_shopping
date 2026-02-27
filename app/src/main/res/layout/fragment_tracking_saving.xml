@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.trackingSave.TrackingSavingFragment"
+    tools:ignore="SpeakableTextPresentCheck">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container_trackingSave"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/backround_latar">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/container_headerTrackSaving"
+            android:layout_width="match_parent"
+            android:layout_height="380dp"
+            android:background="@drawable/bg_header_trackingsaving"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/title_trackingSaving1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="33dp"
+                android:layout_marginTop="25dp"
+                android:fontFamily="@font/roboto_serif_bold"
+                android:text="@string/title_tracking_saving1"
+                android:textColor="@color/hijau_gelap"
+                android:textSize="32sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/title_trackingSaving2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="33dp"
+                android:layout_marginTop="35dp"
+                android:fontFamily="@font/roboto_serif_bold"
+                android:text="@string/title_tracking_saving2"
+                android:textColor="@color/hijau_gelap"
+                android:textSize="32sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/title_trackingSaving1" />
+
+            <LinearLayout
+                android:id="@+id/bg_circle_trackingSaver"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="29dp"
+                android:background="@drawable/bg_rounded_trackingsaver"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/title_trackingSaving2">
+
+                <ImageView
+                    android:id="@+id/ic_date_tracking"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="17dp"
+                    android:layout_marginTop="15dp"
+                    android:contentDescription="@string/date_txt"
+                    android:src="@drawable/ic_date_trackingsaving" />
+
+                <TextView
+                    android:id="@+id/title_date_choosen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="15dp"
+                    android:fontFamily="@font/source_serif_4_bold"
+                    android:text="@string/date_txt"
+                    android:textColor="@color/hijau_gelap"
+                    android:textSize="15sp" />
+
+
+            </LinearLayout>
+
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cont_cardStatus"
+                style="?attr/materialCardViewElevatedStyle"
+                android:layout_width="350dp"
+                android:layout_height="57dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="68dp"
+                app:cardBackgroundColor="@color/backround_latar"
+                app:cardElevation="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/title_trackingSaving2">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/container_datenprice"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/tv_titleAccDisc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/accumulated_discount"
+                        app:layout_constraintTop_toTopOf="@id/container_datenprice"
+                        android:textSize="12sp"
+                        android:textColor="@color/tab_inactive"
+                        app:layout_constraintStart_toStartOf="@id/container_datenprice"
+                        android:layout_marginTop="9dp"
+                        android:layout_marginStart="13dp"
+                        />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.core.widget.NestedScrollView>
