@@ -147,9 +147,14 @@ class DialogAddItemShopFragment : DialogFragment() {
 
             btnCheckPercentage.setOnClickListener {
                 if (!edOriginalPrice.isValid(getString(R.string.error_price))) return@setOnClickListener
-                val data = dialogAddItemShopViewModel.handlePercentageNumber(edPercentageDialog.text.toString())
-                if(!data) {
-                    Toast.makeText(context, getString(R.string.error_percentage), Toast.LENGTH_SHORT).show()
+                val data =
+                    dialogAddItemShopViewModel.handlePercentageNumber(edPercentageDialog.text.toString())
+                if (!data) {
+                    Toast.makeText(
+                        context,
+                        getString(R.string.error_percentage),
+                        Toast.LENGTH_SHORT
+                    ).show()
                     return@setOnClickListener
                 }
                 dialogAddItemShopViewModel.setCountDiscount(
@@ -217,11 +222,7 @@ class DialogAddItemShopFragment : DialogFragment() {
                 )
 
 
-                val action =
-                    DialogAddItemShopFragmentDirections.actionDialogAddItemShopFragmentToAddItemShopFragment(
-                        idShopping
-                    )
-                findNavController().navigate(action)
+                findNavController().popBackStack()
             }
 
 
