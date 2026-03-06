@@ -1,6 +1,9 @@
 package com.example.savingbyshopping.ui.homeActivity
 
 import android.os.Bundle
+import android.transition.TransitionManager
+import android.view.View
+import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.navigation.findNavController
@@ -22,9 +25,13 @@ class HomeActivity : AppCompatActivity() {
 
             val navController = findNavController(R.id.nav_host_fragment)
             bottomNavigation.setupWithNavController(navController)
-            // MASIH ADA BUG DIMANA HOVER TAB SELAIN HOME ACTIVE DAN STUCK KETIKA
-            // SUDAH PINDAH DARI HOMEFRAGMENT LALU TEKAN TAB LAIN SAVING LALU TEKAN
-            // KEMBALI TAB HOME MAKA HOVER TAB LAIN STUCK
+
+            navController.addOnDestinationChangedListener { _, destination, _ ->
+
+                val isTopMenu = bottomNavigation.menu.findItem(destination.id) != null
+                TransitionManager.beginDelayedTransition(binding.root as ViewGroup)
+                bottomNavigation.visibility = if (isTopMenu) View.VISIBLE else View.GONE
+            }
 
 
         }
