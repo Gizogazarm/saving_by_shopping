@@ -3,16 +3,14 @@ package com.example.savingbyshopping.ui.homeActivity
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
-import androidx.navigation.NavOptions
 import androidx.navigation.findNavController
+import androidx.navigation.ui.setupWithNavController
 import com.example.savingbyshopping.R
 import com.example.savingbyshopping.databinding.ActivityHomeBinding
-import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class HomeActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityHomeBinding
-    private lateinit var navView: BottomNavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
@@ -22,36 +20,12 @@ class HomeActivity : AppCompatActivity() {
 
         with(binding) {
 
-            navView = bottomNavigation
             val navController = findNavController(R.id.nav_host_fragment)
-            val navOptions = NavOptions.Builder()
-                .setLaunchSingleTop(true)
-                .setPopUpTo(navController.graph.startDestinationId, false)
-                .build()
+            bottomNavigation.setupWithNavController(navController)
+            // MASIH ADA BUG DIMANA HOVER TAB SELAIN HOME ACTIVE DAN STUCK KETIKA
+            // SUDAH PINDAH DARI HOMEFRAGMENT LALU TEKAN TAB LAIN SAVING LALU TEKAN
+            // KEMBALI TAB HOME MAKA HOVER TAB LAIN STUCK
 
-            navView.setOnItemSelectedListener { item ->
-
-                when (item.itemId) {
-                    R.id.homeFragment -> {
-                        navController.navigate(R.id.homeFragment, null, navOptions)
-                        true
-                    }
-
-                    R.id.savingFragment -> {
-                        navController.navigate(R.id.savingFragment, null, navOptions)
-                        true
-                    }
-
-                    R.id.profileFragment -> {
-                        navController.navigate(R.id.profileFragment, null, navOptions)
-                        true
-                    }
-
-                    else -> false
-                }
-
-
-            }
 
         }
 
