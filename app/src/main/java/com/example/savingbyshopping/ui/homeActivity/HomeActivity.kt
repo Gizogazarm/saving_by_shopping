@@ -32,8 +32,12 @@ class HomeActivity : AppCompatActivity() {
                 TransitionManager.beginDelayedTransition(binding.root as ViewGroup)
                 bottomNavigation.visibility = if (isTopMenu) View.VISIBLE else View.GONE
             }
-
-
+             /*NOTE
+             1. Opsi kedua UI/UX dan lebih clean code di homeActivity dibanding satunya
+             2. Sudah ditambahkan transisi setiap perpindahan antar fragment
+             3. menggunakan findNavController.popbackstack -> dialogAddItemShop
+             4. Opsi ini membuat bottomNavigation hanya muncul di homeactiviy , savingfragment, dan
+                Profile fragment*/
         }
 
 
