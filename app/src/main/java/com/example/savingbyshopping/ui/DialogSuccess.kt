@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
-import androidx.navigation.fragment.findNavController
 import com.example.savingbyshopping.R
 import com.example.savingbyshopping.databinding.FragmentDialogSuccessBinding
 
@@ -23,8 +22,7 @@ class DialogSuccess : DialogFragment() {
 
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
 
         _binding = FragmentDialogSuccessBinding.inflate(layoutInflater, container, false)
@@ -34,9 +32,7 @@ class DialogSuccess : DialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding.btnCclDialogSucces.setOnClickListener {
-            findNavController().navigate(
-                DialogSuccessDirections.actionDialogSuccessToHomeFragment(false)
-            )
+            dismiss()
         }
     }
 

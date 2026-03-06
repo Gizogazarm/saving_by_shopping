@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.navArgs
 import com.example.savingbyshopping.R
 import com.example.savingbyshopping.databinding.FragmentHomeBinding
 import com.example.savingbyshopping.ui.ViewModelFactory
@@ -19,15 +18,13 @@ class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
     private lateinit var factory: ViewModelFactory
-    private val args: HomeFragmentArgs by navArgs()
     private val shoppingListViewModel: AddShoppingListViewModel by viewModels { factory }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         _binding = FragmentHomeBinding.inflate(LayoutInflater.from(context), container, false)
-        val view = binding.root
-        return view
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -44,8 +41,10 @@ class HomeFragment : Fragment() {
                 amountSaving.text = shoppingListViewModel.calculateAllSavingDiscountUser(it)
             }
 
-            if (args.showDialogSuccess) {
+            if (arguments?.getBoolean("showDialogSuccess") == true) {
                 view.findNavController().navigate(R.id.dialogSuccess)
+
+                arguments?.putBoolean("showDialogSuccess", false)
             }
         }
 
