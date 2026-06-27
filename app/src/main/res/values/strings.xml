@@ -82,6 +82,10 @@
     <string name="date_txt">MTH 20XX</string>
     <string name="tv_accum_discount">Accumulated Discount</string>
     <string name="accumulated_discount">Accumulated Discount</string>
+    <string name="button_calendar">calendar button</string>
+    <string name="check_detail">Check Detail > </string>
+    <string name="statistic">Statistic</string>
+    <string name="coming_soon">Coming Soon</string>
 
 
 </resources>

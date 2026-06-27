@@ -25,6 +25,8 @@
     <color name="button_item">#323333</color>
     <color name="riple_btn_item">#378055</color>
     <color name="circle_bg">#95E2A6</color>
+    <color name="btn_checkDetail">#B4D0EA</color>
+    <color name="backg_cardStatistic">#EFE9F8</color>
 
 
 </resources>
