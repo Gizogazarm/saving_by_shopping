@@ -44,6 +44,11 @@ class HomeFragment : Fragment() {
                 amountSaving.text = shoppingListViewModel.calculateAllSavingDiscountUser(it)
             }
 
+            cardBtnTrackingSaving.setOnClickListener {
+                view.findNavController().navigate(R.id.action_homeFragment_to_trackingSavingFragment)
+            }
+
+
             if (args.showDialogSuccess) {
                 view.findNavController().navigate(R.id.dialogSuccess)
             }

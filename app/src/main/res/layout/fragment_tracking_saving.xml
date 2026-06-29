@@ -95,6 +95,8 @@
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="68dp"
                 app:cardBackgroundColor="@color/backround_latar"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="33dp"
                 app:cardElevation="8dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/title_trackingSaving2">
@@ -166,14 +168,14 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <!--BAGIAN AWAL UNTUK CARD VIEW DARI FITUR STATISTIC -->
-
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guide_statistic"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_begin="300dp" />
+
+        <!--BAGIAN AWAL UNTUK CARD VIEW DARI FITUR STATISTIC -->
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/card_statistic"
@@ -196,31 +198,58 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="27dp"
                     android:layout_marginTop="44dp"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
                     android:fontFamily="@font/dm_sans_bold"
                     android:text="@string/statistic"
                     android:textColor="@color/hijau_gelap"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/tv_StatComingSoon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
                     android:fontFamily="@font/dm_sans_bold"
                     android:text="@string/coming_soon"
                     android:textColor="@color/black"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:textSize="35sp" />
+                    android:textSize="35sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <!--BAGIAN AKHIR UNTUK CARD VIEW DARI FITUR STATISTIC -->
-
         </com.google.android.material.card.MaterialCardView>
+
+        <!--BAGIAN AKHIR UNTUK CARD VIEW DARI FITUR STATISTIC -->
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cont_tv_recentResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/card_statistic">
+
+            <TextView
+                android:id="@+id/tv_recentResult"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="7dp"
+                android:fontFamily="@font/dm_sans_bold"
+                android:text="Recent Shopping"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

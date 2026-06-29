@@ -38,6 +38,11 @@ class DialogSuccess : DialogFragment() {
                 DialogSuccessDirections.actionDialogSuccessToHomeFragment(false)
             )
         }
+
+        binding.btnDialogSuccess.setOnClickListener {
+            val action = DialogSuccessDirections.actionDialogSuccessToTrackingSavingFragment()
+            findNavController().navigate(action)
+        }
     }
 
     override fun onStart() {
