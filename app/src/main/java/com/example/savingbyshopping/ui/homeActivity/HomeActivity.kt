@@ -1,18 +1,19 @@
 package com.example.savingbyshopping.ui.homeActivity
 
 import android.os.Bundle
+import android.transition.TransitionManager
+import android.view.View
+import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
-import androidx.navigation.NavOptions
 import androidx.navigation.findNavController
+import androidx.navigation.ui.setupWithNavController
 import com.example.savingbyshopping.R
 import com.example.savingbyshopping.databinding.ActivityHomeBinding
-import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class HomeActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityHomeBinding
-    private lateinit var navView: BottomNavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
@@ -22,37 +23,22 @@ class HomeActivity : AppCompatActivity() {
 
         with(binding) {
 
-            navView = bottomNavigation
             val navController = findNavController(R.id.nav_host_fragment)
-            val navOptions = NavOptions.Builder()
-                .setLaunchSingleTop(true)
-                .setPopUpTo(navController.graph.startDestinationId, false)
-                .build()
+            bottomNavigation.setupWithNavController(navController)
 
-            navView.setOnItemSelectedListener { item ->
+            navController.addOnDestinationChangedListener { _, destination, _ ->
 
-                when (item.itemId) {
-                    R.id.homeFragment -> {
-                        navController.navigate(R.id.homeFragment, null, navOptions)
-                        true
-                    }
-
-                    R.id.savingFragment -> {
-                        navController.navigate(R.id.savingFragment, null, navOptions)
-                        true
-                    }
-
-                    R.id.profileFragment -> {
-                        navController.navigate(R.id.profileFragment, null, navOptions)
-                        true
-                    }
-
-                    else -> false
-                }
-
-
+                val isTopMenu = bottomNavigation.menu.findItem(destination.id) != null
+                TransitionManager.beginDelayedTransition(binding.root as ViewGroup)
+                bottomNavigation.visibility = if (isTopMenu) View.VISIBLE else View.GONE
             }
-
+            /* NOTE
+             1. Opsi kedua UI/UX dan lebih clean code di homeActivity dibanding satunya
+             2. Sudah ditambahkan transisi setiap perpindahan antar fragment
+             3. menggunakan findNavController.popbackstack -> dialogAddItemShop
+             4. Opsi ini membuat bottomNavigation hanya muncul di homeactiviy , savingfragment, dan
+                Profile fragment
+             5. dismiss dialog success sehingga tidak reload lagi ke homefragment*/
         }
 
 
